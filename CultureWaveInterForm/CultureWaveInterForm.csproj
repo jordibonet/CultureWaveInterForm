@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -118,6 +127,45 @@
     <Compile Include="Forms\FormUser.Designer.cs">
       <DependentUpon>FormUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\eventTable.cs">
+      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\message.cs">
+      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelCultureWave.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCultureWave.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelCultureWave.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelCultureWave.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCultureWave.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\reserve.cs">
+      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rol.cs">
+      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\seat.cs">
+      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\space.cs">
+      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ticket.cs">
+      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user.cs">
+      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\RoundedTextBox.resx">
@@ -163,6 +211,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="Models\ModelCultureWave.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelCultureWave.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\ModelCultureWave.edmx.diagram">
+      <DependentUpon>ModelCultureWave.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -177,6 +233,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Models\ModelCultureWave.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCultureWave.edmx</DependentUpon>
+      <LastGenOutput>ModelCultureWave.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelCultureWave.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCultureWave.edmx</DependentUpon>
+      <LastGenOutput>ModelCultureWave.cs</LastGenOutput>
+    </Content>
     <Content Include="Resources\calendar.png" />
     <None Include="Resources\exit1.png" />
     <None Include="Resources\user1.png" />
@@ -189,6 +255,9 @@
     <Content Include="Resources\reserved.png" />
     <Content Include="Resources\space.png" />
     <Content Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
