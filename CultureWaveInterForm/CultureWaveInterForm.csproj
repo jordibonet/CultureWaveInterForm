@@ -127,6 +127,8 @@
     <Compile Include="Forms\FormUser.Designer.cs">
       <DependentUpon>FormUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\BookingOrm.cs" />
+    <Compile Include="Models\EventsOrm.cs" />
     <Compile Include="Models\eventTable.cs">
       <DependentUpon>ModelCultureWave.tt</DependentUpon>
     </Compile>

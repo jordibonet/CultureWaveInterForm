@@ -74,10 +74,10 @@ namespace CultureWave_Form.Forms
             // labelCultureWave
             // 
             this.labelCultureWave.AutoSize = true;
-            this.labelCultureWave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelCultureWave.Location = new System.Drawing.Point(79, 30);
+            this.labelCultureWave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.labelCultureWave.Location = new System.Drawing.Point(73, 31);
             this.labelCultureWave.Name = "labelCultureWave";
-            this.labelCultureWave.Size = new System.Drawing.Size(165, 24);
+            this.labelCultureWave.Size = new System.Drawing.Size(144, 20);
             this.labelCultureWave.TabIndex = 1;
             this.labelCultureWave.Text = "CULTUREWAVE";
             // 
@@ -164,7 +164,7 @@ namespace CultureWave_Form.Forms
             // 
             this.labelUsername.AutoSize = true;
             this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.labelUsername.Location = new System.Drawing.Point(1143, 14);
+            this.labelUsername.Location = new System.Drawing.Point(1023, 14);
             this.labelUsername.Name = "labelUsername";
             this.labelUsername.Size = new System.Drawing.Size(91, 20);
             this.labelUsername.TabIndex = 10;
@@ -174,7 +174,7 @@ namespace CultureWave_Form.Forms
             // 
             this.labelRolUser.AutoSize = true;
             this.labelRolUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.labelRolUser.Location = new System.Drawing.Point(1143, 44);
+            this.labelRolUser.Location = new System.Drawing.Point(1023, 44);
             this.labelRolUser.Name = "labelRolUser";
             this.labelRolUser.Size = new System.Drawing.Size(79, 20);
             this.labelRolUser.TabIndex = 11;
@@ -353,7 +353,9 @@ namespace CultureWave_Form.Forms
             this.Controls.Add(this.pictureBoxBackground);
             this.Controls.Add(this.labelCultureWave);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormData";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormData";
             this.panelHome.ResumeLayout(false);
             this.panelHome.PerformLayout();

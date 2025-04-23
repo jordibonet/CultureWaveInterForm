@@ -44,10 +44,10 @@ namespace CultureWave_Form
             // labelCultureWave
             // 
             this.labelCultureWave.AutoSize = true;
-            this.labelCultureWave.Font = new System.Drawing.Font("Nunito", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCultureWave.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCultureWave.Location = new System.Drawing.Point(510, 232);
             this.labelCultureWave.Name = "labelCultureWave";
-            this.labelCultureWave.Size = new System.Drawing.Size(262, 44);
+            this.labelCultureWave.Size = new System.Drawing.Size(274, 37);
             this.labelCultureWave.TabIndex = 0;
             this.labelCultureWave.Text = "CULTUREWAVE";
             // 
@@ -58,7 +58,7 @@ namespace CultureWave_Form
             this.roundedTextBoxUser.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
             this.roundedTextBoxUser.BorderRadius = 10;
             this.roundedTextBoxUser.BorderSize = 3;
-            this.roundedTextBoxUser.Font = new System.Drawing.Font("Nunito Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedTextBoxUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundedTextBoxUser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.roundedTextBoxUser.Location = new System.Drawing.Point(394, 344);
             this.roundedTextBoxUser.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -68,7 +68,7 @@ namespace CultureWave_Form
             this.roundedTextBoxUser.PasswordChar = false;
             this.roundedTextBoxUser.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.roundedTextBoxUser.PlaceholderText = "";
-            this.roundedTextBoxUser.Size = new System.Drawing.Size(492, 51);
+            this.roundedTextBoxUser.Size = new System.Drawing.Size(492, 49);
             this.roundedTextBoxUser.TabIndex = 1;
             this.roundedTextBoxUser.Texts = "";
             this.roundedTextBoxUser.UnderlinedStyle = false;
@@ -80,7 +80,7 @@ namespace CultureWave_Form
             this.roundedTextBoxPassword.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
             this.roundedTextBoxPassword.BorderRadius = 10;
             this.roundedTextBoxPassword.BorderSize = 3;
-            this.roundedTextBoxPassword.Font = new System.Drawing.Font("Nunito Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundedTextBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundedTextBoxPassword.Location = new System.Drawing.Point(394, 447);
             this.roundedTextBoxPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.roundedTextBoxPassword.Multiline = false;
@@ -89,7 +89,7 @@ namespace CultureWave_Form
             this.roundedTextBoxPassword.PasswordChar = false;
             this.roundedTextBoxPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.roundedTextBoxPassword.PlaceholderText = "";
-            this.roundedTextBoxPassword.Size = new System.Drawing.Size(492, 51);
+            this.roundedTextBoxPassword.Size = new System.Drawing.Size(492, 49);
             this.roundedTextBoxPassword.TabIndex = 2;
             this.roundedTextBoxPassword.Texts = "";
             this.roundedTextBoxPassword.UnderlinedStyle = false;
@@ -97,20 +97,20 @@ namespace CultureWave_Form
             // labelUser
             // 
             this.labelUser.AutoSize = true;
-            this.labelUser.Font = new System.Drawing.Font("Nunito Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.Location = new System.Drawing.Point(394, 318);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(67, 22);
+            this.labelUser.Size = new System.Drawing.Size(64, 20);
             this.labelUser.TabIndex = 3;
             this.labelUser.Text = "Usuario";
             // 
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Font = new System.Drawing.Font("Nunito Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.Location = new System.Drawing.Point(394, 421);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(94, 22);
+            this.labelPassword.Size = new System.Drawing.Size(92, 20);
             this.labelPassword.TabIndex = 4;
             this.labelPassword.Text = "Contraseña";
             // 
@@ -120,7 +120,7 @@ namespace CultureWave_Form
             this.buttonLogIn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonLogIn.FlatAppearance.BorderSize = 0;
             this.buttonLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogIn.Font = new System.Drawing.Font("Nunito Medium", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogIn.Location = new System.Drawing.Point(572, 559);
             this.buttonLogIn.Name = "buttonLogIn";
             this.buttonLogIn.Size = new System.Drawing.Size(140, 60);
@@ -150,7 +150,9 @@ namespace CultureWave_Form
             this.Controls.Add(this.roundedTextBoxPassword);
             this.Controls.Add(this.roundedTextBoxUser);
             this.Controls.Add(this.labelCultureWave);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogIn";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
