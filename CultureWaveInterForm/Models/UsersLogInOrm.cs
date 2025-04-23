@@ -9,29 +9,21 @@ namespace CultureWaveInterForm.Models
 {
     class UsersLogInOrm
     {
-        public static List<dynamic> GetUsersWithRolId1()
+        public static List<user> GetUsersWithRoles1And2() 
         {
             try
             {
                 using (var dbContext = new cultureWaveEntities())
                 {
-                    var users = dbContext.user
-                        .Where(u => u.rol == 1)          
-                        .Select(u => new
-                        {
-                            u.email,
-                            u.password
-                        })
-                        .ToList<dynamic>();
-
-                    return users;
+                    return dbContext.user
+                        .Where(u => u.rol == 1 || u.rol == 2)  // Filtra rol 1 y 2
+                        .ToList();
                 }
             }
             catch (Exception ex)
             {
-                // Manejo de errores (log, relanzar, etc.)
                 Console.WriteLine($"Error al obtener usuarios: {ex.Message}");
-                return new List<dynamic>(); // Retorna lista vacía en caso de error
+                return new List<user>();
             }
         }
 

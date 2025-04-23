@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CultureWaveInterForm.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,15 +26,43 @@ namespace CultureWave_Form.Forms
 
         private List<Form> allForms = new List<Form>();
         private List<Panel> allPanels = new List<Panel>();
+        private user _usuarioAutenticado;
 
 
-
-        public FormData()
+        public FormData(user usuario)
         {
             InitializeComponent();
             this.FormClosing += FormData_FormClosing;
             InitializeForms();
             InitializePanels();
+            _usuarioAutenticado = usuario;
+            loadLabelsUser();
+        }
+
+        private void loadLabelsUser()
+        {
+            // Asignar el nombre del usuario
+            if (labelUsername != null)
+            {
+                labelUsername.Text = _usuarioAutenticado.name ?? "Desconocido";
+            }
+
+            // Asignar el nombre del rol según el valor numérico
+            if (labelRolUser != null)
+            {
+                switch (_usuarioAutenticado.rol) 
+                {
+                    case 1:
+                        labelRolUser.Text = "Superadministrador";
+                        break;
+                    case 2:
+                        labelRolUser.Text = "Organizador de eventos";
+                        break;
+                    default:
+                        labelRolUser.Text = "Desconocido";
+                        break;
+                }
+            }
         }
 
         private void InitializeForms()

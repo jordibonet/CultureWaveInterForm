@@ -40,7 +40,7 @@ namespace CultureWave_Form.Forms
             this.labelExit = new System.Windows.Forms.Label();
             this.panelData = new System.Windows.Forms.Panel();
             this.labelUsername = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelRolUser = new System.Windows.Forms.Label();
             this.panelHome = new System.Windows.Forms.Panel();
             this.pictureBoxHome = new System.Windows.Forms.PictureBox();
             this.panelEvent = new System.Windows.Forms.Panel();
@@ -74,10 +74,10 @@ namespace CultureWave_Form.Forms
             // labelCultureWave
             // 
             this.labelCultureWave.AutoSize = true;
-            this.labelCultureWave.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
+            this.labelCultureWave.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.labelCultureWave.Location = new System.Drawing.Point(79, 30);
             this.labelCultureWave.Name = "labelCultureWave";
-            this.labelCultureWave.Size = new System.Drawing.Size(156, 26);
+            this.labelCultureWave.Size = new System.Drawing.Size(165, 24);
             this.labelCultureWave.TabIndex = 1;
             this.labelCultureWave.Text = "CULTUREWAVE";
             // 
@@ -85,10 +85,10 @@ namespace CultureWave_Form.Forms
             // 
             this.labelHome.AutoSize = true;
             this.labelHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.labelHome.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
+            this.labelHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.labelHome.Location = new System.Drawing.Point(112, 27);
             this.labelHome.Name = "labelHome";
-            this.labelHome.Size = new System.Drawing.Size(65, 26);
+            this.labelHome.Size = new System.Drawing.Size(66, 24);
             this.labelHome.TabIndex = 3;
             this.labelHome.Text = "Home";
             this.labelHome.Click += new System.EventHandler(this.labelHome_Click);
@@ -97,10 +97,10 @@ namespace CultureWave_Form.Forms
             // 
             this.labelEvents.AutoSize = true;
             this.labelEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.labelEvents.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
+            this.labelEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.labelEvents.Location = new System.Drawing.Point(112, 27);
             this.labelEvents.Name = "labelEvents";
-            this.labelEvents.Size = new System.Drawing.Size(81, 26);
+            this.labelEvents.Size = new System.Drawing.Size(85, 24);
             this.labelEvents.TabIndex = 4;
             this.labelEvents.Text = "Eventos";
             this.labelEvents.Click += new System.EventHandler(this.labelEvents_Click);
@@ -109,10 +109,10 @@ namespace CultureWave_Form.Forms
             // 
             this.labelReserve.AutoSize = true;
             this.labelReserve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.labelReserve.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
+            this.labelReserve.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.labelReserve.Location = new System.Drawing.Point(112, 27);
             this.labelReserve.Name = "labelReserve";
-            this.labelReserve.Size = new System.Drawing.Size(91, 26);
+            this.labelReserve.Size = new System.Drawing.Size(96, 24);
             this.labelReserve.TabIndex = 5;
             this.labelReserve.Text = "Reservas";
             this.labelReserve.Click += new System.EventHandler(this.labelReserve_Click);
@@ -121,10 +121,10 @@ namespace CultureWave_Form.Forms
             // 
             this.labelSpace.AutoSize = true;
             this.labelSpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.labelSpace.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
+            this.labelSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.labelSpace.Location = new System.Drawing.Point(112, 26);
             this.labelSpace.Name = "labelSpace";
-            this.labelSpace.Size = new System.Drawing.Size(87, 26);
+            this.labelSpace.Size = new System.Drawing.Size(95, 24);
             this.labelSpace.TabIndex = 6;
             this.labelSpace.Text = "Espacios";
             this.labelSpace.Click += new System.EventHandler(this.labelSpace_Click);
@@ -133,10 +133,10 @@ namespace CultureWave_Form.Forms
             // 
             this.labelUser.AutoSize = true;
             this.labelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.labelUser.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
+            this.labelUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.labelUser.Location = new System.Drawing.Point(110, 27);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(88, 26);
+            this.labelUser.Size = new System.Drawing.Size(91, 24);
             this.labelUser.TabIndex = 7;
             this.labelUser.Text = "Usuarios";
             this.labelUser.Click += new System.EventHandler(this.labelUser_Click);
@@ -145,10 +145,10 @@ namespace CultureWave_Form.Forms
             // 
             this.labelExit.AutoSize = true;
             this.labelExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.labelExit.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
+            this.labelExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.labelExit.Location = new System.Drawing.Point(110, 29);
             this.labelExit.Name = "labelExit";
-            this.labelExit.Size = new System.Drawing.Size(52, 26);
+            this.labelExit.Size = new System.Drawing.Size(51, 24);
             this.labelExit.TabIndex = 8;
             this.labelExit.Text = "Salir";
             this.labelExit.Click += new System.EventHandler(this.labelExit_Click);
@@ -163,22 +163,22 @@ namespace CultureWave_Form.Forms
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
-            this.labelUsername.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
+            this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.labelUsername.Location = new System.Drawing.Point(1143, 14);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(86, 22);
+            this.labelUsername.Size = new System.Drawing.Size(91, 20);
             this.labelUsername.TabIndex = 10;
             this.labelUsername.Text = "Username";
             // 
-            // label1
+            // labelRolUser
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nunito", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(1143, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 22);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Rol User";
+            this.labelRolUser.AutoSize = true;
+            this.labelRolUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.labelRolUser.Location = new System.Drawing.Point(1143, 44);
+            this.labelRolUser.Name = "labelRolUser";
+            this.labelRolUser.Size = new System.Drawing.Size(79, 20);
+            this.labelRolUser.TabIndex = 11;
+            this.labelRolUser.Text = "Rol User";
             // 
             // panelHome
             // 
@@ -346,7 +346,7 @@ namespace CultureWave_Form.Forms
             this.Controls.Add(this.panelUser);
             this.Controls.Add(this.panelSpace);
             this.Controls.Add(this.panelHome);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelRolUser);
             this.Controls.Add(this.panelReserve);
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.panelData);
@@ -393,7 +393,7 @@ namespace CultureWave_Form.Forms
         private Label labelExits;
         private Panel panelEvent;
         private Label labelUsername;
-        private Label label1;
+        private Label labelRolUser;
         private Panel panelData;
         private PictureBox pictureBoxHome;
         private PictureBox pictureBoxEvent;

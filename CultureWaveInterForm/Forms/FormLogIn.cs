@@ -25,18 +25,17 @@ namespace CultureWave_Form
                 return;
             }
 
-            // Obtener usuarios con rol = 1
-            var usersWithRol1 = UsersLogInOrm.GetUsersWithRolId1();
+            // Obtener usuarios con rol = 1 o 2
+            var usersWithRoles = UsersLogInOrm.GetUsersWithRoles1And2();
 
-            // Verificar si el correo y contraseña coinciden con algún usuario de rol 1
-            bool loginExitoso = usersWithRol1.Any(u =>
+            // Buscar el usuario específico
+            var usuarioAutenticado = usersWithRoles.FirstOrDefault(u =>
                 u.email.Equals(email, StringComparison.OrdinalIgnoreCase) &&
                 u.password == password);
 
-            if (loginExitoso)
+            if (usuarioAutenticado != null)
             {
-                // Autenticación exitosa
-                FormData formData = new FormData();
+                FormData formData = new FormData(usuarioAutenticado);
                 formData.LoadFormIntoPanel("FormHome");
                 formData.Show();
                 this.Hide();
