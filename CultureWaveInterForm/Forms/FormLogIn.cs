@@ -15,7 +15,7 @@ namespace CultureWave_Form
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
             FormData formData = new FormData();
-            formData.LoadFormIntoPanel("FormCreateEditSpace");
+            formData.LoadFormIntoPanel("FormHome");
             formData.Show();
             this.Hide();
         }

@@ -13,13 +13,13 @@ namespace CultureWave_Form.Forms
 {
     public partial class FormData : Form
     {
-        //public FormHome formHome;
-        //public FormEvent formEvent;
-        //public FormReserve formReserve;
-       // public FormSpace formSpace;
+        public FormHome formHome;
+        public FormEvent formEvent;
+        public FormReserve formReserve;
+        public FormSpace formSpace;
         public FormCreateEditSpace formCreateEditSpace;
-        //public FormUser formUser;
-        //public FormExit formExit;
+        public FormUser formUser;
+        public FormExit formExit;
 
 
 
@@ -40,13 +40,13 @@ namespace CultureWave_Form.Forms
         {
             var formTypes = new List<Type>
             {
-                //typeof(FormHome),
-                //typeof(FormEvent),
-                //typeof(FormReserve),
-                //typeof(FormSpace),
+                typeof(FormHome),
+                typeof(FormEvent),
+                typeof(FormReserve),
+                typeof(FormSpace),
                 typeof(FormCreateEditSpace),
-                //typeof(FormUser),
-                //typeof(FormExit)
+                typeof(FormUser),
+                typeof(FormExit)
             };
 
             foreach (var formType in formTypes)
