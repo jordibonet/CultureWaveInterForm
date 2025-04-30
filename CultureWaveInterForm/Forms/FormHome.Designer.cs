@@ -55,9 +55,9 @@ namespace CultureWave_Form.Forms
             this.labelRecentReservations.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.labelRecentReservations.Location = new System.Drawing.Point(12, 294);
             this.labelRecentReservations.Name = "labelRecentReservations";
-            this.labelRecentReservations.Size = new System.Drawing.Size(242, 24);
+            this.labelRecentReservations.Size = new System.Drawing.Size(120, 24);
             this.labelRecentReservations.TabIndex = 3;
-            this.labelRecentReservations.Text = "RESERVAS RECIENTES";
+            this.labelRecentReservations.Text = "RESERVAS";
             // 
             // dataGridViewEvents
             // 
