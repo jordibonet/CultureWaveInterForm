@@ -13,7 +13,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var dbContext = new cultureWaveEntities())
+                using (var dbContext = new cultureWaveEntities1())
                 {
                     return dbContext.user
                         .Where(u => u.rol == 1 || u.rol == 2)  // Filtra rol 1 y 2

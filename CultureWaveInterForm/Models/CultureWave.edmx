@@ -66,7 +66,7 @@
           <Property Name="idSpace" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" />
           <Property Name="capacity" Type="int" Nullable="false" />
-          <Property Name="fixeSeats" Type="bit" />
+          <Property Name="fixedSeats" Type="bit" />
           <Property Name="available" Type="bit" />
         </EntityType>
         <EntityType Name="ticket">
@@ -78,7 +78,7 @@
           <Property Name="type" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="200" />
-          <Property Name="creationDate" Type="datetime" />
+          <Property Name="creationDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="user">
           <Key>
@@ -90,7 +90,7 @@
           <Property Name="password" Type="varchar" MaxLength="256" Nullable="false" />
           <Property Name="rol" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__event__idSpace__4316F928">
+        <Association Name="FK__eventTabl__idSpa__4316F928">
           <End Role="space" Type="Self.space" Multiplicity="0..1" />
           <End Role="eventTable" Type="Self.eventTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -208,7 +208,7 @@
           <EntitySet Name="space" EntityType="Self.space" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ticket" EntityType="Self.ticket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__event__idSpace__4316F928" Association="Self.FK__event__idSpace__4316F928">
+          <AssociationSet Name="FK__eventTabl__idSpa__4316F928" Association="Self.FK__eventTabl__idSpa__4316F928">
             <End Role="space" EntitySet="space" />
             <End Role="eventTable" EntitySet="eventTable" />
           </AssociationSet>
@@ -261,7 +261,7 @@
           <Property Name="startDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="endDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="space" Relationship="Self.FK__event__idSpace__4316F928" FromRole="eventTable" ToRole="space" />
+          <NavigationProperty Name="space" Relationship="Self.FK__eventTabl__idSpa__4316F928" FromRole="eventTable" ToRole="space" />
           <NavigationProperty Name="reserve" Relationship="Self.FK__reserve__idEvent__45F365D3" FromRole="eventTable" ToRole="reserve" />
         </EntityType>
         <EntityType Name="message">
@@ -313,9 +313,9 @@
           <Property Name="idSpace" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="capacity" Type="Int32" Nullable="false" />
-          <Property Name="fixeSeats" Type="Boolean" />
+          <Property Name="fixedSeats" Type="Boolean" />
           <Property Name="available" Type="Boolean" />
-          <NavigationProperty Name="eventTable" Relationship="Self.FK__event__idSpace__4316F928" FromRole="space" ToRole="eventTable" />
+          <NavigationProperty Name="eventTable" Relationship="Self.FK__eventTabl__idSpa__4316F928" FromRole="space" ToRole="eventTable" />
           <NavigationProperty Name="seat" Relationship="Self.FK__seat__idSpace__48CFD27E" FromRole="space" ToRole="seat" />
         </EntityType>
         <EntityType Name="ticket">
@@ -327,7 +327,7 @@
           <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="creationDate" Type="DateTime" Precision="3" />
+          <Property Name="creationDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="reserve" Relationship="Self.FK__ticket__idReserv__4CA06362" FromRole="ticket" ToRole="reserve" />
         </EntityType>
         <EntityType Name="user">
@@ -343,7 +343,7 @@
           <NavigationProperty Name="rol1" Relationship="Self.FK__user__rol__398D8EEE" FromRole="user" ToRole="rol" />
           <NavigationProperty Name="reserve" Relationship="Self.reserve_user" FromRole="user" ToRole="reserve" />
         </EntityType>
-        <Association Name="FK__event__idSpace__4316F928">
+        <Association Name="FK__eventTabl__idSpa__4316F928">
           <End Role="space" Type="Self.space" Multiplicity="0..1" />
           <End Role="eventTable" Type="Self.eventTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -431,7 +431,7 @@
           <End Role="reserve" Type="Self.reserve" Multiplicity="*" />
           <End Role="user" Type="Self.user" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="cultureWaveEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="cultureWaveEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="eventTable" EntityType="Self.eventTable" />
           <EntitySet Name="message" EntityType="Self.message" />
           <EntitySet Name="reserve" EntityType="Self.reserve" />
@@ -440,7 +440,7 @@
           <EntitySet Name="space" EntityType="Self.space" />
           <EntitySet Name="ticket" EntityType="Self.ticket" />
           <EntitySet Name="user" EntityType="Self.user" />
-          <AssociationSet Name="FK__event__idSpace__4316F928" Association="Self.FK__event__idSpace__4316F928">
+          <AssociationSet Name="FK__eventTabl__idSpa__4316F928" Association="Self.FK__eventTabl__idSpa__4316F928">
             <End Role="space" EntitySet="space" />
             <End Role="eventTable" EntitySet="eventTable" />
           </AssociationSet>
@@ -478,7 +478,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="cultureWaveModelStoreContainer" CdmEntityContainer="cultureWaveEntities">
+        <EntityContainerMapping StorageEntityContainer="cultureWaveModelStoreContainer" CdmEntityContainer="cultureWaveEntities1">
           <EntitySetMapping Name="eventTable">
             <EntityTypeMapping TypeName="cultureWaveModel.eventTable">
               <MappingFragment StoreEntitySet="eventTable">
@@ -536,7 +536,7 @@
                 <ScalarProperty Name="idSpace" ColumnName="idSpace" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="capacity" ColumnName="capacity" />
-                <ScalarProperty Name="fixeSeats" ColumnName="fixeSeats" />
+                <ScalarProperty Name="fixedSeats" ColumnName="fixedSeats" />
                 <ScalarProperty Name="available" ColumnName="available" />
               </MappingFragment>
             </EntityTypeMapping>

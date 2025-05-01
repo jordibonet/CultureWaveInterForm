@@ -39,7 +39,7 @@ namespace CultureWave_Form.Forms
                 dataGridViewBookings.AutoGenerateColumns = false;
                 dataGridViewBookings.DataSource = reserves;
 
-                // Configurar columnas manualmente
+                // Configurar columnas manualmente solo si no están ya agregadas
                 if (dataGridViewBookings.Columns.Count == 0)
                 {
                     dataGridViewBookings.Columns.Add("idReserve", "ID Reserva");
@@ -48,6 +48,7 @@ namespace CultureWave_Form.Forms
                     dataGridViewBookings.Columns.Add("EventName", "Evento");
                     dataGridViewBookings.Columns.Add("SpaceName", "Espacio");
                     dataGridViewBookings.Columns.Add("SeatInfo", "Ubicación Asiento");
+                    dataGridViewBookings.Columns.Add("Users", "Usuarios");
                 }
 
                 // Asignar las propiedades a las columnas
@@ -57,11 +58,12 @@ namespace CultureWave_Form.Forms
                 dataGridViewBookings.Columns["EventName"].DataPropertyName = "EventName";
                 dataGridViewBookings.Columns["SpaceName"].DataPropertyName = "SpaceName";
                 dataGridViewBookings.Columns["SeatInfo"].DataPropertyName = "SeatInfo";
+                dataGridViewBookings.Columns["Users"].DataPropertyName = "Users";
 
                 // Formatear columna de fecha
                 dataGridViewBookings.Columns["reserveDate"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
 
-                // Opcional: Ajustar automáticamente el ancho de las columnas
+                // Ajustar automáticamente el ancho de las columnas
                 dataGridViewBookings.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
             catch (Exception ex)
@@ -70,6 +72,7 @@ namespace CultureWave_Form.Forms
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
 

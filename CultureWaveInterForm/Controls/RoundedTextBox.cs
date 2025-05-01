@@ -1,35 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CultureWave_Form.Controls
 {
     public partial class RoundedTextBox : UserControl
     {
-
         //Fields
         private Color borderColor = Color.FromArgb(172, 93, 51);
         private Color borderFocusColor = Color.FromArgb(228, 179, 99);
         private int borderSize = 2;
         private bool underlinedStyle = false;
         private bool isFocused = false;
-
         private int borderRadius = 0;
         private Color placeholderColor = Color.FromArgb(18, 18, 18);
         private string placeholderText = "";
         private bool isPlaceholder = false;
         private bool isPasswordChar = false;
+
         public RoundedTextBox()
         {
             InitializeComponent();
+            textBox1.MaxLength = 43; // Establece el límite por defecto a 43 caracteres
         }
 
         #region -> Private methods
@@ -44,6 +43,7 @@ namespace CultureWave_Form.Controls
                     textBox1.UseSystemPasswordChar = false;
             }
         }
+
         private void RemovePlaceholder()
         {
             if (isPlaceholder && placeholderText != "")
@@ -55,6 +55,7 @@ namespace CultureWave_Form.Controls
                     textBox1.UseSystemPasswordChar = true;
             }
         }
+
         private GraphicsPath GetFigurePath(Rectangle rect, int radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -68,6 +69,7 @@ namespace CultureWave_Form.Controls
             path.CloseFigure();
             return path;
         }
+
         private void SetTextBoxRoundedRegion()
         {
             GraphicsPath pathTxt;
@@ -83,6 +85,7 @@ namespace CultureWave_Form.Controls
             }
             pathTxt.Dispose();
         }
+
         private void UpdateControlHeight()
         {
             if (textBox1.Multiline == false)
@@ -219,7 +222,7 @@ namespace CultureWave_Form.Controls
                 if (value >= 0)
                 {
                     borderRadius = value;
-                    this.Invalidate();//Redraw control
+                    this.Invalidate();
                 }
             }
         }
@@ -247,6 +250,13 @@ namespace CultureWave_Form.Controls
                 SetPlaceholder();
             }
         }
+
+        [Category("RJ Code Advance")]
+        public int MaxLength
+        {
+            get { return textBox1.MaxLength; }
+            set { textBox1.MaxLength = value; }
+        }
         #endregion
 
         #region -> Overridden methods
@@ -256,19 +266,20 @@ namespace CultureWave_Form.Controls
             if (this.DesignMode)
                 UpdateControlHeight();
         }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             UpdateControlHeight();
         }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
             Graphics graph = e.Graphics;
 
-            if (borderRadius > 1)//Rounded TextBox
+            if (borderRadius > 1)
             {
-                //-Fields
                 var rectBorderSmooth = this.ClientRectangle;
                 var rectBorder = Rectangle.Inflate(rectBorderSmooth, -borderSize, -borderSize);
                 int smoothSize = borderSize > 0 ? borderSize : 1;
@@ -278,55 +289,68 @@ namespace CultureWave_Form.Controls
                 using (Pen penBorderSmooth = new Pen(this.Parent.BackColor, smoothSize))
                 using (Pen penBorder = new Pen(borderColor, borderSize))
                 {
-                    //-Drawing
-                    this.Region = new Region(pathBorderSmooth);//Set the rounded region of UserControl
-                    if (borderRadius > 15) SetTextBoxRoundedRegion();//Set the rounded region of TextBox component
+                    this.Region = new Region(pathBorderSmooth);
+                    if (borderRadius > 15) SetTextBoxRoundedRegion();
                     graph.SmoothingMode = SmoothingMode.AntiAlias;
                     penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Center;
                     if (isFocused) penBorder.Color = borderFocusColor;
 
-                    if (underlinedStyle) //Line Style
+                    if (underlinedStyle)
                     {
-                        //Draw border smoothing
                         graph.DrawPath(penBorderSmooth, pathBorderSmooth);
-                        //Draw border
                         graph.SmoothingMode = SmoothingMode.None;
                         graph.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
                     }
-                    else //Normal Style
+                    else
                     {
-                        //Draw border smoothing
                         graph.DrawPath(penBorderSmooth, pathBorderSmooth);
-                        //Draw border
                         graph.DrawPath(penBorder, pathBorder);
                     }
                 }
             }
-            else //Square/Normal TextBox
+            else
             {
-                //Draw border
                 using (Pen penBorder = new Pen(borderColor, borderSize))
                 {
                     this.Region = new Region(this.ClientRectangle);
                     penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
                     if (isFocused) penBorder.Color = borderFocusColor;
 
-                    if (underlinedStyle) //Line Style
+                    if (underlinedStyle)
                         graph.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
-                    else //Normal Style
+                    else
                         graph.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
                 }
             }
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            const int WM_PASTE = 0x0302;
+
+            if (m.Msg == WM_PASTE)
+            {
+                var clipboardText = Clipboard.GetText();
+                if (clipboardText.Length + textBox1.Text.Length > MaxLength)
+                {
+                    var remaining = MaxLength - textBox1.Text.Length;
+                    if (remaining > 0)
+                    {
+                        textBox1.SelectedText = clipboardText.Substring(0, remaining);
+                    }
+                    return;
+                }
+            }
+
+            base.WndProc(ref m);
         }
         #endregion
 
         [DefaultEvent("_TextChanged")]
         public partial class RJTextBox : UserControl
         {
-            //Default Event
             public event EventHandler _TextChanged;
 
-            //TextBox-> TextChanged event
             private void textBox1_TextChanged(object sender, EventArgs e)
             {
                 if (_TextChanged != null)
@@ -340,6 +364,7 @@ namespace CultureWave_Form.Controls
             this.Invalidate();
             RemovePlaceholder();
         }
+
         private void textBox1_Leave(object sender, EventArgs e)
         {
             isFocused = false;
@@ -351,17 +376,27 @@ namespace CultureWave_Form.Controls
         {
             this.OnClick(e);
         }
+
         private void textBox1_MouseEnter(object sender, EventArgs e)
         {
             this.OnMouseEnter(e);
         }
+
         private void textBox1_MouseLeave(object sender, EventArgs e)
         {
             this.OnMouseLeave(e);
         }
+
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             this.OnKeyPress(e);
+
+            if (textBox1.Text.Length >= MaxLength && MaxLength > 0 &&
+                !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                System.Media.SystemSounds.Beep.Play();
+            }
         }
     }
 }

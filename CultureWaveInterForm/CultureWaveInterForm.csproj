@@ -51,6 +51,9 @@
     <Reference Include="OpenAI, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b4187f3e65366280, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenAI.2.1.0\lib\netstandard2.0\OpenAI.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=112.1.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.112.1.0\lib\net471\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -93,6 +96,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -104,13 +108,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\EventData.cs" />
-    <Compile Include="Clases\HuggingFaceResponse.cs" />
     <Compile Include="Controls\RoundedButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\RoundedRadioButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RoundedRichTextBox.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\RoundedTextBox.cs">
       <SubType>UserControl</SubType>
@@ -179,45 +184,45 @@
       <DependentUpon>FormUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BookingOrm.cs" />
+    <Compile Include="Models\CultureWave.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CultureWave.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CultureWave.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CultureWave.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CultureWave.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CultureWave.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\EventsOrm.cs" />
     <Compile Include="Models\eventTable.cs">
-      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+      <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\message.cs">
-      <DependentUpon>ModelCultureWave.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelCultureWave.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelCultureWave.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelCultureWave.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelCultureWave.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ModelCultureWave.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ModelCultureWave.edmx</DependentUpon>
+      <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\reserve.cs">
-      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+      <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\rol.cs">
-      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+      <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\seat.cs">
-      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+      <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\space.cs">
-      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+      <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ticket.cs">
-      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+      <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\user.cs">
-      <DependentUpon>ModelCultureWave.tt</DependentUpon>
+      <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UsersLogInOrm.cs" />
     <Compile Include="Program.cs" />
@@ -265,12 +270,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="Models\ModelCultureWave.edmx">
+    <EntityDeploy Include="Models\CultureWave.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelCultureWave.Designer.cs</LastGenOutput>
+      <LastGenOutput>CultureWave.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\ModelCultureWave.edmx.diagram">
-      <DependentUpon>ModelCultureWave.edmx</DependentUpon>
+    <None Include="Models\CultureWave.edmx.diagram">
+      <DependentUpon>CultureWave.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -287,15 +292,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\ModelCultureWave.Context.tt">
+    <Content Include="Models\CultureWave.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelCultureWave.edmx</DependentUpon>
-      <LastGenOutput>ModelCultureWave.Context.cs</LastGenOutput>
+      <DependentUpon>CultureWave.edmx</DependentUpon>
+      <LastGenOutput>CultureWave.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ModelCultureWave.tt">
+    <Content Include="Models\CultureWave.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelCultureWave.edmx</DependentUpon>
-      <LastGenOutput>ModelCultureWave.cs</LastGenOutput>
+      <DependentUpon>CultureWave.edmx</DependentUpon>
+      <LastGenOutput>CultureWave.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\calendar.png" />
     <None Include="Resources\exit1.png" />
@@ -312,6 +317,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Clases\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

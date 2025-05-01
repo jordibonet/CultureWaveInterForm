@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using RestSharp;
+using System.Text.Json;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace CultureWave_Form.Forms
 {
@@ -8,36 +12,60 @@ namespace CultureWave_Form.Forms
     {
         private FormData formData;
 
-        // Lista de eventos y sus descripciones
-        private List<(string Nombre, string Descripcion)> eventos;
-
         public FormEvent(FormData formData)
         {
             InitializeComponent();
             this.formData = formData;
 
-            // Inicializar la lista de eventos
-            eventos = new List<(string, string)>
-            {
-                ("Festival de Música Internacional", "Un evento que reúne a artistas de todo el mundo para compartir su música y cultura."),
-                ("Exposición de Arte Contemporáneo", "Una muestra de las últimas tendencias en arte visual, con obras de artistas emergentes."),
-                ("Feria de Gastronomía Global", "Un evento que celebra la diversidad culinaria mundial, con platos típicos de diferentes países."),
-                ("Teatro Experimental", "Una serie de representaciones teatrales que exploran nuevas formas de expresión en el escenario."),
-                ("Carnaval de la Diversidad", "Un desfile lleno de colores, música y danza para celebrar las distintas culturas del mundo."),
-                ("Conferencia sobre Innovación Cultural", "Un espacio para discutir nuevas tendencias en la industria cultural y su impacto global.")
-            };
+            
         }
 
-        private void roundedButtonGenerateIA_Click(object sender, EventArgs e)
+        private async void roundedButtonGenerateIA_Click(object sender, EventArgs e)
         {
-            var eventoAleatorio = eventos[new Random().Next(eventos.Count)];
+            string prompt = "Genera un título y una breve descripción para un evento cultural en formato JSON. Incluye campos 'titulo' y 'descripcion'. Considera el tipo de evento, el público objetivo y socios importantes. Ejemplo:\n{\n  \"titulo\": \"Noches latinas de baile y sabor en el centro cultural\",\n  \"descripcion\": \"Únete a nosotros para una noche llena de ritmos latinos vibrantes y deliciosos sabores gastronómicos...\"\n}";
 
-            // Depuración: Verifica si el evento aleatorio se ha seleccionado correctamente
-            MessageBox.Show($"Evento seleccionado: {eventoAleatorio.Nombre}");
+            var client = new RestClient("https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1");
+            var request = new RestRequest("", Method.Post);
+            request.AddHeader("Authorization", "Bearer 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");
+            request.AddJsonBody(new { inputs = prompt });
 
-            // Usar la propiedad correcta 'Texts' en lugar de 'Text'
-            roundedTextBoxNameEvent.Texts = eventoAleatorio.Nombre;
-            roundedTextBoxDescription.Texts = eventoAleatorio.Descripcion;
+            var response = await client.ExecuteAsync(request);
+
+            if (response.IsSuccessful)
+            {
+                try
+                {
+                    var json = JsonDocument.Parse(response.Content);
+                    var generatedText = json.RootElement[0].GetProperty("generated_text").GetString();
+
+                    // Buscar el JSON dentro del texto generado
+                    var match = Regex.Match(generatedText, @"\{[\s\S]*?\}");
+
+                    if (match.Success)
+                    {
+                        var jsonExtracted = match.Value;
+                        var cleanJson = JsonDocument.Parse(jsonExtracted);
+
+                        var titulo = cleanJson.RootElement.GetProperty("titulo").GetString();
+                        var descripcion = cleanJson.RootElement.GetProperty("descripcion").GetString();
+
+                        roundedTextBoxNameEvent.Texts = titulo;
+                        roundedRichTextBoxDescription.Texts = descripcion;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró un JSON válido en la respuesta de la IA.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al interpretar el resultado generado por IA:\n" + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error al conectar con la IA.");
+            }
         }
     }
 }

@@ -10,10 +10,10 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities())
+                using (var db = new cultureWaveEntities1())
                 {
                     return db.eventTable
-                        .Where(e => e.status == "Programado") // Filtra por estado
+                        .Where(e => e.status == "Actiu") // Filtra por estado
                         .Select(e => new
                         {
                             e.idEvent,

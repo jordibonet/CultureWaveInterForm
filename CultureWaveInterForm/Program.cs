@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CultureWave_Form;
+using CultureWave_Form.Forms;
 
 namespace CultureWaveInterForm
 {
