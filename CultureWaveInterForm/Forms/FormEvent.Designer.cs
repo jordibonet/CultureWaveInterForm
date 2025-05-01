@@ -97,7 +97,7 @@ namespace CultureWave_Form.Forms
             this.roundedTextBoxEvenDateStart.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.roundedTextBoxEvenDateStart.PasswordChar = false;
             this.roundedTextBoxEvenDateStart.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.roundedTextBoxEvenDateStart.PlaceholderText = "YYYY:MM:DD hh:mm";
+            this.roundedTextBoxEvenDateStart.PlaceholderText = "YYYY/MM/DD hh:mm";
             this.roundedTextBoxEvenDateStart.Size = new System.Drawing.Size(344, 50);
             this.roundedTextBoxEvenDateStart.TabIndex = 13;
             this.roundedTextBoxEvenDateStart.Texts = "";
@@ -141,7 +141,7 @@ namespace CultureWave_Form.Forms
             this.roundedTextBoxEndDate.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.roundedTextBoxEndDate.PasswordChar = false;
             this.roundedTextBoxEndDate.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.roundedTextBoxEndDate.PlaceholderText = "YYYY:MM:DD hh:mm";
+            this.roundedTextBoxEndDate.PlaceholderText = "YYYY/MM/DD hh:mm";
             this.roundedTextBoxEndDate.Size = new System.Drawing.Size(344, 50);
             this.roundedTextBoxEndDate.TabIndex = 16;
             this.roundedTextBoxEndDate.Texts = "";
@@ -232,12 +232,16 @@ namespace CultureWave_Form.Forms
             this.roundedRichTextBoxDescription.BorderRadius = 20;
             this.roundedRichTextBoxDescription.BorderSize = 3;
             this.roundedRichTextBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.roundedRichTextBoxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.roundedRichTextBoxDescription.Location = new System.Drawing.Point(89, 266);
             this.roundedRichTextBoxDescription.Name = "roundedRichTextBoxDescription";
             this.roundedRichTextBoxDescription.Padding = new System.Windows.Forms.Padding(10);
+            this.roundedRichTextBoxDescription.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.roundedRichTextBoxDescription.PlaceholderText = "";
             this.roundedRichTextBoxDescription.Size = new System.Drawing.Size(535, 180);
             this.roundedRichTextBoxDescription.TabIndex = 42;
             this.roundedRichTextBoxDescription.Texts = "";
+            this.roundedRichTextBoxDescription.UnderlinedStyle = false;
             // 
             // FormEvent
             // 

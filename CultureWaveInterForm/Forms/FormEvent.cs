@@ -77,7 +77,7 @@ Semilla creativa: {Guid.NewGuid()}";
 
                         if (!FechaEsValida(fechaInicio) || !FechaEsValida(fechaFin))
                         {
-                            MessageBox.Show("Las fechas no tienen el formato correcto (yyyy:MM:dd HH:mm).");
+                            MessageBox.Show("Las fechas no tienen el formato correcto (yyyy/MM/dd HH:mm).");
                             return;
                         }
 
