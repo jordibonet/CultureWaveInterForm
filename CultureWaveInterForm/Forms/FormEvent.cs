@@ -16,8 +16,6 @@ namespace CultureWave_Form.Forms
         {
             InitializeComponent();
             this.formData = formData;
-
-            //si
         }
 
         private async void roundedButtonGenerateIA_Click(object sender, EventArgs e)
