@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using RestSharp;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace CultureWave_Form.Forms
 {
@@ -20,50 +18,93 @@ namespace CultureWave_Form.Forms
 
         private async void roundedButtonGenerateIA_Click(object sender, EventArgs e)
         {
-            string prompt = "Genera un título y una breve descripción para un evento cultural en formato JSON. Incluye campos 'titulo' y 'descripcion'. Considera el tipo de evento, el público objetivo y socios importantes. Ejemplo:\n{\n  \"titulo\": \"Noches latinas de baile y sabor en el centro cultural\",\n  \"descripcion\": \"Únete a nosotros para una noche llena de ritmos latinos vibrantes y deliciosos sabores gastronómicos...\"\n}";
+            string prompt = $@"Genera un JSON con los campos 'titulo', 'descripcion', 'fecha_inicio' y 'fecha_fin' para un evento cultural. 
+El 'titulo' debe ser breve y atractivo.
+La 'descripcion' debe ser clara y detallada, con un máximo de 3 frases completas que expliquen el evento, su contexto y lo que ofrece.
+'fecha_inicio' y 'fecha_fin' deben tener el formato exacto: 'yyyy/MM/dd HH:mm' (por ejemplo: 2025/06/18 19:30).
+Haz que el tipo de evento y contenido varíe creativamente cada vez.
+No repitas ideas anteriores. Imagina que estás escribiendo para diferentes públicos y ciudades.
+Devuelve únicamente el JSON, sin explicaciones ni texto adicional.
+Semilla creativa: {Guid.NewGuid()}";
 
-            var client = new RestClient("https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1");
+            var client = new RestClient("https://api.groq.com/openai/v1/chat/completions");
             var request = new RestRequest("", Method.Post);
-            request.AddHeader("Authorization", "Bearer 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");
-            request.AddJsonBody(new { inputs = prompt });
 
-            var response = await client.ExecuteAsync(request);
+            request.AddHeader("Authorization", "Bearer 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");
+            request.AddHeader("Content-Type", "application/json");
 
-            if (response.IsSuccessful)
+            request.AddJsonBody(new
             {
-                try
+                model = "llama3-8b-8192",
+                messages = new[]
+                {
+                    new { role = "user", content = prompt }
+                },
+                temperature = 0.9
+            });
+
+            try
+            {
+                var response = await client.ExecuteAsync(request);
+
+                if (response.IsSuccessful)
                 {
                     var json = JsonDocument.Parse(response.Content);
-                    var generatedText = json.RootElement[0].GetProperty("generated_text").GetString();
 
-                    // Buscar el JSON dentro del texto generado
-                    var match = Regex.Match(generatedText, @"\{[\s\S]*?\}");
+                    if (!json.RootElement.TryGetProperty("choices", out var choicesArray) ||
+                        choicesArray.GetArrayLength() == 0)
+                    {
+                        MessageBox.Show("La respuesta no contiene opciones válidas.");
+                        return;
+                    }
+
+                    var responseText = choicesArray[0]
+                        .GetProperty("message")
+                        .GetProperty("content")
+                        .GetString();
+
+                    var match = Regex.Match(responseText, @"\{[\s\S]*?\}");
 
                     if (match.Success)
                     {
-                        var jsonExtracted = match.Value;
-                        var cleanJson = JsonDocument.Parse(jsonExtracted);
+                        var cleanJson = JsonDocument.Parse(match.Value);
+                        var root = cleanJson.RootElement;
 
-                        var titulo = cleanJson.RootElement.GetProperty("titulo").GetString();
-                        var descripcion = cleanJson.RootElement.GetProperty("descripcion").GetString();
+                        string titulo = root.TryGetProperty("titulo", out var tituloElem) ? tituloElem.GetString() : "";
+                        string descripcion = root.TryGetProperty("descripcion", out var descElem) ? descElem.GetString() : "";
+                        string fechaInicio = root.TryGetProperty("fecha_inicio", out var iniElem) ? iniElem.GetString() : "";
+                        string fechaFin = root.TryGetProperty("fecha_fin", out var finElem) ? finElem.GetString() : "";
+
+                        if (!FechaEsValida(fechaInicio) || !FechaEsValida(fechaFin))
+                        {
+                            MessageBox.Show("Las fechas no tienen el formato correcto (yyyy:MM:dd HH:mm).");
+                            return;
+                        }
 
                         roundedTextBoxNameEvent.Texts = titulo;
                         roundedRichTextBoxDescription.Texts = descripcion;
+                        roundedTextBoxEvenDateStart.Texts = fechaInicio;
+                        roundedTextBoxEndDate.Texts = fechaFin;
                     }
                     else
                     {
-                        MessageBox.Show("No se encontró un JSON válido en la respuesta de la IA.");
+                        MessageBox.Show("No se encontró JSON válido en la respuesta de la IA.");
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error al interpretar el resultado generado por IA:\n" + ex.Message);
+                    MessageBox.Show($"Error: {(int)response.StatusCode} - {response.Content}");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al conectar con la IA.");
+                MessageBox.Show($"Error crítico: {ex.Message}");
             }
+        }
+
+        private bool FechaEsValida(string fecha)
+        {
+            return Regex.IsMatch(fecha, @"^\d{4}/\d{2}/\d{2} \d{2}:\d{2}$");
         }
     }
 }
