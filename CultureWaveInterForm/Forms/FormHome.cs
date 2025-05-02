@@ -26,6 +26,7 @@ namespace CultureWave_Form.Forms
         {
             loadEvents();
             loadBookings();
+
         }
 
         private void loadBookings()
@@ -64,32 +65,30 @@ namespace CultureWave_Form.Forms
 
 
 
-        private void loadEvents()
-        {
-            try
+            private void loadEvents()
             {
-                // Obtener los eventos programados con el nombre del espacio
-                var events = EventsOrm.GetProgrammedEvents();
+                try
+                {
+                    // Obtener los eventos programados con el nombre del espacio
+                    var events = EventsOrm.GetProgrammedEvents();
 
-                // Configurar el DataGridView
-                dataGridViewEvents.AutoGenerateColumns = false;
-                dataGridViewEvents.DataSource = events;
+                    dataGridViewEvents.DataSource = events;
 
                 // Asignar las propiedades a las columnas
                 dataGridViewEvents.Columns["name"].DataPropertyName = "name";
-                dataGridViewEvents.Columns["description"].DataPropertyName = "description";
-                dataGridViewEvents.Columns["startDate"].DataPropertyName = "startDate";
-                dataGridViewEvents.Columns["endDate"].DataPropertyName = "endDate";
-                dataGridViewEvents.Columns["SpaceName"].DataPropertyName = "SpaceName";
+                    dataGridViewEvents.Columns["description"].DataPropertyName = "description";
+                    dataGridViewEvents.Columns["startDate"].DataPropertyName = "startDate";
+                    dataGridViewEvents.Columns["endDate"].DataPropertyName = "endDate";
+                    dataGridViewEvents.Columns["SpaceName"].DataPropertyName = "SpaceName";
 
-                // Formatear columnas de fecha
-                dataGridViewEvents.Columns["startDate"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
-                dataGridViewEvents.Columns["endDate"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                    // Formatear columnas de fecha
+                    dataGridViewEvents.Columns["startDate"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                    dataGridViewEvents.Columns["endDate"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar eventos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar eventos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
     }
 }
