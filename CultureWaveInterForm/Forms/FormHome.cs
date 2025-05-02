@@ -39,24 +39,12 @@ namespace CultureWave_Form.Forms
                 dataGridViewBookings.AutoGenerateColumns = false;
                 dataGridViewBookings.DataSource = reserves;
 
-                // Configurar columnas manualmente solo si no están ya agregadas
-                if (dataGridViewBookings.Columns.Count == 0)
-                {
-                    dataGridViewBookings.Columns.Add("idReserve", "ID Reserva");
-                    dataGridViewBookings.Columns.Add("idEvent", "ID Evento");
-                    dataGridViewBookings.Columns.Add("reserveDate", "Fecha Reserva");
-                    dataGridViewBookings.Columns.Add("EventName", "Evento");
-                    dataGridViewBookings.Columns.Add("SpaceName", "Espacio");
-                    dataGridViewBookings.Columns.Add("SeatInfo", "Ubicación Asiento");
-                    dataGridViewBookings.Columns.Add("Users", "Usuarios");
-                }
-
                 // Asignar las propiedades a las columnas
                 dataGridViewBookings.Columns["idReserve"].DataPropertyName = "idReserve";
                 dataGridViewBookings.Columns["idEvent"].DataPropertyName = "idEvent";
                 dataGridViewBookings.Columns["reserveDate"].DataPropertyName = "reserveDate";
                 dataGridViewBookings.Columns["EventName"].DataPropertyName = "EventName";
-                dataGridViewBookings.Columns["SpaceName"].DataPropertyName = "SpaceName";
+                dataGridViewBookings.Columns["SpaceNameBooking"].DataPropertyName = "SpaceName";
                 dataGridViewBookings.Columns["SeatInfo"].DataPropertyName = "SeatInfo";
                 dataGridViewBookings.Columns["Users"].DataPropertyName = "Users";
 
@@ -86,16 +74,6 @@ namespace CultureWave_Form.Forms
                 // Configurar el DataGridView
                 dataGridViewEvents.AutoGenerateColumns = false;
                 dataGridViewEvents.DataSource = events;
-
-                // Configurar columnas manualmente (opcional para mejor control)
-                if (dataGridViewEvents.Columns.Count == 0)
-                {
-                    dataGridViewEvents.Columns.Add("name", "Nombre del Evento");
-                    dataGridViewEvents.Columns.Add("description", "Descripción");
-                    dataGridViewEvents.Columns.Add("startDate", "Fecha Inicio");
-                    dataGridViewEvents.Columns.Add("endDate", "Fecha Fin");
-                    dataGridViewEvents.Columns.Add("SpaceName", "Espacio");
-                }
 
                 // Asignar las propiedades a las columnas
                 dataGridViewEvents.Columns["name"].DataPropertyName = "name";
