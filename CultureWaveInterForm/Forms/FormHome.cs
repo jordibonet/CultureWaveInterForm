@@ -72,10 +72,12 @@ namespace CultureWave_Form.Forms
                     // Obtener los eventos programados con el nombre del espacio
                     var events = EventsOrm.GetProgrammedEvents();
 
+                    // Configurar el DataGridView
+                    dataGridViewEvents.AutoGenerateColumns = false;
                     dataGridViewEvents.DataSource = events;
 
-                // Asignar las propiedades a las columnas
-                dataGridViewEvents.Columns["name"].DataPropertyName = "name";
+                    // Asignar las propiedades a las columnas
+                    dataGridViewEvents.Columns["name"].DataPropertyName = "name";
                     dataGridViewEvents.Columns["description"].DataPropertyName = "description";
                     dataGridViewEvents.Columns["startDate"].DataPropertyName = "startDate";
                     dataGridViewEvents.Columns["endDate"].DataPropertyName = "endDate";

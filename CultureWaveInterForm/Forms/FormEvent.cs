@@ -4,6 +4,7 @@ using RestSharp;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Configuration;
 using CultureWaveInterForm.Models;
 
 namespace CultureWave_Form.Forms
@@ -56,7 +57,15 @@ namespace CultureWave_Form.Forms
             var client = new RestClient("https://api.groq.com/openai/v1/chat/completions");
             var request = new RestRequest("", Method.Post);
 
-            request.AddHeader("Authorization", "Bearer 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");
+            // Obtener la clave desde App.config
+            string apiKey = ConfigurationManager.AppSettings["GroqApiKey"];
+            if (string.IsNullOrWhiteSpace(apiKey))
+            {
+                MessageBox.Show("No se encontró la clave de API en App.config.", "Error de configuración", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            request.AddHeader("Authorization", $"Bearer {apiKey}");
             request.AddHeader("Content-Type", "application/json");
 
             request.AddJsonBody(new

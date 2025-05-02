@@ -116,7 +116,7 @@ namespace CultureWave_Form.Forms
             this.dataGridViewEvents.RowHeadersWidth = 51;
             this.dataGridViewEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEvents.Size = new System.Drawing.Size(1323, 277);
-            this.dataGridViewEvents.TabIndex = 4;
+            this.dataGridViewEvents.TabIndex = 5;
             // 
             // dataGridViewBookings
             // 
