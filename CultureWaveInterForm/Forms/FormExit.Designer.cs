@@ -40,20 +40,22 @@ namespace CultureWave_Form.Forms
             // labeLExit
             // 
             this.labeLExit.AutoSize = true;
-            this.labeLExit.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
-            this.labeLExit.Location = new System.Drawing.Point(413, 294);
+            this.labeLExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.labeLExit.Location = new System.Drawing.Point(551, 362);
+            this.labeLExit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labeLExit.Name = "labeLExit";
-            this.labeLExit.Size = new System.Drawing.Size(52, 26);
+            this.labeLExit.Size = new System.Drawing.Size(67, 29);
             this.labeLExit.TabIndex = 36;
             this.labeLExit.Text = "Salir";
             // 
             // labelLogOut
             // 
             this.labelLogOut.AutoSize = true;
-            this.labelLogOut.Font = new System.Drawing.Font("Nunito", 14F, System.Drawing.FontStyle.Bold);
-            this.labelLogOut.Location = new System.Drawing.Point(413, 122);
+            this.labelLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.labelLogOut.Location = new System.Drawing.Point(551, 150);
+            this.labelLogOut.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLogOut.Name = "labelLogOut";
-            this.labelLogOut.Size = new System.Drawing.Size(128, 26);
+            this.labelLogOut.Size = new System.Drawing.Size(175, 29);
             this.labelLogOut.TabIndex = 35;
             this.labelLogOut.Text = "Cerrar Sesión";
             // 
@@ -62,11 +64,12 @@ namespace CultureWave_Form.Forms
             this.roundedButtonExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
             this.roundedButtonExit.FlatAppearance.BorderSize = 0;
             this.roundedButtonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButtonExit.Font = new System.Drawing.Font("Nunito Medium", 10F);
+            this.roundedButtonExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.roundedButtonExit.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonExit.Location = new System.Drawing.Point(413, 337);
+            this.roundedButtonExit.Location = new System.Drawing.Point(551, 415);
+            this.roundedButtonExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.roundedButtonExit.Name = "roundedButtonExit";
-            this.roundedButtonExit.Size = new System.Drawing.Size(126, 60);
+            this.roundedButtonExit.Size = new System.Drawing.Size(168, 74);
             this.roundedButtonExit.TabIndex = 37;
             this.roundedButtonExit.Text = "Salir";
             this.roundedButtonExit.UseVisualStyleBackColor = false;
@@ -77,25 +80,28 @@ namespace CultureWave_Form.Forms
             this.roundedButtonLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
             this.roundedButtonLogOut.FlatAppearance.BorderSize = 0;
             this.roundedButtonLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButtonLogOut.Font = new System.Drawing.Font("Nunito Medium", 10F);
+            this.roundedButtonLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.roundedButtonLogOut.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonLogOut.Location = new System.Drawing.Point(413, 166);
+            this.roundedButtonLogOut.Location = new System.Drawing.Point(551, 204);
+            this.roundedButtonLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.roundedButtonLogOut.Name = "roundedButtonLogOut";
-            this.roundedButtonLogOut.Size = new System.Drawing.Size(126, 60);
+            this.roundedButtonLogOut.Size = new System.Drawing.Size(168, 74);
             this.roundedButtonLogOut.TabIndex = 38;
             this.roundedButtonLogOut.Text = "Cerrar Sesión";
             this.roundedButtonLogOut.UseVisualStyleBackColor = false;
+            this.roundedButtonLogOut.Click += new System.EventHandler(this.roundedButtonLogOut_Click);
             // 
             // FormExit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1016, 565);
+            this.ClientSize = new System.Drawing.Size(1355, 695);
             this.Controls.Add(this.roundedButtonLogOut);
             this.Controls.Add(this.roundedButtonExit);
             this.Controls.Add(this.labeLExit);
             this.Controls.Add(this.labelLogOut);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormExit";
             this.Text = "FormExit";
             this.ResumeLayout(false);

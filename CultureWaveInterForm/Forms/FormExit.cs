@@ -23,5 +23,11 @@ namespace CultureWave_Form.Forms
         {
             formData.Close();
         }
+
+        private void roundedButtonLogOut_Click(object sender, EventArgs e)
+        {
+            FormLogin formLogin = new FormLogin();
+            formLogin.ShowDialog();
+        }
     }
 }
