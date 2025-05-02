@@ -203,15 +203,25 @@ namespace CultureWave_Form.Controls
         {
             get
             {
-                if (isPlaceholder) return "";
-                else return textBox1.Text;
+                return isPlaceholder ? "" : textBox1.Text;
             }
             set
             {
-                textBox1.Text = value;
-                SetPlaceholder();
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    SetPlaceholder();
+                }
+                else
+                {
+                    isPlaceholder = false;
+                    textBox1.Text = value;
+                    textBox1.ForeColor = this.ForeColor;
+                    if (isPasswordChar)
+                        textBox1.UseSystemPasswordChar = true;
+                }
             }
         }
+
 
         [Category("RJ Code Advance")]
         public int BorderRadius

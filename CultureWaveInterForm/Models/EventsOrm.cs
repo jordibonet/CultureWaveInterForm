@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace CultureWaveInterForm.Models
 {
@@ -13,7 +14,7 @@ namespace CultureWaveInterForm.Models
                 using (var db = new cultureWaveEntities1())
                 {
                     return db.eventTable
-                        .Where(e => e.status == "Actiu") // Filtra por estado
+                        .Where(e => e.status == "Programat") // Filtra por estado
                         .Select(e => new
                         {
                             e.idEvent,
@@ -32,5 +33,30 @@ namespace CultureWaveInterForm.Models
                 return new List<dynamic>();
             }
         }
+
+        public static bool Insert(eventTable newEvent)
+        {
+            try
+            {
+                using (var db = new cultureWaveEntities1())
+                {
+                    db.eventTable.Add(newEvent);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al crear el evento: {ex.Message}",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+
+
     }
 }

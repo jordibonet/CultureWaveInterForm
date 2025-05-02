@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using RestSharp;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using System.Globalization;
+using CultureWaveInterForm.Models;
 
 namespace CultureWave_Form.Forms
 {
@@ -16,16 +18,40 @@ namespace CultureWave_Form.Forms
             this.formData = formData;
         }
 
+        private void FormEvent_Load(object sender, EventArgs e)
+        {
+            loadSpacesComboBox();
+        }
+
+        private void loadSpacesComboBox()
+        {
+            try
+            {
+                var espacios = SpacesOrm.SelectAvailableSpaces();
+                comboBoxSpaceEvents.DataSource = espacios;
+                comboBoxSpaceEvents.DisplayMember = "name";
+                comboBoxSpaceEvents.ValueMember = "idSpace";
+                comboBoxSpaceEvents.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los espacios: {ex.Message}",
+                               "Error",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Error);
+            }
+        }
+
         private async void roundedButtonGenerateIA_Click(object sender, EventArgs e)
         {
             string prompt = $@"Genera un JSON con los campos 'titulo', 'descripcion', 'fecha_inicio' y 'fecha_fin' para un evento cultural. 
-El 'titulo' debe ser breve y atractivo.
-La 'descripcion' debe ser clara y detallada, con un máximo de 3 frases completas que expliquen el evento, su contexto y lo que ofrece.
-'fecha_inicio' y 'fecha_fin' deben tener el formato exacto: 'yyyy/MM/dd HH:mm' (por ejemplo: 2025/06/18 19:30).
-Haz que el tipo de evento y contenido varíe creativamente cada vez.
-No repitas ideas anteriores. Imagina que estás escribiendo para diferentes públicos y ciudades.
-Devuelve únicamente el JSON, sin explicaciones ni texto adicional.
-Semilla creativa: {Guid.NewGuid()}";
+            El 'titulo' debe ser breve y atractivo.
+            La 'descripcion' debe ser clara y detallada, con un máximo de 3 frases completas que expliquen el evento, su contexto y lo que ofrece.
+            'fecha_inicio' y 'fecha_fin' deben tener el formato exacto: 'yyyy-MM-dd HH:mm' (por ejemplo: 2025-06-18 19:30).
+            Haz que el tipo de evento y contenido varíe creativamente cada vez.
+            No repitas ideas anteriores. Imagina que estás escribiendo para diferentes públicos y ciudades.
+            Devuelve únicamente el JSON, sin explicaciones ni texto adicional.
+            Semilla creativa: {Guid.NewGuid()}";
 
             var client = new RestClient("https://api.groq.com/openai/v1/chat/completions");
             var request = new RestRequest("", Method.Post);
@@ -77,7 +103,7 @@ Semilla creativa: {Guid.NewGuid()}";
 
                         if (!FechaEsValida(fechaInicio) || !FechaEsValida(fechaFin))
                         {
-                            MessageBox.Show("Las fechas no tienen el formato correcto (yyyy/MM/dd HH:mm).");
+                            MessageBox.Show("Las fechas no tienen el formato correcto (yyyy-MM-dd HH:mm).");
                             return;
                         }
 
@@ -104,7 +130,77 @@ Semilla creativa: {Guid.NewGuid()}";
 
         private bool FechaEsValida(string fecha)
         {
-            return Regex.IsMatch(fecha, @"^\d{4}/\d{2}/\d{2} \d{2}:\d{2}$");
+            var formato = "yyyy-MM-dd HH:mm";
+            var cultura = CultureInfo.InvariantCulture;
+
+            return DateTime.TryParseExact(fecha, formato, cultura, DateTimeStyles.None, out _);
+        }
+
+        private void roundedButtonCreateEvent_Click(object sender, EventArgs e)
+        {
+            // Validar campos obligatorios
+            if (string.IsNullOrWhiteSpace(roundedTextBoxNameEvent.Texts) ||
+                string.IsNullOrWhiteSpace(roundedRichTextBoxDescription.Texts) ||
+                string.IsNullOrWhiteSpace(roundedTextBoxEvenDateStart.Texts) ||
+                string.IsNullOrWhiteSpace(roundedTextBoxEndDate.Texts) ||
+                comboBoxSpaceEvents.SelectedIndex == -1 ||
+                comboBoxStateEvents.SelectedIndex == -1)
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios.",
+                              "Campos requeridos",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return;
+            }
+
+            var formato = "yyyy-MM-dd HH:mm";
+            var cultura = CultureInfo.InvariantCulture;
+
+            if (!DateTime.TryParseExact(roundedTextBoxEvenDateStart.Texts, formato, cultura, DateTimeStyles.None, out DateTime startDate) ||
+                !DateTime.TryParseExact(roundedTextBoxEndDate.Texts, formato, cultura, DateTimeStyles.None, out DateTime endDate))
+            {
+                MessageBox.Show("Formato de fecha inválido. Use el formato: yyyy-MM-dd HH:mm",
+                              "Error de formato",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Error);
+                return;
+            }
+
+            if (startDate >= endDate)
+            {
+                MessageBox.Show("La fecha de inicio debe ser anterior a la fecha de fin.",
+                              "Error en fechas",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Error);
+                return;
+            }
+
+            // Crear objeto eventTable
+            var newEvent = new eventTable
+            {
+                idSpace = (int)comboBoxSpaceEvents.SelectedValue,
+                name = roundedTextBoxNameEvent.Texts,
+                description = roundedRichTextBoxDescription.Texts,
+                startDate = startDate,
+                endDate = endDate,
+                status = comboBoxStateEvents.SelectedItem.ToString()
+            };
+
+            if (EventsOrm.Insert(newEvent))
+            {
+                MessageBox.Show("Evento creado exitosamente!",
+                              "Éxito",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Information);
+
+                // Limpiar campos
+                roundedTextBoxNameEvent.Texts = "";
+                roundedRichTextBoxDescription.Texts = "";
+                roundedTextBoxEvenDateStart.Texts = "";
+                roundedTextBoxEndDate.Texts = "";
+                comboBoxSpaceEvents.SelectedIndex = -1;
+                comboBoxStateEvents.SelectedIndex = -1;
+            }
         }
     }
 }

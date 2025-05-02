@@ -31,7 +31,6 @@ namespace CultureWave_Form.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.labelNameEvents = new System.Windows.Forms.Label();
             this.labelEventDate = new System.Windows.Forms.Label();
             this.labelDescription = new System.Windows.Forms.Label();
@@ -44,7 +43,6 @@ namespace CultureWave_Form.Forms
             this.comboBoxSpaceEvents = new System.Windows.Forms.ComboBox();
             this.labelStateEvent = new System.Windows.Forms.Label();
             this.comboBoxStateEvents = new System.Windows.Forms.ComboBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.roundedRichTextBoxDescription = new CultureWave_Form.Controls.RoundedRichTextBox();
             this.SuspendLayout();
             // 
@@ -177,6 +175,7 @@ namespace CultureWave_Form.Forms
             this.roundedButtonCreateEvent.TabIndex = 35;
             this.roundedButtonCreateEvent.Text = "Crear evento";
             this.roundedButtonCreateEvent.UseVisualStyleBackColor = false;
+            this.roundedButtonCreateEvent.Click += new System.EventHandler(this.roundedButtonCreateEvent_Click);
             // 
             // labelSpaceEvents
             // 
@@ -191,12 +190,14 @@ namespace CultureWave_Form.Forms
             // 
             // comboBoxSpaceEvents
             // 
+            this.comboBoxSpaceEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSpaceEvents.FormattingEnabled = true;
             this.comboBoxSpaceEvents.Location = new System.Drawing.Point(741, 363);
             this.comboBoxSpaceEvents.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxSpaceEvents.Name = "comboBoxSpaceEvents";
             this.comboBoxSpaceEvents.Size = new System.Drawing.Size(337, 24);
             this.comboBoxSpaceEvents.TabIndex = 37;
+            this.comboBoxSpaceEvents.ValueMember = "idSpace";
             // 
             // labelStateEvent
             // 
@@ -211,18 +212,17 @@ namespace CultureWave_Form.Forms
             // 
             // comboBoxStateEvents
             // 
+            this.comboBoxStateEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStateEvents.FormattingEnabled = true;
+            this.comboBoxStateEvents.Items.AddRange(new object[] {
+            "Programat",
+            "Actiu",
+            "Finalitzat"});
             this.comboBoxStateEvents.Location = new System.Drawing.Point(741, 466);
             this.comboBoxStateEvents.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxStateEvents.Name = "comboBoxStateEvents";
             this.comboBoxStateEvents.Size = new System.Drawing.Size(337, 24);
             this.comboBoxStateEvents.TabIndex = 39;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // roundedRichTextBoxDescription
             // 
@@ -265,6 +265,7 @@ namespace CultureWave_Form.Forms
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormEvent";
             this.Text = "FormEvent";
+            this.Load += new System.EventHandler(this.FormEvent_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,7 +288,6 @@ namespace CultureWave_Form.Forms
         private ComboBox comboBoxSpaceEvents;
         private Label labelStateEvent;
         private ComboBox comboBoxStateEvents;
-        private ContextMenuStrip contextMenuStrip1;
         private Controls.RoundedRichTextBox roundedRichTextBoxDescription;
     }
 }
