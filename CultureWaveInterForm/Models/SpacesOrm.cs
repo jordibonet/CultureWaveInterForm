@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -83,6 +84,49 @@ namespace CultureWaveInterForm.Models
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al crear el espacio: {ex.Message}", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public static bool UpdateSpace(int idSpace, string name, int capacity, bool fixedSeats, bool available)
+        {
+            try
+            {
+                using (var db = new cultureWaveEntities1())
+                {
+                    // Buscar el espacio existente
+                    var espacio = db.space.Find(idSpace);
+                    if (espacio == null)
+                    {
+                        MessageBox.Show("Espacio no encontrado", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+
+                    // Actualizar propiedades
+                    espacio.name = name;
+                    espacio.capacity = capacity;
+                    espacio.fixedSeats = fixedSeats;
+                    espacio.available = available;
+
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (DbUpdateException dbEx)
+            {
+                string errorMessage = "Error al actualizar en la base de datos:\n";
+                var innerException = dbEx.InnerException?.InnerException ?? dbEx.InnerException ?? dbEx;
+                errorMessage += innerException.Message;
+
+                MessageBox.Show(errorMessage, "Error de base de datos",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}", "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }

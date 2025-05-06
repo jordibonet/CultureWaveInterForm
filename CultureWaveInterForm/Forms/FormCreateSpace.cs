@@ -13,64 +13,95 @@ namespace CultureWave_Form.Forms
 {
     public partial class FormCreateSpace : Form
     {
-        FormData formData;
+        private FormData formData;
+        private int? currentSpaceId = null;
+
         public FormCreateSpace(FormData formData)
         {
             InitializeComponent();
             this.formData = formData;
         }
 
+        public void LoadSpaceData(space espacio)
+        {
+            currentSpaceId = espacio.idSpace;
+            roundedTextBoxNameSpace.Texts = espacio.name;
+            roundedTextBoxCapacity.Texts = espacio.capacity.ToString();
+            roundedRadioButtonYesSeats.Checked = espacio.fixedSeats.Value;
+            roundedRadioButtonNoSeats.Checked = !espacio.fixedSeats.Value;
+            roundedRadioButtonYesAvailable.Checked = espacio.available.Value;
+            roundedRadioButtonNoAvailable.Checked = !espacio.available.Value;
+
+            this.Text = "Editar Espacio";
+            roundedButtonCreate.Text = "Guardar Cambios";
+        }
+
         private void roundedButtonCreate_Click(object sender, EventArgs e)
         {
+            if (!ValidateFields()) return;
+
             try
             {
-                // Validar campos obligatorios
-                if (string.IsNullOrWhiteSpace(roundedTextBoxNameSpace.Texts))
+                bool success;
+                string operation = currentSpaceId.HasValue ? "actualizado" : "creado";
+
+                if (currentSpaceId.HasValue)
                 {
-                    MessageBox.Show("El nombre del espacio es obligatorio", "Advertencia",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    roundedTextBoxNameSpace.Focus();
-                    return;
+                    success = SpacesOrm.UpdateSpace(
+                        currentSpaceId.Value,
+                        roundedTextBoxNameSpace.Texts.Trim(),
+                        Convert.ToInt32(roundedTextBoxCapacity.Texts),
+                        roundedRadioButtonYesSeats.Checked,
+                        roundedRadioButtonYesAvailable.Checked
+                    );
                 }
-
-                if (!int.TryParse(roundedTextBoxCapacity.Texts, out int capacity) || capacity <= 0)
+                else
                 {
-                    MessageBox.Show("La capacidad debe ser un número positivo", "Advertencia",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    roundedTextBoxCapacity.Focus();
-                    return;
+                    success = SpacesOrm.CreateSpace(
+                        roundedTextBoxNameSpace.Texts.Trim(),
+                        Convert.ToInt32(roundedTextBoxCapacity.Texts),
+                        roundedRadioButtonYesSeats.Checked,
+                        roundedRadioButtonYesAvailable.Checked
+                    );
                 }
-
-                // Obtener valores de los radio buttons
-                bool fixedSeats = roundedRadioButtonYesSeats.Checked;
-                bool available = roundedRadioButtonYesAvailable.Checked;
-
-                // Crear el nuevo espacio
-                bool success = SpacesOrm.CreateSpace(
-                    name: roundedTextBoxNameSpace.Texts.Trim(),
-                    capacity: capacity,
-                    fixedSeats: fixedSeats,
-                    available: available
-                );
 
                 if (success)
                 {
-                    MessageBox.Show("Espacio creado exitosamente", "Éxito",
+                    MessageBox.Show($"Espacio {operation} correctamente", "Éxito",
                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo crear el espacio", "Error",
+                    MessageBox.Show($"Error al {operation} el espacio", "Error",
                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error inesperado: {ex.Message}", "Error",
+                MessageBox.Show($"Error: {ex.Message}", "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private bool ValidateFields()
+        {
+            if (string.IsNullOrWhiteSpace(roundedTextBoxNameSpace.Texts))
+            {
+                MessageBox.Show("Nombre del espacio es requerido", "Validación",
+                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!int.TryParse(roundedTextBoxCapacity.Texts, out int capacity) || capacity <= 0)
+            {
+                MessageBox.Show("Capacidad debe ser un número positivo", "Validación",
+                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
     }
 }

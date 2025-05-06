@@ -56,6 +56,12 @@ namespace CultureWave_Form.Forms
                 dataGridViewBookings.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
                 dataGridViewBookings.ClearSelection();
+                if (dataGridViewBookings.CurrentRow != null)
+                {
+                    dataGridViewBookings.CurrentRow.Selected = false; // Esto deselecciona la fila activa
+                }
+
+
             }
             catch (Exception ex)
             {

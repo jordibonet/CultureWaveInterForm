@@ -59,7 +59,37 @@ namespace CultureWave_Form.Forms
         private void roundedButtonCreate_Click(object sender, EventArgs e)
         {
             FormCreateSpace createSpace = new FormCreateSpace(formData);
-            createSpace.Show();
+            if (createSpace.ShowDialog() == DialogResult.OK)
+            {
+                loadSpaces(); // Refrescar después de crear
+            }
+        }
+
+        private void roundedButtonEdit_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewSpaces.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un espacio para editar", "Advertencia",
+                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var selectedRow = dataGridViewSpaces.SelectedRows[0];
+            var espacio = new space
+            {
+                idSpace = Convert.ToInt32(selectedRow.Cells["idSpace"].Value),
+                name = selectedRow.Cells["name"].Value.ToString(),
+                capacity = Convert.ToInt32(selectedRow.Cells["capacity"].Value),
+                fixedSeats = Convert.ToBoolean(selectedRow.Cells["fixedSeats"].Value),
+                available = Convert.ToBoolean(selectedRow.Cells["available"].Value)
+            };
+
+            var editForm = new FormCreateSpace(formData);
+            editForm.LoadSpaceData(espacio);
+            if (editForm.ShowDialog() == DialogResult.OK)
+            {
+                loadSpaces(); // Refrescar después de editar
+            }
         }
     }
 }
