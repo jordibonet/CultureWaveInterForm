@@ -75,8 +75,8 @@ namespace CultureWave_Form.Forms
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(93)))), ((int)(((byte)(51)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewReserves.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewReserves.ColumnHeadersHeight = 56;
@@ -85,8 +85,8 @@ namespace CultureWave_Form.Forms
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewReserves.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewReserves.EnableHeadersVisualStyles = false;
@@ -130,7 +130,7 @@ namespace CultureWave_Form.Forms
             this.roundedButtonDeleteReserve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButtonDeleteReserve.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.roundedButtonDeleteReserve.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonDeleteReserve.Location = new System.Drawing.Point(832, 31);
+            this.roundedButtonDeleteReserve.Location = new System.Drawing.Point(878, 31);
             this.roundedButtonDeleteReserve.Name = "roundedButtonDeleteReserve";
             this.roundedButtonDeleteReserve.Size = new System.Drawing.Size(126, 60);
             this.roundedButtonDeleteReserve.TabIndex = 40;
@@ -145,7 +145,7 @@ namespace CultureWave_Form.Forms
             this.roundedButtonReserve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButtonReserve.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.roundedButtonReserve.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonReserve.Location = new System.Drawing.Point(598, 30);
+            this.roundedButtonReserve.Location = new System.Drawing.Point(723, 31);
             this.roundedButtonReserve.Name = "roundedButtonReserve";
             this.roundedButtonReserve.Size = new System.Drawing.Size(126, 60);
             this.roundedButtonReserve.TabIndex = 39;

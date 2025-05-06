@@ -54,6 +54,8 @@ namespace CultureWave_Form.Forms
 
                 // Ajustar automáticamente el ancho de las columnas
                 dataGridViewBookings.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+
+                dataGridViewBookings.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -86,6 +88,8 @@ namespace CultureWave_Form.Forms
                     // Formatear columnas de fecha
                     dataGridViewEvents.Columns["startDate"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
                     dataGridViewEvents.Columns["endDate"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+
+                    dataGridViewEvents.ClearSelection();
                 }
                 catch (Exception ex)
                 {

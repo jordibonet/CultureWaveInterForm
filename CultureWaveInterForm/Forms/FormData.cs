@@ -18,7 +18,7 @@ namespace CultureWave_Form.Forms
         public FormEvent formEvent;
         public FormReserve formReserve;
         public FormSpace formSpace;
-        public FormCreateEditSpace formCreateEditSpace;
+        public FormCreateSpace formCreateEditSpace;
         public FormUser formUser;
         public FormExit formExit;
 
@@ -73,7 +73,7 @@ namespace CultureWave_Form.Forms
                 typeof(FormEvent),
                 typeof(FormReserve),
                 typeof(FormSpace),
-                typeof(FormCreateEditSpace),
+                typeof(FormCreateSpace),
                 typeof(FormUser),
                 typeof(FormExit)
             };
