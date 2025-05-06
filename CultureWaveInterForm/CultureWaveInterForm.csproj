@@ -139,6 +139,12 @@
     <Compile Include="Forms\FormCreateEditUser.Designer.cs">
       <DependentUpon>FormCreateEditUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormCreateReserve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCreateReserve.Designer.cs">
+      <DependentUpon>FormCreateReserve.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CultureWave.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventsOrm.cs" />
     <Compile Include="Models\eventTable.cs">
       <DependentUpon>CultureWave.tt</DependentUpon>
@@ -213,6 +220,7 @@
     <Compile Include="Models\reserve.cs">
       <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReserveOrm.cs" />
     <Compile Include="Models\rol.cs">
       <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
@@ -230,6 +238,7 @@
       <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UsersLogInOrm.cs" />
+    <Compile Include="Models\UsersReserveOrm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\RoundedTextBox.resx">
@@ -240,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormCreateEditUser.resx">
       <DependentUpon>FormCreateEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormCreateReserve.resx">
+      <DependentUpon>FormCreateReserve.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormData.resx">
       <DependentUpon>FormData.cs</DependentUpon>

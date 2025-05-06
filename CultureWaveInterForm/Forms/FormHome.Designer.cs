@@ -38,12 +38,12 @@ namespace CultureWave_Form.Forms
             this.labelActiveEvents = new System.Windows.Forms.Label();
             this.labelRecentReservations = new System.Windows.Forms.Label();
             this.dataGridViewEvents = new System.Windows.Forms.DataGridView();
-            this.dataGridViewBookings = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SpaceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewBookings = new System.Windows.Forms.DataGridView();
             this.idReserve = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idEvent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reserveDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,10 +59,9 @@ namespace CultureWave_Form.Forms
             // 
             this.labelActiveEvents.AutoSize = true;
             this.labelActiveEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelActiveEvents.Location = new System.Drawing.Point(16, 22);
-            this.labelActiveEvents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelActiveEvents.Location = new System.Drawing.Point(12, 18);
             this.labelActiveEvents.Name = "labelActiveEvents";
-            this.labelActiveEvents.Size = new System.Drawing.Size(343, 29);
+            this.labelActiveEvents.Size = new System.Drawing.Size(275, 24);
             this.labelActiveEvents.TabIndex = 2;
             this.labelActiveEvents.Text = "EVENTOS PROGRAMADOS";
             // 
@@ -70,16 +69,15 @@ namespace CultureWave_Form.Forms
             // 
             this.labelRecentReservations.AutoSize = true;
             this.labelRecentReservations.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelRecentReservations.Location = new System.Drawing.Point(16, 362);
-            this.labelRecentReservations.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelRecentReservations.Location = new System.Drawing.Point(12, 294);
             this.labelRecentReservations.Name = "labelRecentReservations";
-            this.labelRecentReservations.Size = new System.Drawing.Size(149, 29);
+            this.labelRecentReservations.Size = new System.Drawing.Size(120, 24);
             this.labelRecentReservations.TabIndex = 3;
             this.labelRecentReservations.Text = "RESERVAS";
             // 
             // dataGridViewEvents
             // 
-            this.dataGridViewEvents.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
+            this.dataGridViewEvents.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
             this.dataGridViewEvents.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewEvents.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewEvents.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
@@ -92,7 +90,8 @@ namespace CultureWave_Form.Forms
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewEvents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewEvents.ColumnHeadersHeight = 52;
+            this.dataGridViewEvents.ColumnHeadersHeight = 56;
+            this.dataGridViewEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewEvents.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
             this.description,
@@ -100,7 +99,7 @@ namespace CultureWave_Form.Forms
             this.endDate,
             this.SpaceName});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -108,58 +107,14 @@ namespace CultureWave_Form.Forms
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewEvents.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewEvents.EnableHeadersVisualStyles = false;
-            this.dataGridViewEvents.Location = new System.Drawing.Point(16, 69);
-            this.dataGridViewEvents.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewEvents.Location = new System.Drawing.Point(12, 56);
             this.dataGridViewEvents.MultiSelect = false;
             this.dataGridViewEvents.Name = "dataGridViewEvents";
             this.dataGridViewEvents.RowHeadersVisible = false;
             this.dataGridViewEvents.RowHeadersWidth = 51;
             this.dataGridViewEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEvents.Size = new System.Drawing.Size(1323, 277);
+            this.dataGridViewEvents.Size = new System.Drawing.Size(992, 225);
             this.dataGridViewEvents.TabIndex = 5;
-            // 
-            // dataGridViewBookings
-            // 
-            this.dataGridViewBookings.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
-            this.dataGridViewBookings.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewBookings.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewBookings.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dataGridViewBookings.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(93)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewBookings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBookings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idReserve,
-            this.idEvent,
-            this.reserveDate,
-            this.EventName,
-            this.SpaceNameBooking,
-            this.SeatInfo,
-            this.Users});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewBookings.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewBookings.EnableHeadersVisualStyles = false;
-            this.dataGridViewBookings.Location = new System.Drawing.Point(21, 405);
-            this.dataGridViewBookings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridViewBookings.MultiSelect = false;
-            this.dataGridViewBookings.Name = "dataGridViewBookings";
-            this.dataGridViewBookings.RowHeadersVisible = false;
-            this.dataGridViewBookings.RowHeadersWidth = 51;
-            this.dataGridViewBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBookings.Size = new System.Drawing.Size(1323, 277);
-            this.dataGridViewBookings.TabIndex = 5;
             // 
             // name
             // 
@@ -205,6 +160,49 @@ namespace CultureWave_Form.Forms
             this.SpaceName.Name = "SpaceName";
             this.SpaceName.ReadOnly = true;
             this.SpaceName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewBookings
+            // 
+            this.dataGridViewBookings.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            this.dataGridViewBookings.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewBookings.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewBookings.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridViewBookings.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(93)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewBookings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewBookings.ColumnHeadersHeight = 56;
+            this.dataGridViewBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridViewBookings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idReserve,
+            this.idEvent,
+            this.reserveDate,
+            this.EventName,
+            this.SpaceNameBooking,
+            this.SeatInfo,
+            this.Users});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewBookings.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewBookings.EnableHeadersVisualStyles = false;
+            this.dataGridViewBookings.Location = new System.Drawing.Point(16, 329);
+            this.dataGridViewBookings.MultiSelect = false;
+            this.dataGridViewBookings.Name = "dataGridViewBookings";
+            this.dataGridViewBookings.RowHeadersVisible = false;
+            this.dataGridViewBookings.RowHeadersWidth = 51;
+            this.dataGridViewBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewBookings.Size = new System.Drawing.Size(992, 225);
+            this.dataGridViewBookings.TabIndex = 5;
             // 
             // idReserve
             // 
@@ -271,15 +269,14 @@ namespace CultureWave_Form.Forms
             // 
             // FormHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1355, 695);
+            this.ClientSize = new System.Drawing.Size(1016, 565);
             this.Controls.Add(this.dataGridViewBookings);
             this.Controls.Add(this.dataGridViewEvents);
             this.Controls.Add(this.labelRecentReservations);
             this.Controls.Add(this.labelActiveEvents);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormHome";
             this.Text = "FormHome";
             this.Load += new System.EventHandler(this.FormHome_Load);

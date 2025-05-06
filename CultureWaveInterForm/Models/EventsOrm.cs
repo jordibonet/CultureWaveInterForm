@@ -45,6 +45,20 @@ namespace CultureWaveInterForm.Models
                     return true;
                 }
             }
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+                foreach (var validationErrors in ex.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        MessageBox.Show($"Propiedad: {validationError.PropertyName} Error: {validationError.ErrorMessage}",
+                                        "Error de validación",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error);
+                    }
+                }
+                return false;
+            }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al crear el evento: {ex.Message}",
@@ -54,6 +68,7 @@ namespace CultureWaveInterForm.Models
                 return false;
             }
         }
+
 
 
 

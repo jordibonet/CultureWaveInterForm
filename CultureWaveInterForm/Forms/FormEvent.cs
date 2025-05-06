@@ -47,12 +47,13 @@ namespace CultureWave_Form.Forms
         {
             string prompt = $@"Genera un JSON con los campos 'titulo', 'descripcion', 'fecha_inicio' y 'fecha_fin' para un evento cultural. 
             El 'titulo' debe ser breve y atractivo.
-            La 'descripcion' debe ser clara y detallada, con un máximo de 3 frases completas que expliquen el evento, su contexto y lo que ofrece.
+            La 'descripcion' debe ser clara y detallada, con un máximo de 200 caracteres, explicando el evento, su contexto y lo que ofrece.
             'fecha_inicio' y 'fecha_fin' deben tener el formato exacto: 'yyyy-MM-dd HH:mm' (por ejemplo: 2025-06-18 19:30).
             Haz que el tipo de evento y contenido varíe creativamente cada vez.
             No repitas ideas anteriores. Imagina que estás escribiendo para diferentes públicos y ciudades.
             Devuelve únicamente el JSON, sin explicaciones ni texto adicional.
             Semilla creativa: {Guid.NewGuid()}";
+
 
             var client = new RestClient("https://api.groq.com/openai/v1/chat/completions");
             var request = new RestRequest("", Method.Post);
