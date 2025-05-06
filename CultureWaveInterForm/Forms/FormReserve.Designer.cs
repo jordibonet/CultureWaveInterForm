@@ -31,17 +31,17 @@ namespace CultureWave_Form.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelNameReserves = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
-            this.dataGridViewSpaces = new System.Windows.Forms.DataGridView();
+            this.dataGridViewReserves = new System.Windows.Forms.DataGridView();
             this.comboBoxUsers = new System.Windows.Forms.ComboBox();
             this.roundedButtonSearch = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonDeleteReserve = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonReserve = new CultureWave_Form.Controls.RoundedButton();
             this.roundedTextBoxUser = new CultureWave_Form.Controls.RoundedTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSpaces)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReserves)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNameReserves
@@ -64,40 +64,40 @@ namespace CultureWave_Form.Forms
             this.labelUser.TabIndex = 17;
             this.labelUser.Text = "Usuario";
             // 
-            // dataGridViewSpaces
+            // dataGridViewReserves
             // 
-            this.dataGridViewSpaces.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.dataGridViewSpaces.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewSpaces.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.dataGridViewSpaces.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dataGridViewSpaces.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(93)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSpaces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewSpaces.ColumnHeadersHeight = 56;
-            this.dataGridViewSpaces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSpaces.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewSpaces.EnableHeadersVisualStyles = false;
-            this.dataGridViewSpaces.Location = new System.Drawing.Point(12, 159);
-            this.dataGridViewSpaces.MultiSelect = false;
-            this.dataGridViewSpaces.Name = "dataGridViewSpaces";
-            this.dataGridViewSpaces.RowHeadersVisible = false;
-            this.dataGridViewSpaces.RowHeadersWidth = 51;
-            this.dataGridViewSpaces.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSpaces.Size = new System.Drawing.Size(992, 394);
-            this.dataGridViewSpaces.TabIndex = 5;
+            this.dataGridViewReserves.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            this.dataGridViewReserves.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewReserves.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridViewReserves.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridViewReserves.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(93)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewReserves.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewReserves.ColumnHeadersHeight = 56;
+            this.dataGridViewReserves.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewReserves.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewReserves.EnableHeadersVisualStyles = false;
+            this.dataGridViewReserves.Location = new System.Drawing.Point(12, 159);
+            this.dataGridViewReserves.MultiSelect = false;
+            this.dataGridViewReserves.Name = "dataGridViewReserves";
+            this.dataGridViewReserves.RowHeadersVisible = false;
+            this.dataGridViewReserves.RowHeadersWidth = 51;
+            this.dataGridViewReserves.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewReserves.Size = new System.Drawing.Size(992, 394);
+            this.dataGridViewReserves.TabIndex = 5;
             // 
             // comboBoxUsers
             // 
@@ -136,6 +136,7 @@ namespace CultureWave_Form.Forms
             this.roundedButtonDeleteReserve.TabIndex = 40;
             this.roundedButtonDeleteReserve.Text = "Eliminar Reserva";
             this.roundedButtonDeleteReserve.UseVisualStyleBackColor = false;
+            this.roundedButtonDeleteReserve.Click += new System.EventHandler(this.roundedButtonDeleteReserve_Click);
             // 
             // roundedButtonReserve
             // 
@@ -185,13 +186,13 @@ namespace CultureWave_Form.Forms
             this.Controls.Add(this.roundedButtonDeleteReserve);
             this.Controls.Add(this.roundedButtonReserve);
             this.Controls.Add(this.roundedTextBoxUser);
-            this.Controls.Add(this.dataGridViewSpaces);
+            this.Controls.Add(this.dataGridViewReserves);
             this.Controls.Add(this.labelUser);
             this.Controls.Add(this.labelNameReserves);
             this.Name = "FormReserve";
             this.Text = "FormReserve";
             this.Load += new System.EventHandler(this.FormReserve_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSpaces)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReserves)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,7 +202,7 @@ namespace CultureWave_Form.Forms
 
         private Label labelNameReserves;
         private Label labelUser;
-        private DataGridView dataGridViewSpaces;
+        private DataGridView dataGridViewReserves;
         private Controls.RoundedTextBox roundedTextBoxUser;
         private Controls.RoundedButton roundedButtonReserve;
         private Controls.RoundedButton roundedButtonDeleteReserve;

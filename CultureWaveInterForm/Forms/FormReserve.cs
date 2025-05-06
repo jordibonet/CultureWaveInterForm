@@ -24,8 +24,8 @@ namespace CultureWave_Form.Forms
         {
             loadUsersComboBox();
 
-            dataGridViewSpaces.DataSource = reservesBindingSource;
-            dataGridViewSpaces.Visible = false;
+            dataGridViewReserves.DataSource = reservesBindingSource;
+            dataGridViewReserves.Visible = false;
         }
 
         private void loadUsersComboBox()
@@ -48,7 +48,7 @@ namespace CultureWave_Form.Forms
 
         private void roundedButtonSearch_Click(object sender, EventArgs e)
         {
-            dataGridViewSpaces.Visible = true;
+            dataGridViewReserves.Visible = true;
 
             // Verificar si hay un usuario seleccionado
             if (comboBoxUsers.SelectedIndex != -1)
@@ -65,18 +65,28 @@ namespace CultureWave_Form.Forms
                     // Obtener las reservas del usuario utilizando el método GetUserReservesWithDetails
                     var reservas = ReserveOrm.GetUserReservesWithDetails(userId);
 
+                    // Asignar los datos al BindingSource
                     reservesBindingSource.DataSource = reservas;
 
-                    dataGridViewSpaces.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    dataGridViewSpaces.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                    // Configuración del DataGridView
+                    dataGridViewReserves.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGridViewReserves.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 
-                    dataGridViewSpaces.Columns["EventName"].HeaderText = "Nombre del Evento";
-                    dataGridViewSpaces.Columns["StartDate"].HeaderText = "Fecha de Inicio";
-                    dataGridViewSpaces.Columns["EndDate"].HeaderText = "Fecha de Fin";
-                    dataGridViewSpaces.Columns["Status"].HeaderText = "Estado del Evento";
-                    dataGridViewSpaces.Columns["SpaceName"].HeaderText = "Espacio";
-                    dataGridViewSpaces.Columns["ReserveDate"].HeaderText = "Fecha de Reserva";
-                    dataGridViewSpaces.Columns["SeatInfo"].HeaderText = "Información del Asiento";
+                    // Asignación de cabeceras de columnas
+                    dataGridViewReserves.Columns["ReservationId"].HeaderText = "ID";
+                    dataGridViewReserves.Columns["EventName"].HeaderText = "Nombre del Evento";
+                    dataGridViewReserves.Columns["StartDate"].HeaderText = "Fecha de Inicio";
+                    dataGridViewReserves.Columns["EndDate"].HeaderText = "Fecha de Fin";
+                    dataGridViewReserves.Columns["Status"].HeaderText = "Estado del Evento";
+                    dataGridViewReserves.Columns["SpaceName"].HeaderText = "Espacio";
+                    dataGridViewReserves.Columns["ReserveDate"].HeaderText = "Fecha de Reserva";
+                    dataGridViewReserves.Columns["SeatInfo"].HeaderText = "Información del Asiento";
+
+                    // Llenar la columna del ID de reserva
+                    foreach (DataGridViewRow row in dataGridViewReserves.Rows)
+                    {
+                        row.Cells["ReservationId"].Value = row.Cells["ReservationId"].Value; // Asegúrate de que la celda esté bien vinculada
+                    }
 
                     // Refrescar los bindings
                     reservesBindingSource.ResetBindings(false);
@@ -92,10 +102,66 @@ namespace CultureWave_Form.Forms
             }
         }
 
+
         private void roundedButtonReserve_Click(object sender, EventArgs e)
         {
             FormCreateReserve reserve = new FormCreateReserve();
             reserve.Show();
         }
+
+        private void roundedButtonDeleteReserve_Click(object sender, EventArgs e)
+        {
+            // Verificar si hay una fila seleccionada
+            if (dataGridViewReserves.SelectedRows.Count > 0)
+            {
+                // Obtener el ID de la reserva desde la columna "ReservationId" del DataGridView
+                int reservationId = Convert.ToInt32(dataGridViewReserves.SelectedRows[0].Cells["ReservationId"].Value);
+
+                // Obtener información de la reserva para mostrar en el mensaje de confirmación
+                string reserveInfo = dataGridViewReserves.SelectedRows[0].Cells["NombreReserva"].Value?.ToString() ??
+                                    $"Reserva ID: {reservationId}";
+
+                // Mostrar mensaje de confirmación
+                DialogResult result = MessageBox.Show(
+                    $"¿Estás seguro que deseas eliminar la reserva: {reserveInfo}?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button2); // No como opción por defecto
+
+                if (result == DialogResult.Yes)
+                {
+                    // Intentar eliminar la reserva
+                    bool isDeleted = ReserveOrm.DeleteReservation(reservationId);
+
+                    if (isDeleted)
+                    {
+                        MessageBox.Show("Reserva eliminada exitosamente.", "Éxito",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Refrescar el DataGridView para mostrar las reservas actualizadas
+                        roundedButtonSearch_Click(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar la reserva.", "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Eliminación cancelada.", "Información",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una reserva para eliminar.", "Advertencia",
+                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
+
     }
 }

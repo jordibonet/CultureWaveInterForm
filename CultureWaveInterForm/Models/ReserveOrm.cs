@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Windows.Forms;
 
 namespace CultureWaveInterForm.Models
 {
@@ -31,8 +33,10 @@ namespace CultureWaveInterForm.Models
                         // Obtener información del asiento (si existe)
                         var seat = r.seat?.FirstOrDefault();
 
+                        // Agregar el idReserve al objeto anónimo para cada reserva
                         result.Add(new
                         {
+                            ReservationId = r.idReserve,  // Incluye el ID de la reserva
                             EventName = r.eventTable?.name ?? "Evento no disponible",
                             StartDate = r.eventTable?.startDate ?? DateTime.MinValue,
                             EndDate = r.eventTable?.endDate ?? DateTime.MinValue,
@@ -53,6 +57,7 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+
         public static List<Event> GetEventsForComboBox()
         {
             using (var db = new cultureWaveEntities1())
@@ -63,8 +68,6 @@ namespace CultureWaveInterForm.Models
                          .ToList();
             }
         }
-
-
 
         public static int CreateReservationWithSeat(int userId, int eventId, char row, int numSeat)
         {
@@ -119,7 +122,6 @@ namespace CultureWaveInterForm.Models
                 }
             }
         }
-
 
         public static bool EventHasFixedSeats(int eventId)
         {
@@ -179,10 +181,88 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        public static bool DeleteReservation(int reservationId)
+        {
+            using (var db = new cultureWaveEntities1())
+            {
+                using (var transaction = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        // Obtener la reserva con TODAS sus relaciones incluidas
+                        var reserva = db.reserve
+                            .Include(r => r.seat)
+                            .Include(r => r.ticket)
+                            .Include(r => r.eventTable)
+                            .Include(r => r.user)
+                            .FirstOrDefault(r => r.idReserve == reservationId);
 
+                        if (reserva == null)
+                        {
+                            MessageBox.Show("Reserva no encontrada en la base de datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
 
+                        // 1. Eliminar tickets relacionados
+                        if (reserva.ticket != null && reserva.ticket.Any())
+                        {
+                            db.ticket.RemoveRange(reserva.ticket);
+                            db.SaveChanges();
+                        }
 
+                        // 2. Manejar asientos relacionados
+                        if (reserva.seat != null && reserva.seat.Any())
+                        {
+                            // Opción A: Eliminar los asientos
+                            db.seat.RemoveRange(reserva.seat);
+                            // Opción B: Quitar la relación (actualizar idReserve a null)
+                            // foreach (var seat in reserva.seat) { seat.idReserve = null; }
+                            db.SaveChanges();
+                        }
 
+                        // 3. Manejar relación con eventTable (si es necesario)
+                        if (reserva.eventTable != null)
+                        {
+                            // Dependiendo de tus reglas de negocio:
+                            // reserva.eventTable = null; // Rompe la relación sin eliminar el evento
+                            db.SaveChanges();
+                        }
+
+                        // 4. Manejar relación con user (si es necesario)
+                        if (reserva.user != null)
+                        {
+                            // Dependiendo de tus reglas de negocio:
+                            // reserva.user = null; // Rompe la relación sin eliminar el usuario
+                            db.SaveChanges();
+                        }
+
+                        // 5. Finalmente eliminar la reserva
+                        db.reserve.Remove(reserva);
+                        db.SaveChanges();
+
+                        transaction.Commit();
+                        return true;
+                    }
+                    catch (DbUpdateException dbEx)
+                    {
+                        transaction.Rollback();
+                        string errorMessage = "Error de base de datos:\n";
+                        var innerException = dbEx.InnerException?.InnerException ?? dbEx.InnerException ?? dbEx;
+                        errorMessage += innerException.Message;
+
+                        MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        MessageBox.Show($"Error inesperado: {ex.Message}\nStack Trace: {ex.StackTrace}",
+                                      "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
+        }
 
 
 
