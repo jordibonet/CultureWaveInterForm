@@ -238,6 +238,7 @@
       <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UsersLogInOrm.cs" />
+    <Compile Include="Models\UsersOrm.cs" />
     <Compile Include="Models\UsersReserveOrm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

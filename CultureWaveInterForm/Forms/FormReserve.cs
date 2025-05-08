@@ -26,6 +26,7 @@ namespace CultureWave_Form.Forms
 
             dataGridViewReserves.DataSource = reservesBindingSource;
             dataGridViewReserves.Visible = false;
+            labelNameReserves.Visible = false;
         }
 
         private void loadUsersComboBox()
@@ -49,6 +50,7 @@ namespace CultureWave_Form.Forms
         private void roundedButtonSearch_Click(object sender, EventArgs e)
         {
             dataGridViewReserves.Visible = true;
+            labelNameReserves.Visible = true;
 
             // Verificar si hay un usuario seleccionado
             if (comboBoxUsers.SelectedIndex != -1)
