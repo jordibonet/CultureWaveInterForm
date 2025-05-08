@@ -92,5 +92,47 @@ namespace CultureWave_Form.Forms
                 loadUsers();
             }
         }
+
+        private void roundedButtonDelete_Click(object sender, EventArgs e)
+        {
+            // Verificar si hay una fila seleccionada
+            if (dataGridViewUsers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Por favor seleccione un usuario para eliminar",
+                              "Advertencia",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Obtener el ID del usuario seleccionado
+            int selectedUserId = (int)dataGridViewUsers.SelectedRows[0].Cells["idUser"].Value;
+            string userName = dataGridViewUsers.SelectedRows[0].Cells["name"].Value.ToString();
+
+            // Confirmar eliminación
+            DialogResult confirm = MessageBox.Show(
+                $"¿Está seguro que desea eliminar al usuario '{userName}' (ID: {selectedUserId})?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                // Llamar al método de eliminación
+                string resultado = UsersOrm.DeleteUser(selectedUserId);
+
+                // Mostrar resultado
+                MessageBox.Show(resultado,
+                               resultado.StartsWith("Error") ? "Error" : "Éxito",
+                               MessageBoxButtons.OK,
+                               resultado.StartsWith("Error") ? MessageBoxIcon.Error : MessageBoxIcon.Information);
+
+                // Recargar la lista si fue exitoso
+                if (!resultado.StartsWith("Error"))
+                {
+                    loadUsers();
+                }
+            }
+        }
     }
 }

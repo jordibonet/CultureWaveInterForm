@@ -139,6 +139,38 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        public static string DeleteUser(int userId)
+        {
+            try
+            {
+                using (var db = new cultureWaveEntities1())
+                {
+                    // Buscar el usuario a eliminar
+                    var usuario = db.user.Find(userId);
+                    if (usuario == null)
+                    {
+                        return "Error: El usuario no existe";
+                    }
+
+                    // Verificar si tiene reservas o mensajes asociados (opcional)
+                    if (usuario.reserve.Any() || usuario.message.Any())
+                    {
+                        return "Error: El usuario tiene reservas o mensajes asociados. No se puede eliminar.";
+                    }
+
+                    // Eliminar el usuario
+                    db.user.Remove(usuario);
+                    db.SaveChanges();
+
+                    return "Usuario eliminado exitosamente";
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error al eliminar usuario: {ex.Message}";
+            }
+        }
+
 
 
 
