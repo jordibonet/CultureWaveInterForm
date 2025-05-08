@@ -21,7 +21,9 @@ namespace CultureWaveInterForm.Models
                             u.idUser,
                             u.name,
                             u.email,
+                            u.password,
                             RolName = u.rol1.name, // Nombre del rol o valor por defecto
+                            IdRol = u.rol,
                             ReserveCount = u.reserve.Count // Conteo de reservas
                         })
                         .ToList<dynamic>(); // Convertimos a dynamic para facilitar el binding
@@ -92,6 +94,48 @@ namespace CultureWaveInterForm.Models
             {
                 // Registrar el error (opcional)
                 return $"Error al crear usuario: {ex.Message}";
+            }
+        }
+
+        public static string UpdateUser(int userId, string nombre, string email, string password, int idRol)
+        {
+            try
+            {
+                using (var db = new cultureWaveEntities1())
+                {
+                    // Buscar el usuario existente
+                    var usuario = db.user.Find(userId);
+                    if (usuario == null)
+                    {
+                        return "Error: El usuario no existe";
+                    }
+
+                    // Validar que el rol exista
+                    var rolExistente = db.rol.Any(r => r.idRol == idRol);
+                    if (!rolExistente)
+                    {
+                        return "Error: El rol seleccionado no existe";
+                    }
+
+                    // Validar email único (excepto para el propio usuario)
+                    if (db.user.Any(u => u.email == email && u.idUser != userId))
+                    {
+                        return "Error: El correo electrónico ya está registrado por otro usuario";
+                    }
+
+                    // Actualizar propiedades
+                    usuario.name = nombre;
+                    usuario.email = email;
+                    usuario.password = password;
+                    usuario.rol = idRol;
+
+                    db.SaveChanges();
+                    return "Usuario actualizado exitosamente";
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Error al actualizar usuario: {ex.Message}";
             }
         }
 

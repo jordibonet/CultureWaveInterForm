@@ -128,6 +128,7 @@ namespace CultureWave_Form.Forms
             this.roundedButtonEdit.TabIndex = 43;
             this.roundedButtonEdit.Text = "Modificar";
             this.roundedButtonEdit.UseVisualStyleBackColor = false;
+            this.roundedButtonEdit.Click += new System.EventHandler(this.roundedButtonEdit_Click);
             // 
             // FormUser
             // 

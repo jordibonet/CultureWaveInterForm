@@ -13,9 +13,11 @@ namespace CultureWave_Form.Forms
 {
     public partial class FormCreateEditUser : Form
     {
+        private int? currentUserId = null;
         public FormCreateEditUser()
         {
             InitializeComponent();
+            loadRol();
         }
 
         private void roundedButtonCancel_Click(object sender, EventArgs e)
@@ -25,7 +27,7 @@ namespace CultureWave_Form.Forms
 
         private void FormCreateEditUser_Load(object sender, EventArgs e)
         {
-            loadRol();
+            
         }
 
         private void loadRol()
@@ -73,18 +75,49 @@ namespace CultureWave_Form.Forms
                 return;
             }
 
-            // Llamar al método de inserción
-            string resultado = UsersOrm.InsertUser(nombre, email, password, idRol);
+            // Determinar si es creación o actualización
+            if (currentUserId == null)
+            {
+                // Lógica para crear nuevo usuario
+                string resultado = UsersOrm.InsertUser(nombre, email, password, idRol);
 
-            // Mostrar resultado
-            MessageBox.Show(resultado, resultado.Contains("Error") ? "Error" : "Éxito",
-                           MessageBoxButtons.OK,
-                           resultado.Contains("Error") ? MessageBoxIcon.Error : MessageBoxIcon.Information);
+                MessageBox.Show(resultado, resultado.Contains("Error") ? "Error" : "Éxito",
+                               MessageBoxButtons.OK,
+                               resultado.Contains("Error") ? MessageBoxIcon.Error : MessageBoxIcon.Information);
 
-            
+                if (!resultado.Contains("Error"))
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            else
+            {
+                // Lógica para actualizar usuario existente
+                string resultado = UsersOrm.UpdateUser(currentUserId.Value, nombre, email, password, idRol);
 
+                MessageBox.Show(resultado, resultado.Contains("Error") ? "Error" : "Éxito",
+                               MessageBoxButtons.OK,
+                               resultado.Contains("Error") ? MessageBoxIcon.Error : MessageBoxIcon.Information);
 
+                if (!resultado.Contains("Error"))
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+        }
 
+        internal void loadUsersData(user user)
+        {
+            currentUserId = user.idUser;
+            roundedTextBoxUser.Texts = user.name;
+            roundedTextBoxEmail.Texts = user.email.ToString();
+            roundedTextBoxPassword.Texts = user.password.ToString();
+            comboBoxRol.SelectedValue = user.rol;
+
+            this.Text = "Editar Usuario";
+            roundedButtonAccept.Text = "Guardar Cambios";
         }
     }
 }

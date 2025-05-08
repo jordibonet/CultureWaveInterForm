@@ -49,8 +49,13 @@ namespace CultureWave_Form.Forms
                 dataGridViewUsers.Columns["idUser"].HeaderText = "ID Usuario";
                 dataGridViewUsers.Columns["name"].HeaderText = "Nombre";
                 dataGridViewUsers.Columns["email"].HeaderText = "Correo Electrónico";
+                dataGridViewUsers.Columns["password"].HeaderText = "Contraseña";
                 dataGridViewUsers.Columns["RolName"].HeaderText = "Rol";
+                dataGridViewUsers.Columns["IdRol"].HeaderText = "ID ROL";
                 dataGridViewUsers.Columns["ReserveCount"].HeaderText = "N° Reservas";
+
+                dataGridViewUsers.Columns["password"].Visible = false;
+                dataGridViewUsers.Columns["IdRol"].Visible = false;
 
                 // Limpiar la selección
                 dataGridViewUsers.ClearSelection();
@@ -61,7 +66,31 @@ namespace CultureWave_Form.Forms
             }
         }
 
+        private void roundedButtonEdit_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewUsers.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccione un espacio para editar", "Advertencia",
+                              MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
+            var selectedRow = dataGridViewUsers.SelectedRows[0];
+            var user = new user
+            {
+                idUser = Convert.ToInt32(selectedRow.Cells["idUser"].Value),
+                name = selectedRow.Cells["name"].Value.ToString(),
+                email = selectedRow.Cells["email"].Value.ToString(),
+                password = selectedRow.Cells["password"].Value.ToString(),
+                rol = Convert.ToInt32(selectedRow.Cells["idRol"].Value)
+            };
 
+            var editForm = new FormCreateEditUser();
+            editForm.loadUsersData(user);
+            if (editForm.ShowDialog() == DialogResult.OK)
+            {
+                loadUsers();
+            }
+        }
     }
 }
