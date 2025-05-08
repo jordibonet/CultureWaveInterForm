@@ -171,6 +171,56 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        public static List<string> SelectAllUserEmails()
+        {
+            try
+            {
+                using (var db = new cultureWaveEntities1())
+                {
+                    return db.user
+                             .Select(u => u.email)
+                             .Distinct()
+                             .OrderBy(email => email)
+                             .ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al obtener correos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new List<string>();
+            }
+        }
+
+        public static List<dynamic> SelectUserByEmail(string email)
+        {
+            try
+            {
+                using (var db = new cultureWaveEntities1())
+                {
+                    return db.user
+                        .Where(u => u.email == email)
+                        .Select(u => new
+                        {
+                            u.idUser,
+                            u.name,
+                            u.email,
+                            u.password,
+                            RolName = u.rol1.name,
+                            IdRol = u.rol,
+                            ReserveCount = u.reserve.Count
+                        })
+                        .ToList<dynamic>();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al buscar usuario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new List<dynamic>();
+            }
+        }
+
+
+
 
 
 

@@ -31,13 +31,16 @@ namespace CultureWave_Form.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.labelNameUsers = new System.Windows.Forms.Label();
             this.roundedButtonDelete = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonCreate = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonEdit = new CultureWave_Form.Controls.RoundedButton();
+            this.roundedTextBoxEmail = new CultureWave_Form.Controls.RoundedTextBox();
+            this.roundedButtonBuscar = new CultureWave_Form.Controls.RoundedButton();
+            this.roundedButtonReset = new CultureWave_Form.Controls.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,24 +51,24 @@ namespace CultureWave_Form.Forms
             this.dataGridViewUsers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewUsers.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dataGridViewUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(93)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(93)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewUsers.ColumnHeadersHeight = 56;
             this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewUsers.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewUsers.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewUsers.EnableHeadersVisualStyles = false;
             this.dataGridViewUsers.Location = new System.Drawing.Point(12, 99);
             this.dataGridViewUsers.MultiSelect = false;
@@ -93,7 +96,7 @@ namespace CultureWave_Form.Forms
             this.roundedButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButtonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.roundedButtonDelete.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonDelete.Location = new System.Drawing.Point(878, 18);
+            this.roundedButtonDelete.Location = new System.Drawing.Point(878, 12);
             this.roundedButtonDelete.Name = "roundedButtonDelete";
             this.roundedButtonDelete.Size = new System.Drawing.Size(126, 60);
             this.roundedButtonDelete.TabIndex = 45;
@@ -108,7 +111,7 @@ namespace CultureWave_Form.Forms
             this.roundedButtonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButtonCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.roundedButtonCreate.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonCreate.Location = new System.Drawing.Point(696, 18);
+            this.roundedButtonCreate.Location = new System.Drawing.Point(736, 12);
             this.roundedButtonCreate.Name = "roundedButtonCreate";
             this.roundedButtonCreate.Size = new System.Drawing.Size(126, 60);
             this.roundedButtonCreate.TabIndex = 44;
@@ -123,7 +126,7 @@ namespace CultureWave_Form.Forms
             this.roundedButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButtonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.roundedButtonEdit.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonEdit.Location = new System.Drawing.Point(513, 18);
+            this.roundedButtonEdit.Location = new System.Drawing.Point(595, 12);
             this.roundedButtonEdit.Name = "roundedButtonEdit";
             this.roundedButtonEdit.Size = new System.Drawing.Size(126, 60);
             this.roundedButtonEdit.TabIndex = 43;
@@ -131,12 +134,65 @@ namespace CultureWave_Form.Forms
             this.roundedButtonEdit.UseVisualStyleBackColor = false;
             this.roundedButtonEdit.Click += new System.EventHandler(this.roundedButtonEdit_Click);
             // 
+            // roundedTextBoxEmail
+            // 
+            this.roundedTextBoxEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            this.roundedTextBoxEmail.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(93)))), ((int)(((byte)(51)))));
+            this.roundedTextBoxEmail.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
+            this.roundedTextBoxEmail.BorderRadius = 15;
+            this.roundedTextBoxEmail.BorderSize = 2;
+            this.roundedTextBoxEmail.Location = new System.Drawing.Point(16, 26);
+            this.roundedTextBoxEmail.MaxLength = 43;
+            this.roundedTextBoxEmail.Multiline = false;
+            this.roundedTextBoxEmail.Name = "roundedTextBoxEmail";
+            this.roundedTextBoxEmail.Padding = new System.Windows.Forms.Padding(6, 9, 6, 9);
+            this.roundedTextBoxEmail.PasswordChar = false;
+            this.roundedTextBoxEmail.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.roundedTextBoxEmail.PlaceholderText = "";
+            this.roundedTextBoxEmail.Size = new System.Drawing.Size(283, 32);
+            this.roundedTextBoxEmail.TabIndex = 46;
+            this.roundedTextBoxEmail.Texts = "";
+            this.roundedTextBoxEmail.UnderlinedStyle = false;
+            // 
+            // roundedButtonBuscar
+            // 
+            this.roundedButtonBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
+            this.roundedButtonBuscar.FlatAppearance.BorderSize = 0;
+            this.roundedButtonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButtonBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.roundedButtonBuscar.ForeColor = System.Drawing.Color.Black;
+            this.roundedButtonBuscar.Location = new System.Drawing.Point(314, 12);
+            this.roundedButtonBuscar.Name = "roundedButtonBuscar";
+            this.roundedButtonBuscar.Size = new System.Drawing.Size(126, 60);
+            this.roundedButtonBuscar.TabIndex = 47;
+            this.roundedButtonBuscar.Text = "Buscar";
+            this.roundedButtonBuscar.UseVisualStyleBackColor = false;
+            this.roundedButtonBuscar.Click += new System.EventHandler(this.roundedButtonBuscar_Click);
+            // 
+            // roundedButtonReset
+            // 
+            this.roundedButtonReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
+            this.roundedButtonReset.FlatAppearance.BorderSize = 0;
+            this.roundedButtonReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButtonReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.roundedButtonReset.ForeColor = System.Drawing.Color.Black;
+            this.roundedButtonReset.Location = new System.Drawing.Point(456, 12);
+            this.roundedButtonReset.Name = "roundedButtonReset";
+            this.roundedButtonReset.Size = new System.Drawing.Size(126, 60);
+            this.roundedButtonReset.TabIndex = 48;
+            this.roundedButtonReset.Text = "Reset";
+            this.roundedButtonReset.UseVisualStyleBackColor = false;
+            this.roundedButtonReset.Click += new System.EventHandler(this.roundedButtonReset_Click);
+            // 
             // FormUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1016, 565);
+            this.Controls.Add(this.roundedButtonReset);
+            this.Controls.Add(this.roundedButtonBuscar);
+            this.Controls.Add(this.roundedTextBoxEmail);
             this.Controls.Add(this.roundedButtonDelete);
             this.Controls.Add(this.roundedButtonCreate);
             this.Controls.Add(this.roundedButtonEdit);
@@ -157,5 +213,8 @@ namespace CultureWave_Form.Forms
         private Controls.RoundedButton roundedButtonDelete;
         private Controls.RoundedButton roundedButtonCreate;
         private Controls.RoundedButton roundedButtonEdit;
+        private Controls.RoundedTextBox roundedTextBoxEmail;
+        private Controls.RoundedButton roundedButtonBuscar;
+        private Controls.RoundedButton roundedButtonReset;
     }
 }

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using CultureWave_Form.Utils;
+
 
 namespace CultureWave_Form.Forms
 {
@@ -19,8 +21,48 @@ namespace CultureWave_Form.Forms
 
         private void FormUser_Load(object sender, EventArgs e)
         {
-            loadUsers();  // Cargar los usuarios cuando se cargue el formulario
+            loadUsers();
+            ConfigureEmailAutocomplete();
+
         }
+
+        private void ConfigureEmailAutocomplete()
+        {
+            List<string> correos = UsersOrm.SelectAllUserEmails(); // Tu método para obtener emails
+
+            AutoCompleteStringCollection autoSource = new AutoCompleteStringCollection();
+            autoSource.AddRange(correos.ToArray());
+
+            // Asignar al textbox interno del RoundedTextBox
+            roundedTextBoxEmail.Controls
+                .OfType<TextBox>()
+                .FirstOrDefault()?.ApplyAutoComplete(autoSource);
+        }
+
+        private void roundedButtonBuscar_Click(object sender, EventArgs e)
+        {
+            // Obtener el TextBox interno
+            var innerTextBox = roundedTextBoxEmail.Controls
+                .OfType<TextBox>()
+                .FirstOrDefault();
+
+            if (innerTextBox != null)
+            {
+                string email = innerTextBox.Text.Trim();
+
+                if (!string.IsNullOrEmpty(email))
+                {
+                    var usuariosFiltrados = UsersOrm.SelectUserByEmail(email);
+                    dataGridViewUsers.DataSource = usuariosFiltrados;
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, introduce un correo válido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+
 
         private void roundedButtonCreate_Click(object sender, EventArgs e)
         {
@@ -133,6 +175,11 @@ namespace CultureWave_Form.Forms
                     loadUsers();
                 }
             }
+        }
+
+        private void roundedButtonReset_Click(object sender, EventArgs e)
+        {
+            loadUsers();
         }
     }
 }

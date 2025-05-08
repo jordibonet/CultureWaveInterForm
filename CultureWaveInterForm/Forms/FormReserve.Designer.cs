@@ -40,7 +40,6 @@ namespace CultureWave_Form.Forms
             this.roundedButtonSearch = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonDeleteReserve = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonReserve = new CultureWave_Form.Controls.RoundedButton();
-            this.roundedTextBoxUser = new CultureWave_Form.Controls.RoundedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReserves)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,10 +101,11 @@ namespace CultureWave_Form.Forms
             // comboBoxUsers
             // 
             this.comboBoxUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBoxUsers.FormattingEnabled = true;
-            this.comboBoxUsers.Location = new System.Drawing.Point(16, 99);
+            this.comboBoxUsers.Location = new System.Drawing.Point(16, 49);
             this.comboBoxUsers.Name = "comboBoxUsers";
-            this.comboBoxUsers.Size = new System.Drawing.Size(295, 21);
+            this.comboBoxUsers.Size = new System.Drawing.Size(295, 28);
             this.comboBoxUsers.TabIndex = 42;
             // 
             // roundedButtonSearch
@@ -153,28 +153,6 @@ namespace CultureWave_Form.Forms
             this.roundedButtonReserve.UseVisualStyleBackColor = false;
             this.roundedButtonReserve.Click += new System.EventHandler(this.roundedButtonReserve_Click);
             // 
-            // roundedTextBoxUser
-            // 
-            this.roundedTextBoxUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.roundedTextBoxUser.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(93)))), ((int)(((byte)(51)))));
-            this.roundedTextBoxUser.BorderFocusColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
-            this.roundedTextBoxUser.BorderRadius = 20;
-            this.roundedTextBoxUser.BorderSize = 3;
-            this.roundedTextBoxUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.roundedTextBoxUser.Location = new System.Drawing.Point(13, 50);
-            this.roundedTextBoxUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.roundedTextBoxUser.MaxLength = 43;
-            this.roundedTextBoxUser.Multiline = false;
-            this.roundedTextBoxUser.Name = "roundedTextBoxUser";
-            this.roundedTextBoxUser.Padding = new System.Windows.Forms.Padding(8, 10, 8, 10);
-            this.roundedTextBoxUser.PasswordChar = false;
-            this.roundedTextBoxUser.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.roundedTextBoxUser.PlaceholderText = "";
-            this.roundedTextBoxUser.Size = new System.Drawing.Size(298, 41);
-            this.roundedTextBoxUser.TabIndex = 20;
-            this.roundedTextBoxUser.Texts = "";
-            this.roundedTextBoxUser.UnderlinedStyle = false;
-            // 
             // FormReserve
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,7 +163,6 @@ namespace CultureWave_Form.Forms
             this.Controls.Add(this.roundedButtonSearch);
             this.Controls.Add(this.roundedButtonDeleteReserve);
             this.Controls.Add(this.roundedButtonReserve);
-            this.Controls.Add(this.roundedTextBoxUser);
             this.Controls.Add(this.dataGridViewReserves);
             this.Controls.Add(this.labelUser);
             this.Controls.Add(this.labelNameReserves);
@@ -203,7 +180,6 @@ namespace CultureWave_Form.Forms
         private Label labelNameReserves;
         private Label labelUser;
         private DataGridView dataGridViewReserves;
-        private Controls.RoundedTextBox roundedTextBoxUser;
         private Controls.RoundedButton roundedButtonReserve;
         private Controls.RoundedButton roundedButtonDeleteReserve;
         private Controls.RoundedButton roundedButtonSearch;

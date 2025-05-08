@@ -61,25 +61,28 @@
             // comboBoxUsers
             // 
             this.comboBoxUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBoxUsers.FormattingEnabled = true;
             this.comboBoxUsers.Location = new System.Drawing.Point(54, 93);
             this.comboBoxUsers.Name = "comboBoxUsers";
-            this.comboBoxUsers.Size = new System.Drawing.Size(401, 21);
+            this.comboBoxUsers.Size = new System.Drawing.Size(401, 28);
             this.comboBoxUsers.TabIndex = 31;
             // 
             // comboBoxEvents
             // 
             this.comboBoxEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBoxEvents.FormattingEnabled = true;
             this.comboBoxEvents.Location = new System.Drawing.Point(54, 186);
             this.comboBoxEvents.Name = "comboBoxEvents";
-            this.comboBoxEvents.Size = new System.Drawing.Size(398, 21);
+            this.comboBoxEvents.Size = new System.Drawing.Size(398, 28);
             this.comboBoxEvents.TabIndex = 32;
             this.comboBoxEvents.SelectedIndexChanged += new System.EventHandler(this.comboBoxEvents_SelectedIndexChanged);
             // 
             // comboBoxRow
             // 
             this.comboBoxRow.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxRow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBoxRow.FormattingEnabled = true;
             this.comboBoxRow.Items.AddRange(new object[] {
             "A",
@@ -88,7 +91,7 @@
             "D"});
             this.comboBoxRow.Location = new System.Drawing.Point(54, 288);
             this.comboBoxRow.Name = "comboBoxRow";
-            this.comboBoxRow.Size = new System.Drawing.Size(196, 21);
+            this.comboBoxRow.Size = new System.Drawing.Size(196, 28);
             this.comboBoxRow.TabIndex = 34;
             // 
             // labelSeats
@@ -104,6 +107,7 @@
             // comboBoxNumSeat
             // 
             this.comboBoxNumSeat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxNumSeat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBoxNumSeat.FormattingEnabled = true;
             this.comboBoxNumSeat.Items.AddRange(new object[] {
             "01",
@@ -118,7 +122,7 @@
             "10"});
             this.comboBoxNumSeat.Location = new System.Drawing.Point(256, 288);
             this.comboBoxNumSeat.Name = "comboBoxNumSeat";
-            this.comboBoxNumSeat.Size = new System.Drawing.Size(196, 21);
+            this.comboBoxNumSeat.Size = new System.Drawing.Size(196, 28);
             this.comboBoxNumSeat.TabIndex = 35;
             // 
             // roundedButtonCreate

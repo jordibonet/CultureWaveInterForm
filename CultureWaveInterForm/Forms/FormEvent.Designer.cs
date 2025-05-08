@@ -50,10 +50,9 @@ namespace CultureWave_Form.Forms
             // 
             this.labelNameEvents.AutoSize = true;
             this.labelNameEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelNameEvents.Location = new System.Drawing.Point(84, 107);
-            this.labelNameEvents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNameEvents.Location = new System.Drawing.Point(63, 87);
             this.labelNameEvents.Name = "labelNameEvents";
-            this.labelNameEvents.Size = new System.Drawing.Size(192, 29);
+            this.labelNameEvents.Size = new System.Drawing.Size(154, 24);
             this.labelNameEvents.TabIndex = 8;
             this.labelNameEvents.Text = "Nombre evento";
             // 
@@ -61,10 +60,9 @@ namespace CultureWave_Form.Forms
             // 
             this.labelEventDate.AutoSize = true;
             this.labelEventDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelEventDate.Location = new System.Drawing.Point(736, 107);
-            this.labelEventDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEventDate.Location = new System.Drawing.Point(552, 87);
             this.labelEventDate.Name = "labelEventDate";
-            this.labelEventDate.Size = new System.Drawing.Size(170, 29);
+            this.labelEventDate.Size = new System.Drawing.Size(138, 24);
             this.labelEventDate.TabIndex = 9;
             this.labelEventDate.Text = "Fecha evento";
             // 
@@ -72,10 +70,9 @@ namespace CultureWave_Form.Forms
             // 
             this.labelDescription.AutoSize = true;
             this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelDescription.Location = new System.Drawing.Point(84, 234);
-            this.labelDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDescription.Location = new System.Drawing.Point(63, 190);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(237, 29);
+            this.labelDescription.Size = new System.Drawing.Size(190, 24);
             this.labelDescription.TabIndex = 11;
             this.labelDescription.Text = "Descripción evento";
             // 
@@ -87,16 +84,16 @@ namespace CultureWave_Form.Forms
             this.roundedTextBoxEvenDateStart.BorderRadius = 20;
             this.roundedTextBoxEvenDateStart.BorderSize = 3;
             this.roundedTextBoxEvenDateStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.roundedTextBoxEvenDateStart.Location = new System.Drawing.Point(736, 155);
-            this.roundedTextBoxEvenDateStart.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.roundedTextBoxEvenDateStart.Location = new System.Drawing.Point(552, 126);
+            this.roundedTextBoxEvenDateStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.roundedTextBoxEvenDateStart.MaxLength = 43;
             this.roundedTextBoxEvenDateStart.Multiline = false;
             this.roundedTextBoxEvenDateStart.Name = "roundedTextBoxEvenDateStart";
-            this.roundedTextBoxEvenDateStart.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
+            this.roundedTextBoxEvenDateStart.Padding = new System.Windows.Forms.Padding(8, 10, 8, 10);
             this.roundedTextBoxEvenDateStart.PasswordChar = false;
             this.roundedTextBoxEvenDateStart.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.roundedTextBoxEvenDateStart.PlaceholderText = "YYYY/MM/DD hh:mm";
-            this.roundedTextBoxEvenDateStart.Size = new System.Drawing.Size(344, 50);
+            this.roundedTextBoxEvenDateStart.Size = new System.Drawing.Size(258, 41);
             this.roundedTextBoxEvenDateStart.TabIndex = 13;
             this.roundedTextBoxEvenDateStart.Texts = "";
             this.roundedTextBoxEvenDateStart.UnderlinedStyle = false;
@@ -109,16 +106,16 @@ namespace CultureWave_Form.Forms
             this.roundedTextBoxNameEvent.BorderRadius = 20;
             this.roundedTextBoxNameEvent.BorderSize = 3;
             this.roundedTextBoxNameEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.roundedTextBoxNameEvent.Location = new System.Drawing.Point(85, 155);
-            this.roundedTextBoxNameEvent.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.roundedTextBoxNameEvent.Location = new System.Drawing.Point(64, 126);
+            this.roundedTextBoxNameEvent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.roundedTextBoxNameEvent.MaxLength = 43;
             this.roundedTextBoxNameEvent.Multiline = false;
             this.roundedTextBoxNameEvent.Name = "roundedTextBoxNameEvent";
-            this.roundedTextBoxNameEvent.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
+            this.roundedTextBoxNameEvent.Padding = new System.Windows.Forms.Padding(8, 10, 8, 10);
             this.roundedTextBoxNameEvent.PasswordChar = false;
             this.roundedTextBoxNameEvent.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.roundedTextBoxNameEvent.PlaceholderText = "";
-            this.roundedTextBoxNameEvent.Size = new System.Drawing.Size(539, 50);
+            this.roundedTextBoxNameEvent.Size = new System.Drawing.Size(404, 41);
             this.roundedTextBoxNameEvent.TabIndex = 14;
             this.roundedTextBoxNameEvent.Texts = "";
             this.roundedTextBoxNameEvent.UnderlinedStyle = false;
@@ -131,16 +128,16 @@ namespace CultureWave_Form.Forms
             this.roundedTextBoxEndDate.BorderRadius = 20;
             this.roundedTextBoxEndDate.BorderSize = 3;
             this.roundedTextBoxEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.roundedTextBoxEndDate.Location = new System.Drawing.Point(736, 225);
-            this.roundedTextBoxEndDate.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.roundedTextBoxEndDate.Location = new System.Drawing.Point(552, 183);
+            this.roundedTextBoxEndDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.roundedTextBoxEndDate.MaxLength = 43;
             this.roundedTextBoxEndDate.Multiline = false;
             this.roundedTextBoxEndDate.Name = "roundedTextBoxEndDate";
-            this.roundedTextBoxEndDate.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
+            this.roundedTextBoxEndDate.Padding = new System.Windows.Forms.Padding(8, 10, 8, 10);
             this.roundedTextBoxEndDate.PasswordChar = false;
             this.roundedTextBoxEndDate.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.roundedTextBoxEndDate.PlaceholderText = "YYYY/MM/DD hh:mm";
-            this.roundedTextBoxEndDate.Size = new System.Drawing.Size(344, 50);
+            this.roundedTextBoxEndDate.Size = new System.Drawing.Size(258, 41);
             this.roundedTextBoxEndDate.TabIndex = 16;
             this.roundedTextBoxEndDate.Texts = "";
             this.roundedTextBoxEndDate.UnderlinedStyle = false;
@@ -152,10 +149,9 @@ namespace CultureWave_Form.Forms
             this.roundedButtonGenerateIA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButtonGenerateIA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.roundedButtonGenerateIA.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonGenerateIA.Location = new System.Drawing.Point(379, 9);
-            this.roundedButtonGenerateIA.Margin = new System.Windows.Forms.Padding(4);
+            this.roundedButtonGenerateIA.Location = new System.Drawing.Point(284, 7);
             this.roundedButtonGenerateIA.Name = "roundedButtonGenerateIA";
-            this.roundedButtonGenerateIA.Size = new System.Drawing.Size(168, 74);
+            this.roundedButtonGenerateIA.Size = new System.Drawing.Size(126, 60);
             this.roundedButtonGenerateIA.TabIndex = 34;
             this.roundedButtonGenerateIA.Text = "Generar con IA";
             this.roundedButtonGenerateIA.UseVisualStyleBackColor = false;
@@ -168,10 +164,9 @@ namespace CultureWave_Form.Forms
             this.roundedButtonCreateEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButtonCreateEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.roundedButtonCreateEvent.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonCreateEvent.Location = new System.Drawing.Point(692, 9);
-            this.roundedButtonCreateEvent.Margin = new System.Windows.Forms.Padding(4);
+            this.roundedButtonCreateEvent.Location = new System.Drawing.Point(519, 7);
             this.roundedButtonCreateEvent.Name = "roundedButtonCreateEvent";
-            this.roundedButtonCreateEvent.Size = new System.Drawing.Size(168, 74);
+            this.roundedButtonCreateEvent.Size = new System.Drawing.Size(126, 60);
             this.roundedButtonCreateEvent.TabIndex = 35;
             this.roundedButtonCreateEvent.Text = "Crear evento";
             this.roundedButtonCreateEvent.UseVisualStyleBackColor = false;
@@ -181,21 +176,21 @@ namespace CultureWave_Form.Forms
             // 
             this.labelSpaceEvents.AutoSize = true;
             this.labelSpaceEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelSpaceEvents.Location = new System.Drawing.Point(736, 305);
-            this.labelSpaceEvents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelSpaceEvents.Location = new System.Drawing.Point(552, 248);
             this.labelSpaceEvents.Name = "labelSpaceEvents";
-            this.labelSpaceEvents.Size = new System.Drawing.Size(120, 29);
+            this.labelSpaceEvents.Size = new System.Drawing.Size(95, 24);
             this.labelSpaceEvents.TabIndex = 36;
             this.labelSpaceEvents.Text = "Espacios";
             // 
             // comboBoxSpaceEvents
             // 
+            this.comboBoxSpaceEvents.DisplayMember = "idSpace";
             this.comboBoxSpaceEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSpaceEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBoxSpaceEvents.FormattingEnabled = true;
-            this.comboBoxSpaceEvents.Location = new System.Drawing.Point(741, 363);
-            this.comboBoxSpaceEvents.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxSpaceEvents.Location = new System.Drawing.Point(556, 295);
             this.comboBoxSpaceEvents.Name = "comboBoxSpaceEvents";
-            this.comboBoxSpaceEvents.Size = new System.Drawing.Size(337, 24);
+            this.comboBoxSpaceEvents.Size = new System.Drawing.Size(254, 28);
             this.comboBoxSpaceEvents.TabIndex = 37;
             this.comboBoxSpaceEvents.ValueMember = "idSpace";
             // 
@@ -203,25 +198,24 @@ namespace CultureWave_Form.Forms
             // 
             this.labelStateEvent.AutoSize = true;
             this.labelStateEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelStateEvent.Location = new System.Drawing.Point(736, 417);
-            this.labelStateEvent.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelStateEvent.Location = new System.Drawing.Point(552, 339);
             this.labelStateEvent.Name = "labelStateEvent";
-            this.labelStateEvent.Size = new System.Drawing.Size(94, 29);
+            this.labelStateEvent.Size = new System.Drawing.Size(74, 24);
             this.labelStateEvent.TabIndex = 38;
             this.labelStateEvent.Text = "Estado";
             // 
             // comboBoxStateEvents
             // 
             this.comboBoxStateEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxStateEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBoxStateEvents.FormattingEnabled = true;
             this.comboBoxStateEvents.Items.AddRange(new object[] {
             "Programat",
             "Actiu",
             "Finalitzat"});
-            this.comboBoxStateEvents.Location = new System.Drawing.Point(741, 466);
-            this.comboBoxStateEvents.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxStateEvents.Location = new System.Drawing.Point(556, 379);
             this.comboBoxStateEvents.Name = "comboBoxStateEvents";
-            this.comboBoxStateEvents.Size = new System.Drawing.Size(337, 24);
+            this.comboBoxStateEvents.Size = new System.Drawing.Size(254, 28);
             this.comboBoxStateEvents.TabIndex = 39;
             // 
             // roundedRichTextBoxDescription
@@ -233,22 +227,23 @@ namespace CultureWave_Form.Forms
             this.roundedRichTextBoxDescription.BorderSize = 3;
             this.roundedRichTextBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.roundedRichTextBoxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.roundedRichTextBoxDescription.Location = new System.Drawing.Point(89, 266);
+            this.roundedRichTextBoxDescription.Location = new System.Drawing.Point(67, 216);
+            this.roundedRichTextBoxDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.roundedRichTextBoxDescription.Name = "roundedRichTextBoxDescription";
-            this.roundedRichTextBoxDescription.Padding = new System.Windows.Forms.Padding(10);
+            this.roundedRichTextBoxDescription.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
             this.roundedRichTextBoxDescription.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.roundedRichTextBoxDescription.PlaceholderText = "";
-            this.roundedRichTextBoxDescription.Size = new System.Drawing.Size(535, 180);
+            this.roundedRichTextBoxDescription.Size = new System.Drawing.Size(401, 146);
             this.roundedRichTextBoxDescription.TabIndex = 42;
             this.roundedRichTextBoxDescription.Texts = "";
             this.roundedRichTextBoxDescription.UnderlinedStyle = false;
             // 
             // FormEvent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1355, 695);
+            this.ClientSize = new System.Drawing.Size(1016, 565);
             this.Controls.Add(this.roundedRichTextBoxDescription);
             this.Controls.Add(this.comboBoxStateEvents);
             this.Controls.Add(this.labelStateEvent);
@@ -262,7 +257,6 @@ namespace CultureWave_Form.Forms
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelEventDate);
             this.Controls.Add(this.labelNameEvents);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormEvent";
             this.Text = "FormEvent";
             this.Load += new System.EventHandler(this.FormEvent_Load);
