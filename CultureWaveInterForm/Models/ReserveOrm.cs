@@ -77,10 +77,12 @@ namespace CultureWaveInterForm.Models
                 {
                     try
                     {
+                        // 1. Verificar usuario
                         var usuario = db.user.Find(userId);
                         if (usuario == null)
                             throw new Exception("Usuario no válido");
 
+                        // 2. Verificar evento y espacio
                         var evento = db.eventTable
                             .Include(e => e.space)
                             .FirstOrDefault(e => e.idEvent == eventId);
@@ -88,29 +90,35 @@ namespace CultureWaveInterForm.Models
                         if (evento == null)
                             throw new Exception("Evento no encontrado");
 
-                        if (evento.space.fixedSeats == false)
-                            throw new Exception("Este evento no requiere asiento");
+                        if (evento.space == null || evento.space.fixedSeats == false)
+                            throw new Exception("Este evento no tiene asientos fijos");
 
-                        // Buscar asiento
-                        var asiento = db.seat.FirstOrDefault(s => s.row == row.ToString()
-                        && s.numSeat == numSeat
-                        && s.idSpace == evento.space.idSpace);
+                        // 3. Verificar asiento disponible
+                        string rowString = row.ToString();
+
+                        var asiento = db.seat.FirstOrDefault(s =>
+                            s.row == rowString &&
+                            s.numSeat == numSeat &&
+                            s.idSpace == evento.space.idSpace &&
+                            !db.reserve.Any(r => r.idEvent == eventId && r.seat.Any(se => se.idSeat == s.idSeat)));
 
                         if (asiento == null)
-                            throw new Exception("Asiento no encontrado");
+                            throw new Exception("Asiento no disponible o no encontrado");
 
+                        // 4. Crear la reserva y asociar el asiento y usuario
                         var reserva = new reserve
                         {
-                            idEvent = eventId,
-                            reserveDate = DateTime.Now,
-                            user = new List<user> { usuario },
-                            seat = new List<seat> { asiento }
+                            eventTable = evento,
+                            reserveDate = DateTime.Now
                         };
+
+                        reserva.user.Add(usuario);
+                        reserva.seat.Add(asiento);
 
                         db.reserve.Add(reserva);
                         db.SaveChanges();
-                        transaction.Commit();
 
+                        transaction.Commit();
                         return reserva.idReserve;
                     }
                     catch (Exception ex)
@@ -122,6 +130,33 @@ namespace CultureWaveInterForm.Models
                 }
             }
         }
+
+
+
+
+
+
+        public static bool IsSeatAvailable(int eventId, char row, int numSeat)
+        {
+            using (var db = new cultureWaveEntities1())
+            {
+                var evento = db.eventTable
+                    .Include(e => e.space)
+                    .FirstOrDefault(e => e.idEvent == eventId);
+
+                if (evento?.space == null) return false;
+
+                string rowString = row.ToString();
+
+                return db.seat.Any(s =>
+                    s.row == rowString &&
+                    s.numSeat == numSeat &&
+                    s.idSpace == evento.space.idSpace &&
+                    !db.reserve.Any(r => r.idEvent == eventId && r.seat.Any(se => se.idSeat == s.idSeat)));
+            }
+        }
+
+
 
         public static bool EventHasFixedSeats(int eventId)
         {

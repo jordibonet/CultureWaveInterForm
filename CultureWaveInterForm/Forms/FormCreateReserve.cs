@@ -55,6 +55,15 @@ namespace CultureWaveInterForm.Forms
                     // numSeat como int
                     int numSeat = Convert.ToInt32(comboBoxNumSeat.SelectedItem);
 
+                    if (!ReserveOrm.IsSeatAvailable(eventId, row, numSeat))
+                    {
+                        MessageBox.Show("El asiento seleccionado no está disponible",
+                                      "Asiento ocupado",
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     reservationId = ReserveOrm.CreateReservationWithSeat(userId, eventId, row, numSeat);
                 }
                 else
