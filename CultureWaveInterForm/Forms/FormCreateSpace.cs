@@ -22,6 +22,10 @@ namespace CultureWave_Form.Forms
             this.formData = formData;
         }
 
+        /// <summary>
+        /// Cargamos los datos del espacio que estamos modificando a los textbox...
+        /// </summary>
+        /// <param name="espacio"></param>
         public void LoadSpaceData(space espacio)
         {
             currentSpaceId = espacio.idSpace;
@@ -36,6 +40,11 @@ namespace CultureWave_Form.Forms
             roundedButtonCreate.Text = "Guardar Cambios";
         }
 
+        /// <summary>
+        /// Metodo para recoger los datos y hacer un insert para crear un espacio nuevo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonCreate_Click(object sender, EventArgs e)
         {
             if (!ValidateFields()) return;
@@ -85,6 +94,10 @@ namespace CultureWave_Form.Forms
             }
         }
 
+        /// <summary>
+        /// Validamos los campos para que sean medianamente correctos.
+        /// </summary>
+        /// <returns></returns>
         private bool ValidateFields()
         {
             if (string.IsNullOrWhiteSpace(roundedTextBoxNameSpace.Texts))

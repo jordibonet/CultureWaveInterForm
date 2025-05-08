@@ -19,11 +19,20 @@ namespace CultureWave_Form.Forms
             this.formData = formData;
         }
 
+        /// <summary>
+        /// Ejecuta esto la primera vez que se ejecuta este form.
+        /// Ejecutara el metodo que se esta llamando.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormEvent_Load(object sender, EventArgs e)
         {
             loadSpacesComboBox();
         }
 
+        /// <summary>
+        /// Carga los espacios en la comboBox mediante DataSource y enseña su nombre.
+        /// </summary>
         private void loadSpacesComboBox()
         {
             try
@@ -43,6 +52,12 @@ namespace CultureWave_Form.Forms
             }
         }
 
+        /// <summary>
+        /// Cuando el de el usuario a este boton enviara un mensaje a una IA para que 
+        /// rellene los campos dichos con la información pedida y la enviara en formato JSON.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void roundedButtonGenerateIA_Click(object sender, EventArgs e)
         {
             string prompt = $@"Genera un JSON con los campos 'titulo', 'descripcion', 'fecha_inicio' y 'fecha_fin' para un evento cultural. 
@@ -138,6 +153,11 @@ namespace CultureWave_Form.Forms
             }
         }
 
+        /// <summary>
+        /// Metodo para verificar que la fecha es valida
+        /// </summary>
+        /// <param name="fecha"></param>
+        /// <returns>Devuelve la fecha sin error</returns>
         private bool FechaEsValida(string fecha)
         {
             var formato = "yyyy-MM-dd HH:mm";
@@ -146,6 +166,11 @@ namespace CultureWave_Form.Forms
             return DateTime.TryParseExact(fecha, formato, cultura, DateTimeStyles.None, out _);
         }
 
+        /// <summary>
+        /// Este metodo enviara el insert al Models para hacer el insert comprobando que los campos no esten vacios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonCreateEvent_Click(object sender, EventArgs e)
         {
             // Validar campos obligatorios

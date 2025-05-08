@@ -19,6 +19,49 @@ namespace CultureWaveInterForm.Forms
             InitializeComponent();
         }
 
+        private void FormCreateReserve_Load(object sender, EventArgs e)
+        {
+            loadNames();
+            loadEvents();
+        }
+
+        /// <summary>
+        /// Cargamos los nombres de los usuarios en la comboBox con DataSource
+        /// </summary>
+        private void loadNames()
+        {
+            // Obtener los datos desde el ORM
+            var usuarios = UsersReserveOrm.GetUsersForComboBox(3); // RolId = 3
+
+            // Configurar el ComboBox
+            comboBoxUsers.DataSource = usuarios;
+            comboBoxUsers.DisplayMember = "DisplayText";
+            comboBoxUsers.ValueMember = "Id";
+
+            comboBoxUsers.SelectedIndex = -1;
+        }
+
+        /// <summary>
+        /// Cargamos los nombres de los eventos en la comboBox mediante DataSource
+        /// </summary>
+        private void loadEvents()
+        {
+            comboBoxEvents.SelectedIndexChanged -= comboBoxEvents_SelectedIndexChanged;
+
+            var eventos = ReserveOrm.GetEventsForComboBox();
+            comboBoxEvents.DataSource = eventos;
+            comboBoxEvents.DisplayMember = "Name";
+            comboBoxEvents.ValueMember = "Id";
+            comboBoxEvents.SelectedIndex = -1;
+
+            comboBoxEvents.SelectedIndexChanged += comboBoxEvents_SelectedIndexChanged;
+        }
+
+        /// <summary>
+        /// Creamos una reserva para un usuario, depende si el evento tiene sillas o no ejecuta un insert u otro
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonCreate_Click(object sender, EventArgs e)
         {
             try
@@ -87,39 +130,12 @@ namespace CultureWaveInterForm.Forms
             }
         }
 
-        private void FormCreateReserve_Load(object sender, EventArgs e)
-        {
-            loadNames();
-            loadEvents();
-        }
-
-        private void loadEvents()
-        {
-            comboBoxEvents.SelectedIndexChanged -= comboBoxEvents_SelectedIndexChanged;
-
-            var eventos = ReserveOrm.GetEventsForComboBox();
-            comboBoxEvents.DataSource = eventos;
-            comboBoxEvents.DisplayMember = "Name";
-            comboBoxEvents.ValueMember = "Id";
-            comboBoxEvents.SelectedIndex = -1;
-
-            comboBoxEvents.SelectedIndexChanged += comboBoxEvents_SelectedIndexChanged;
-        }
-
-
-        private void loadNames()
-        {
-            // Obtener los datos desde el ORM
-            var usuarios = UsersReserveOrm.GetUsersForComboBox(3); // RolId = 3
-
-            // Configurar el ComboBox
-            comboBoxUsers.DataSource = usuarios;
-            comboBoxUsers.DisplayMember = "DisplayText";
-            comboBoxUsers.ValueMember = "Id";
-
-            comboBoxUsers.SelectedIndex = -1;
-        }
-
+        /// <summary>
+        /// Este metodo se ejecuta cada vez que la comboBoxEvents cambie de selección y si el evento tiene sillas 
+        /// fijas le deja seleccionar asientos, si no no.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBoxEvents_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxEvents.SelectedIndex != -1)

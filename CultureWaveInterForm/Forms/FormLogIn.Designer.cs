@@ -62,6 +62,7 @@ namespace CultureWave_Form
             this.roundedTextBoxUser.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.roundedTextBoxUser.Location = new System.Drawing.Point(394, 344);
             this.roundedTextBoxUser.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.roundedTextBoxUser.MaxLength = 43;
             this.roundedTextBoxUser.Multiline = false;
             this.roundedTextBoxUser.Name = "roundedTextBoxUser";
             this.roundedTextBoxUser.Padding = new System.Windows.Forms.Padding(8, 14, 8, 14);
@@ -83,6 +84,7 @@ namespace CultureWave_Form
             this.roundedTextBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundedTextBoxPassword.Location = new System.Drawing.Point(394, 447);
             this.roundedTextBoxPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.roundedTextBoxPassword.MaxLength = 43;
             this.roundedTextBoxPassword.Multiline = false;
             this.roundedTextBoxPassword.Name = "roundedTextBoxPassword";
             this.roundedTextBoxPassword.Padding = new System.Windows.Forms.Padding(8, 14, 8, 14);
@@ -131,9 +133,11 @@ namespace CultureWave_Form
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::CultureWaveInterForm.Properties.Resources.LogoCultureWaveBueno;
             this.pictureBox1.Location = new System.Drawing.Point(544, 32);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(192, 192);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 

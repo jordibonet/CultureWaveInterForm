@@ -39,6 +39,45 @@ namespace CultureWave_Form.Forms
             loadLabelsUser();
         }
 
+        /// <summary>
+        /// Creamos instancias de los formularios dentro de formTypes y lo guardamos en allForms.
+        /// </summary>
+        private void InitializeForms()
+        {
+            var formTypes = new List<Type>
+            {
+                typeof(FormHome),
+                typeof(FormEvent),
+                typeof(FormReserve),
+                typeof(FormSpace),
+                typeof(FormCreateSpace),
+                typeof(FormUser),
+                typeof(FormExit)
+            };
+
+            foreach (var formType in formTypes)
+            {
+                var formInstance = (Form)Activator.CreateInstance(formType, this);
+                allForms.Add(formInstance);
+            }
+        }
+
+        /// <summary>
+        /// Agregamos los paneles del diseño a una lista de paneles.
+        /// </summary>
+        private void InitializePanels()
+        {
+            allPanels.Add(panelHome);
+            allPanels.Add(panelEvent);
+            allPanels.Add(panelReserve);
+            allPanels.Add(panelSpace);
+            allPanels.Add(panelUser);
+            allPanels.Add(panelExit);
+        }
+
+        /// <summary>
+        /// Agregamos el nombre del usuario y su rol para mostrar arriba a la derecha.
+        /// </summary>
         private void loadLabelsUser()
         {
             // Asignar el nombre del usuario
@@ -65,37 +104,9 @@ namespace CultureWave_Form.Forms
             }
         }
 
-        private void InitializeForms()
-        {
-            var formTypes = new List<Type>
-            {
-                typeof(FormHome),
-                typeof(FormEvent),
-                typeof(FormReserve),
-                typeof(FormSpace),
-                typeof(FormCreateSpace),
-                typeof(FormUser),
-                typeof(FormExit)
-            };
-
-            foreach (var formType in formTypes)
-            {
-                var formInstance = (Form)Activator.CreateInstance(formType, this);
-                allForms.Add(formInstance);
-            }
-
-        }
-
-        private void InitializePanels()
-        {
-            allPanels.Add(panelHome);
-            allPanels.Add(panelEvent);
-            allPanels.Add(panelReserve);
-            allPanels.Add(panelSpace);
-            allPanels.Add(panelUser);
-            allPanels.Add(panelExit);
-        }
-
+        /// <summary>
+        /// Recorre todos los paneles de la lista y establece el color de fondo para cada uno de ellos.
+        /// </summary>
         private void ChangePanelBackgroudColor()
         {
             foreach (Panel panel in allPanels)
@@ -118,6 +129,10 @@ namespace CultureWave_Form.Forms
 
         }
 
+        /// <summary>
+        /// Cambia de color del fondo de los paneles.
+        /// </summary>
+        /// <param name="panel"></param>
         private void HighlightPanel(Panel panel)
         {
             panel.BackColor = Color.FromArgb(228, 179, 99);
@@ -135,7 +150,10 @@ namespace CultureWave_Form.Forms
             }
         }
 
-
+        /// <summary>
+        /// Metodo para cargar los formularios dentro del panel
+        /// </summary>
+        /// <param name="childFormName">Le pasamos el nombre del panel que queremos agregar</param>
         public void LoadFormIntoPanel(String childFormName)
         {
             bool foundForm = false;
@@ -168,11 +186,20 @@ namespace CultureWave_Form.Forms
             }
         }
 
+        /// <summary>
+        /// Cuando se cierre la aplicación que se cierre la APP.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormData_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Abrir el form dentro del panel.
+        /// </summary>
+        /// <param name="formName">Pasamos el nombre del panel que queremos abrir</param>
         private void OpenPanel(String formName)
         {
             LoadFormIntoPanel("Form" + formName);
@@ -181,61 +208,121 @@ namespace CultureWave_Form.Forms
             HighlightPanel(targetPanel);
         }
 
+        /// <summary>
+        /// Si le da click a la imagen de Home abre el panel "Home"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxHome_Click(object sender, EventArgs e)
         {
             OpenPanel("Home");
         }
 
+        /// <summary>
+        /// Si le da click al label de Home abre el panel "Home"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelHome_Click(object sender, EventArgs e)
         {
             OpenPanel("Home");
         }
 
+        /// <summary>
+        /// Si le da click a la imagen de Event abre el panel "Event"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxEvent_Click(object sender, EventArgs e)
         {
             OpenPanel("Event");
         }
 
+        /// <summary>
+        /// Si le da click al label de Eventabre el panel "Event"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelEvents_Click(object sender, EventArgs e)
         {
             OpenPanel("Event");
         }
 
+        /// <summary>
+        /// Si le da click a la imagen de Reserve abre el panel "Reserve"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxReserve_Click(object sender, EventArgs e)
         {
             OpenPanel("Reserve");
         }
 
+        /// <summary>
+        /// Si le da click al label de Reserve abre el panel "Reserve"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelReserve_Click(object sender, EventArgs e)
         {
             OpenPanel("Reserve");
         }
 
+        /// <summary>
+        /// Si le da click a la imagen de Space abre el panel "Space"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxSpace_Click(object sender, EventArgs e)
         {
             OpenPanel("Space");
         }
 
+        /// <summary>
+        /// Si le da click al label de Space abre el panel "Space"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelSpace_Click(object sender, EventArgs e)
         {
             OpenPanel("Space");
         }
 
+        /// <summary>
+        /// Si le da click a la imagen de User abre el panel "User"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxUser_Click(object sender, EventArgs e)
         {
             OpenPanel("User");
         }
 
+        /// <summary>
+        /// Si le da click al label de User abre el panel "User"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelUser_Click(object sender, EventArgs e)
         {
             OpenPanel("User");
         }
 
+        /// <summary>
+        /// Si le da click a la imagen de Exit abre el panel "Exit"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBoxExit_Click(object sender, EventArgs e)
         {
             OpenPanel("Exit");
         }
 
+        /// <summary>
+        /// Si le da click al label de Exit abre el panel "Exit"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void labelExit_Click(object sender, EventArgs e)
         {
             OpenPanel("Exit");

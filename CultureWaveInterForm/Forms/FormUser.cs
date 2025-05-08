@@ -11,7 +11,6 @@ namespace CultureWave_Form.Forms
     public partial class FormUser : Form
     {
         private FormData formData;
-        private BindingSource usersBindingSource = new BindingSource(); // BindingSource para enlazar los usuarios
 
         public FormUser(FormData formData)
         {
@@ -19,69 +18,26 @@ namespace CultureWave_Form.Forms
             this.formData = formData;
         }
 
+        /// <summary>
+        /// Ejecuta estos metodos la primera vez que se ejecute.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormUser_Load(object sender, EventArgs e)
         {
             loadUsers();
             ConfigureEmailAutocomplete();
-
         }
 
-        private void ConfigureEmailAutocomplete()
-        {
-            List<string> correos = UsersOrm.SelectAllUserEmails(); // Tu método para obtener emails
-
-            AutoCompleteStringCollection autoSource = new AutoCompleteStringCollection();
-            autoSource.AddRange(correos.ToArray());
-
-            // Asignar al textbox interno del RoundedTextBox
-            roundedTextBoxEmail.Controls
-                .OfType<TextBox>()
-                .FirstOrDefault()?.ApplyAutoComplete(autoSource);
-        }
-
-        private void roundedButtonBuscar_Click(object sender, EventArgs e)
-        {
-            // Obtener el TextBox interno
-            var innerTextBox = roundedTextBoxEmail.Controls
-                .OfType<TextBox>()
-                .FirstOrDefault();
-
-            if (innerTextBox != null)
-            {
-                string email = innerTextBox.Text.Trim();
-
-                if (!string.IsNullOrEmpty(email))
-                {
-                    var usuariosFiltrados = UsersOrm.SelectUserByEmail(email);
-                    dataGridViewUsers.DataSource = usuariosFiltrados;
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, introduce un correo válido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
-
-
-
-        private void roundedButtonCreate_Click(object sender, EventArgs e)
-        {
-            // Crear y mostrar el formulario para agregar o editar un usuario
-            FormCreateEditUser formCreateEditUser = new FormCreateEditUser();
-            formCreateEditUser.ShowDialog();
-
-            // Recargar usuarios después de crear/editar
-            loadUsers();
-        }
-
+        /// <summary>
+        /// Carga los usuarios en el dataGridViewUsers mediante DataSource.
+        /// </summary>
         private void loadUsers()
         {
             try
             {
                 // Obtener usuarios con los campos específicos
                 var users = UsersOrm.SelectUsersWithSpecificFields();
-
-                // Asignar directamente al DataGridView
                 dataGridViewUsers.DataSource = users;
 
                 // Configuración de las columnas
@@ -108,6 +64,77 @@ namespace CultureWave_Form.Forms
             }
         }
 
+        /// <summary>
+        /// Configuración para autocompletar el correo al escribirse con correos de usuarios de la BBDD.
+        /// </summary>
+        private void ConfigureEmailAutocomplete()
+        {
+            List<string> correos = UsersOrm.SelectAllUserEmails(); 
+
+            AutoCompleteStringCollection autoSource = new AutoCompleteStringCollection();
+            autoSource.AddRange(correos.ToArray());
+
+            roundedTextBoxEmail.Controls
+                .OfType<TextBox>()
+                .FirstOrDefault()?.ApplyAutoComplete(autoSource);
+        }
+
+        /// <summary>
+        /// Cuando le de a buscar actualizará el dataGridViewUsers y mostrara el usuario escrito por el usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void roundedButtonBuscar_Click(object sender, EventArgs e)
+        {
+            var innerTextBox = roundedTextBoxEmail.Controls
+                .OfType<TextBox>()
+                .FirstOrDefault();
+
+            if (innerTextBox != null)
+            {
+                string email = innerTextBox.Text.Trim();
+
+                if (!string.IsNullOrEmpty(email))
+                {
+                    var usuariosFiltrados = UsersOrm.SelectUserByEmail(email);
+                    dataGridViewUsers.DataSource = usuariosFiltrados;
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, introduce un correo válido.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Resetea la dataGridViewUsers para mostrar nuevamente todos los usuarios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void roundedButtonReset_Click(object sender, EventArgs e)
+        {
+            loadUsers();
+        }
+
+        /// <summary>
+        /// Muestra el formulario para crear un usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void roundedButtonCreate_Click(object sender, EventArgs e)
+        {
+            FormCreateEditUser formCreateEditUser = new FormCreateEditUser();
+            formCreateEditUser.ShowDialog();
+
+            // Recargar usuarios después de crear/editar
+            loadUsers();
+        }
+
+        /// <summary>
+        /// Muestra el formulario para editar los usuario, le pasamos los datos del usuario con un objeto user y recarga os usuarios.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonEdit_Click(object sender, EventArgs e)
         {
             if (dataGridViewUsers.SelectedRows.Count == 0)
@@ -135,6 +162,11 @@ namespace CultureWave_Form.Forms
             }
         }
 
+        /// <summary>
+        /// Elimina el usuario que tenga el usuario seleccionado en la dataGridViewUsers y da un mensaje de confirmación.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonDelete_Click(object sender, EventArgs e)
         {
             // Verificar si hay una fila seleccionada
@@ -175,11 +207,6 @@ namespace CultureWave_Form.Forms
                     loadUsers();
                 }
             }
-        }
-
-        private void roundedButtonReset_Click(object sender, EventArgs e)
-        {
-            loadUsers();
         }
     }
 }

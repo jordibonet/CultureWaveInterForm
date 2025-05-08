@@ -8,7 +8,10 @@ namespace CultureWaveInterForm.Models
 {
     public static class UsersOrm
     {
-        // Método para obtener todos los usuarios, incluyendo sus relaciones
+        /// <summary>
+        /// Método para obtener todos los usuarios, incluyendo sus relaciones
+        /// </summary>
+        /// <returns></returns>
         public static List<dynamic> SelectUsersWithSpecificFields()
         {
             try
@@ -36,6 +39,10 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        /// <summary>
+        /// Metodo para obtener todos los roles y ordenarlos por su nombre
+        /// </summary>
+        /// <returns></returns>
         public static List<rol> SelectAllRoles()
         {
             try
@@ -43,7 +50,7 @@ namespace CultureWaveInterForm.Models
                 using (var db = new cultureWaveEntities1())
                 {
                     return db.rol
-                        .OrderBy(r => r.name)  // Ordenar por nombre
+                        .OrderBy(r => r.name)
                         .ToList();
                 }
             }
@@ -55,6 +62,14 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        /// <summary>
+        /// Metodo para insertar el usuario a la BBDD.
+        /// </summary>
+        /// <param name="nombre">Cogemos el nombre del usuario que queremos insertar</param>
+        /// <param name="email">Cogemos el correo del usuario que queremos insertar</param>
+        /// <param name="password">Cogemos la contraseña que queremos insertar</param>
+        /// <param name="idRol">Cogemos el rol que le queremos poner al usuario que queremos insertar</param>
+        /// <returns>Si se crea bien, devolvemos un mensaje y si se crea mal tambien</returns>
         public static string InsertUser(string nombre, string email, string password, int idRol)
         {
             try
@@ -79,8 +94,8 @@ namespace CultureWaveInterForm.Models
                     {
                         name = nombre,
                         email = email,
-                        password = password, // Considera hashear la contraseña
-                        rol = idRol      // Asignar el ID del rol
+                        password = password,
+                        rol = idRol
                     };
 
                     // Agregar y guardar
@@ -97,6 +112,15 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        /// <summary>
+        /// Modificamos el usuario con los datos introducidos por el usuario, si no se queda como estaba.
+        /// </summary>
+        /// <param name="userId">ID del usuario que vamos a modificar</param>
+        /// <param name="nombre">Nuevo nombre que queremos poner</param>
+        /// <param name="email">Nuevo email que queremos poner</param>
+        /// <param name="password">Nueva contraseña que le queremos poner</param>
+        /// <param name="idRol">ID del rol que le queremos asignar al usuario</param>
+        /// <returns>Devolvemos un mensaje si se ha podido crear bien o mal</returns>
         public static string UpdateUser(int userId, string nombre, string email, string password, int idRol)
         {
             try
@@ -139,6 +163,11 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        /// <summary>
+        /// Metodo para borrar el usuario que hemos seleccionado anteriormente.
+        /// </summary>
+        /// <param name="userId">pasamos la ID del usuario que queremos borrar</param>
+        /// <returns>Devolvemos un mensaje de si se ha borrado bien o mal</returns>
         public static string DeleteUser(int userId)
         {
             try
@@ -171,6 +200,10 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        /// <summary>
+        /// Metodo para coger todos los correos de los usuarios.
+        /// </summary>
+        /// <returns>Devolvemos los correos o un mensaje de error en caso de que falle</returns>
         public static List<string> SelectAllUserEmails()
         {
             try
@@ -191,6 +224,11 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        /// <summary>
+        /// En este metodo seleccionamos los usuarios de cada correo
+        /// </summary>
+        /// <param name="email">Le pasamos el correo para poder buscarlo</param>
+        /// <returns>Devuelve una lista o un mensaje de error</returns>
         public static List<dynamic> SelectUserByEmail(string email)
         {
             try

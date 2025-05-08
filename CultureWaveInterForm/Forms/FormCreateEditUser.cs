@@ -20,27 +20,25 @@ namespace CultureWave_Form.Forms
             loadRol();
         }
 
+        /// <summary>
+        /// Boton para cancelar la creación/modificación de usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void FormCreateEditUser_Load(object sender, EventArgs e)
-        {
-            
-        }
-
+        /// <summary>
+        /// Cargamos los roles en el comboBox mediante BindingSource
+        /// </summary>
         private void loadRol()
         {
             try
             {
-                // Obtener todos los roles
                 var roles = UsersOrm.SelectAllRoles();
-
-                // Crear el BindingSource
                 var rolesBindingSource = new BindingSource();
-
-                // Configurar el BindingSource
                 rolesBindingSource.DataSource = roles;
 
                 // Configurar el ComboBox
@@ -57,6 +55,11 @@ namespace CultureWave_Form.Forms
             }
         }
 
+        /// <summary>
+        /// Determinamos si estamos creando o editando un usuario y entonces hacer un insert o un update.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonAccept_Click(object sender, EventArgs e)
         {
             // Obtener datos del formulario
@@ -108,6 +111,10 @@ namespace CultureWave_Form.Forms
             }
         }
 
+        /// <summary>
+        /// Cargamos los datos del usuario que modificamos
+        /// </summary>
+        /// <param name="user"></param>
         internal void loadUsersData(user user)
         {
             currentUserId = user.idUser;

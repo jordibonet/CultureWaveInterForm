@@ -211,7 +211,6 @@ namespace CultureWave_Form.Forms
             this.Name = "FormCreateEditUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCreateEditUser";
-            this.Load += new System.EventHandler(this.FormCreateEditUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

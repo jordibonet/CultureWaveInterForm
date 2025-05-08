@@ -19,11 +19,21 @@ namespace CultureWave_Form.Forms
             this.formData = formData;
         }
 
+        /// <summary>
+        /// Este botón cierra la aplicación.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonExit_Click(object sender, EventArgs e)
         {
             formData.Close();
         }
 
+        /// <summary>
+        /// Este botón cierra sesión del usuario y te devuelve al LogIn.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonLogOut_Click(object sender, EventArgs e)
         {
             formData.Hide();

@@ -16,19 +16,64 @@ namespace CultureWave_Form.Forms
     public partial class FormHome : Form
     {
         FormData formData;
+        private BindingSource eventsBindingSource = new BindingSource();
+        private BindingSource bookingsBindingSource = new BindingSource();
         public FormHome(FormData formData)
         {
             InitializeComponent();
             this.formData = formData;
         }
 
+        /// <summary>
+        /// Ejecutará los dos siguientes metodos la primera vez que se ejecute este formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormHome_Load(object sender, EventArgs e)
         {
             loadEvents();
             loadBookings();
-
         }
 
+        /// <summary>
+        /// Cargamos los eventos en una dataGridView mediante BindingSource
+        /// </summary>
+        private void loadEvents()
+        {
+            try
+            {
+                // Obtener los eventos programados con el nombre del espacio
+                var events = EventsOrm.GetProgrammedEvents();
+
+                // Asignar los datos al BindingSource
+                eventsBindingSource.DataSource = events;
+
+                // Configurar el DataGridView
+                dataGridViewEvents.AutoGenerateColumns = false;
+                dataGridViewEvents.DataSource = eventsBindingSource;
+
+                // Asignar las propiedades a las columnas
+                dataGridViewEvents.Columns["name"].DataPropertyName = "name";
+                dataGridViewEvents.Columns["description"].DataPropertyName = "description";
+                dataGridViewEvents.Columns["startDate"].DataPropertyName = "startDate";
+                dataGridViewEvents.Columns["endDate"].DataPropertyName = "endDate";
+                dataGridViewEvents.Columns["SpaceName"].DataPropertyName = "SpaceName";
+
+                // Formatear columnas de fecha
+                dataGridViewEvents.Columns["startDate"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+                dataGridViewEvents.Columns["endDate"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
+
+                dataGridViewEvents.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar eventos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Agregar las reservas al dataGridView mediante BindingSource
+        /// </summary>
         private void loadBookings()
         {
             try
@@ -36,9 +81,12 @@ namespace CultureWave_Form.Forms
                 // Obtener las reservas con información completa del asiento
                 var reserves = BookingOrm.GetReservesWithSeatInfo();
 
+                // Asignar los datos al BindingSource
+                bookingsBindingSource.DataSource = reserves;
+
                 // Configurar el DataGridView
                 dataGridViewBookings.AutoGenerateColumns = false;
-                dataGridViewBookings.DataSource = reserves;
+                dataGridViewBookings.DataSource = bookingsBindingSource;
 
                 // Asignar las propiedades a las columnas
                 dataGridViewBookings.Columns["idReserve"].DataPropertyName = "idReserve";
@@ -55,13 +103,12 @@ namespace CultureWave_Form.Forms
                 // Ajustar automáticamente el ancho de las columnas
                 dataGridViewBookings.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
+                // Limpiar la selección
                 dataGridViewBookings.ClearSelection();
                 if (dataGridViewBookings.CurrentRow != null)
                 {
-                    dataGridViewBookings.CurrentRow.Selected = false; // Esto deselecciona la fila activa
+                    dataGridViewBookings.CurrentRow.Selected = false;
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -69,38 +116,5 @@ namespace CultureWave_Form.Forms
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-
-
-            private void loadEvents()
-            {
-                try
-                {
-                    // Obtener los eventos programados con el nombre del espacio
-                    var events = EventsOrm.GetProgrammedEvents();
-
-                    // Configurar el DataGridView
-                    dataGridViewEvents.AutoGenerateColumns = false;
-                    dataGridViewEvents.DataSource = events;
-
-                    // Asignar las propiedades a las columnas
-                    dataGridViewEvents.Columns["name"].DataPropertyName = "name";
-                    dataGridViewEvents.Columns["description"].DataPropertyName = "description";
-                    dataGridViewEvents.Columns["startDate"].DataPropertyName = "startDate";
-                    dataGridViewEvents.Columns["endDate"].DataPropertyName = "endDate";
-                    dataGridViewEvents.Columns["SpaceName"].DataPropertyName = "SpaceName";
-
-                    // Formatear columnas de fecha
-                    dataGridViewEvents.Columns["startDate"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
-                    dataGridViewEvents.Columns["endDate"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm";
-
-                    dataGridViewEvents.ClearSelection();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al cargar eventos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
     }
 }

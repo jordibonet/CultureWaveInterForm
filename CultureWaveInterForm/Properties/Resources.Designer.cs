@@ -93,6 +93,16 @@ namespace CultureWaveInterForm.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogoCultureWaveBueno {
+            get {
+                object obj = ResourceManager.GetObject("LogoCultureWaveBueno", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap reserved {
             get {
                 object obj = ResourceManager.GetObject("reserved", resourceCulture);

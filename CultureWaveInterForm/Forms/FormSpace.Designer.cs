@@ -107,7 +107,7 @@ namespace CultureWave_Form.Forms
             this.roundedButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundedButtonEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.roundedButtonEdit.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonEdit.Location = new System.Drawing.Point(717, 10);
+            this.roundedButtonEdit.Location = new System.Drawing.Point(730, 11);
             this.roundedButtonEdit.Name = "roundedButtonEdit";
             this.roundedButtonEdit.Size = new System.Drawing.Size(126, 60);
             this.roundedButtonEdit.TabIndex = 40;

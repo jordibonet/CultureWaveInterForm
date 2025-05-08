@@ -14,6 +14,11 @@ namespace CultureWave_Form
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Cuando le de al botón de LogIn hara las comprobaciones para poder iniciar sesión.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
             string email = roundedTextBoxUser.Texts;
