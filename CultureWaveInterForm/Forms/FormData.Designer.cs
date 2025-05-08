@@ -329,9 +329,11 @@ namespace CultureWave_Form.Forms
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::CultureWaveInterForm.Properties.Resources.LogoCultureWaveBueno;
             this.pictureBox1.Location = new System.Drawing.Point(8, 9);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
