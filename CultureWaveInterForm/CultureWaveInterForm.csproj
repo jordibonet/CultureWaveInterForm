@@ -240,6 +240,7 @@
     <Compile Include="Models\ticket.cs">
       <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TicketOrm.cs" />
     <Compile Include="Models\user.cs">
       <DependentUpon>CultureWave.tt</DependentUpon>
     </Compile>
