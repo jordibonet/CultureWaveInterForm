@@ -9,6 +9,14 @@ namespace CultureWaveInterForm.Models
 {
     class ReserveOrm
     {
+        /** SELECT **/
+
+        /// <summary>
+        /// Select a la BBDD para saber las reservas de un usuario filtrandolo por us ID.
+        /// </summary>
+        /// <param name="userId">Pasamos el ID del usuario para saber que usuario queremos buscar</param>
+        /// <param name="maxResults">Que no se pase de 50 resultados</param>
+        /// <returns>Devuelve una lista dinamica del resultado</returns>
         public static List<dynamic> GetUserReservesWithDetails(int userId, int maxResults = 50)
         {
             try
@@ -57,7 +65,10 @@ namespace CultureWaveInterForm.Models
             }
         }
 
-
+        /// <summary>
+        /// Seleccionamos los nombres de los eventos y sus IDs.
+        /// </summary>
+        /// <returns>Devuelve una lista de los eventos</returns>
         public static List<Event> GetEventsForComboBox()
         {
             using (var db = new cultureWaveEntities1())
@@ -69,6 +80,57 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        /// <summary>
+        /// Select para saber que asientos estan disponibles
+        /// </summary>
+        /// <param name="eventId">ID del evento</param>
+        /// <param name="row">Fila en la que se encuetra el asiento</param>
+        /// <param name="numSeat">Número de la silla</param>
+        /// <returns>Devuelve un booleano para saber si ha salido correctamente</returns>
+        public static bool IsSeatAvailable(int eventId, char row, int numSeat)
+        {
+            using (var db = new cultureWaveEntities1())
+            {
+                var evento = db.eventTable
+                    .Include(e => e.space)
+                    .FirstOrDefault(e => e.idEvent == eventId);
+
+                if (evento?.space == null) return false;
+
+                string rowString = row.ToString();
+
+                return db.seat.Any(s =>
+                    s.row == rowString &&
+                    s.numSeat == numSeat &&
+                    s.idSpace == evento.space.idSpace &&
+                    !db.reserve.Any(r => r.idEvent == eventId && r.seat.Any(se => se.idSeat == s.idSeat)));
+            }
+        }
+
+        /// <summary>
+        /// Verifica que el evento tenga sillas fillas
+        /// </summary>
+        /// <param name="eventId">ID del evento para saber si tiene sillas o no</param>
+        /// <returns>Devuelve un false si no tiene sillas, true si tiene</returns>
+        public static bool EventHasFixedSeats(int eventId)
+        {
+            using (var db = new cultureWaveEntities1())
+            {
+                var evento = db.eventTable.Include(e => e.space).FirstOrDefault(e => e.idEvent == eventId);
+                return evento != null && evento.space.fixedSeats == true;
+            }
+        }
+
+        /** INSERT **/
+
+        /// <summary>
+        /// Creamos una reserva con asiento asignado para un usuario en especifico para un evento.
+        /// </summary>
+        /// <param name="userId">Pasamos el ID del usuario para saber a que usuario hacerle la reserva</param>
+        /// <param name="eventId">El evento al que quiere ir</param>
+        /// <param name="row">La fila en la que se encuentra su silla</param>
+        /// <param name="numSeat">Número de la silla</param>
+        /// <returns>Devuelve el ID de la reserva creada</returns>
         public static int CreateReservationWithSeat(int userId, int eventId, char row, int numSeat)
         {
             using (var db = new cultureWaveEntities1())
@@ -131,42 +193,12 @@ namespace CultureWaveInterForm.Models
             }
         }
 
-
-
-
-
-
-        public static bool IsSeatAvailable(int eventId, char row, int numSeat)
-        {
-            using (var db = new cultureWaveEntities1())
-            {
-                var evento = db.eventTable
-                    .Include(e => e.space)
-                    .FirstOrDefault(e => e.idEvent == eventId);
-
-                if (evento?.space == null) return false;
-
-                string rowString = row.ToString();
-
-                return db.seat.Any(s =>
-                    s.row == rowString &&
-                    s.numSeat == numSeat &&
-                    s.idSpace == evento.space.idSpace &&
-                    !db.reserve.Any(r => r.idEvent == eventId && r.seat.Any(se => se.idSeat == s.idSeat)));
-            }
-        }
-
-
-
-        public static bool EventHasFixedSeats(int eventId)
-        {
-            using (var db = new cultureWaveEntities1())
-            {
-                var evento = db.eventTable.Include(e => e.space).FirstOrDefault(e => e.idEvent == eventId);
-                return evento != null && evento.space.fixedSeats == true;
-            }
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="eventId"></param>
+        /// <returns></returns>
         public static int CreateReservationWithoutSeat(int userId, int eventId)
         {
             using (var db = new cultureWaveEntities1())
@@ -216,6 +248,15 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+
+
+        /* DELETE */
+
+        /// <summary>
+        /// Borra una reserva de la BBDD
+        /// </summary>
+        /// <param name="reservationId">Le pasamos el ID de la reserva que queramos borrar</param>
+        /// <returns>Devuelve un booleano, true si ha salido todo bien y false si algo ha fallado</returns>
         public static bool DeleteReservation(int reservationId)
         {
             using (var db = new cultureWaveEntities1())
@@ -298,14 +339,5 @@ namespace CultureWaveInterForm.Models
                 }
             }
         }
-
-
-
-
-
-
-
-
-
     }
 }

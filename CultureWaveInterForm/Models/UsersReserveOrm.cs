@@ -8,6 +8,13 @@ namespace CultureWaveInterForm.Models
 {
     class UsersReserveOrm
     {
+        /* SELECT */
+
+        /// <summary>
+        /// Select para obtener los nombres, correos de usuarios con el rol 3
+        /// </summary>
+        /// <param name="roleId">Rol del usuario que queremos coger</param>
+        /// <returns>Devuelve una lista de cadenas que combinan el nombre y el correo de cada usuario</returns>
         public static List<string> GetUserNamesOrEmailsByRoleId(int roleId = 3)
         {
             try
@@ -26,11 +33,15 @@ namespace CultureWaveInterForm.Models
             catch (Exception ex)
             {
                 Console.WriteLine("Error al obtener usuarios: " + ex.Message);
-                return new List<string>();
+                return new List<string>(); // Lista vacia
             }
         }
 
-
+        /// <summary>
+        /// Obtenemos el ID del usuario mediante su email.
+        /// </summary>
+        /// <param name="email">Pasamos el email del usuario que queremos buscar</param>
+        /// <returns>Devuelve la ID del usuario</returns>
         public static int GetUserIdByEmail(string email)
         {
             try
@@ -48,6 +59,11 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        /// <summary>
+        /// Obtenemos de la BBDD los usuarios con rol 3
+        /// </summary>
+        /// <param name="roleId">Para obtener los usuarios mediante este rol</param>
+        /// <returns>Devuelve una lista de los usuarios</returns>
         public static dynamic GetUsersForComboBox(int roleId = 3)
         {
             try
@@ -73,9 +89,5 @@ namespace CultureWaveInterForm.Models
                 return new List<dynamic>(); // Lista vacía en caso de error
             }
         }
-
-
-
-
     }
 }

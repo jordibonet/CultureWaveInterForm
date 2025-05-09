@@ -9,6 +9,12 @@ namespace CultureWaveInterForm.Models
 {
     class UsersLogInOrm
     {
+        /* SELECT */
+
+        /// <summary>
+        /// Obtenemos los usuarios que tengan de rol 1 y 2
+        /// </summary>
+        /// <returns>Devuelve una lista de los usuarios del objeto user</returns>
         public static List<user> GetUsersWithRoles1And2() 
         {
             try
@@ -26,6 +32,5 @@ namespace CultureWaveInterForm.Models
                 return new List<user>();
             }
         }
-
     }
 }

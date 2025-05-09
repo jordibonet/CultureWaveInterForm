@@ -7,6 +7,13 @@ namespace CultureWaveInterForm.Models
 {
     class EventsOrm
     {
+
+        /* SELECT */
+
+        /// <summary>
+        /// Select a la BBDD de todos los eventos que esten en estado "Programat"
+        /// </summary>
+        /// <returns>Los devuelve en una lista dinamica</returns>
         public static List<dynamic> GetProgrammedEvents()
         {
             try
@@ -34,6 +41,13 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        /* INSERT */
+
+        /// <summary>
+        /// Añadir un nuevo evento a la BBDD
+        /// </summary>
+        /// <param name="newEvent">Pasamos por parametros le nombre del evento que ha escrito el usuario</param>
+        /// <returns>devuelve un boolean; true = ha salido perfectamente, false = ha fallado algo</returns>
         public static bool Insert(eventTable newEvent)
         {
             try
@@ -68,10 +82,5 @@ namespace CultureWaveInterForm.Models
                 return false;
             }
         }
-
-
-
-
-
     }
 }

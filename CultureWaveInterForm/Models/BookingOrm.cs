@@ -7,7 +7,14 @@ namespace CultureWaveInterForm.Models
 {
     class BookingOrm
     {
-        public static List<dynamic> GetReservesWithSeatInfo(int maxResults = 50)
+        /* SELECT */
+
+        /// <summary>
+        /// Select para tener la información de las reservas de la BBDD 
+        /// </summary>
+        /// <param name="maxResults"></param>
+        /// <returns>Devuelva una lista dinamica con los datos formateados</returns>
+        public static List<dynamic> GetReservesWithSeatInfo()
         {
             try
             {
@@ -21,7 +28,6 @@ namespace CultureWaveInterForm.Models
                         .Include(r => r.seat)
                         .Include(r => r.user) // Incluir usuarios correctamente
                         .OrderByDescending(r => r.reserveDate)
-                        .Take(maxResults)
                         .ToList();
 
                     var result = new List<dynamic>();
