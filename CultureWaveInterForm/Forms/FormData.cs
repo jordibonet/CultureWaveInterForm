@@ -96,12 +96,23 @@ namespace CultureWave_Form.Forms
                         break;
                     case 2:
                         labelRolUser.Text = "Organizador de eventos";
+                        DisableUserAccess();
                         break;
                     default:
                         labelRolUser.Text = "Desconocido";
                         break;
                 }
             }
+        }
+
+        /// <summary>
+        /// Deshabilitar acceso a gestión de usuarios a usuarios que no pueden gestionar datos de usuarios.
+        /// </summary>
+        private void DisableUserAccess()
+        {
+            // Deshabilitar el acceso al panel de usuarios
+            pictureBoxUser.Enabled = false;
+            labelUser.Enabled = false;
         }
 
         /// <summary>
