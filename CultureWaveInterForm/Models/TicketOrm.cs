@@ -8,6 +8,12 @@ namespace CultureWaveInterForm.Models
 {
     class TicketOrm
     {
+        /* SELECT */
+
+        /// <summary>
+        /// Seleccionamos los campos de la BBDD y los cargamos en el grid.
+        /// </summary>
+        /// <returns>Devuelve una lista dinamica de las cosas seleccionadas</returns>
         public static List<dynamic> GetActiveTickets()
         {
             try
@@ -46,6 +52,13 @@ namespace CultureWaveInterForm.Models
             }
         }
 
+        /* UPDATE */
+
+        /// <summary>
+        /// Pasamos el estado a Tancat del ticket
+        /// </summary>
+        /// <param name="ticketId">Pasamos el ID del ticket que queremos cerrar</param>
+        /// <returns>Devuelve un booleano para saber si se ha realizado bien o mal</returns>
         public static bool CloseTicket(int ticketId)
         {
             try

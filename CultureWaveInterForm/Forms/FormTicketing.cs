@@ -25,6 +25,9 @@ namespace CultureWaveInterForm.Forms
             loadTickets();
         }
 
+        /// <summary>
+        /// Cargamos los tickets de los usuarios que tengan los tickets abiertos en el dataGridView.
+        /// </summary>
         private void loadTickets()
         {
             try
@@ -53,6 +56,11 @@ namespace CultureWaveInterForm.Forms
             }
         }
 
+        /// <summary>
+        /// Pasa el ticket a estan "Tancat" para no mostrarlo mas.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonCloseTicket_Click(object sender, EventArgs e)
         {
             if (dataGridViewTicketing.SelectedRows.Count == 0)
