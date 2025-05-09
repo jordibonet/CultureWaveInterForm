@@ -1,19 +1,14 @@
-﻿using CultureWaveInterForm.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using CultureWaveInterForm.Models;
+using CultureWaveInterForm.Utils; // Asegúrate de que esta clase esté incluida
 
 namespace CultureWave_Form.Forms
 {
     public partial class FormCreateEditUser : Form
     {
         private int? currentUserId = null;
+
         public FormCreateEditUser()
         {
             InitializeComponent();
@@ -78,11 +73,14 @@ namespace CultureWave_Form.Forms
                 return;
             }
 
+            // Encriptar la contraseña antes de insertarla o actualizarla
+            string encryptedPassword = BCryptClass.EncryptAES(password, "1234567890123456"); // Usa la clave AES
+
             // Determinar si es creación o actualización
             if (currentUserId == null)
             {
                 // Lógica para crear nuevo usuario
-                string resultado = UsersOrm.InsertUser(nombre, email, password, idRol);
+                string resultado = UsersOrm.InsertUser(nombre, email, encryptedPassword, idRol);
 
                 MessageBox.Show(resultado, resultado.Contains("Error") ? "Error" : "Éxito",
                                MessageBoxButtons.OK,
@@ -97,7 +95,7 @@ namespace CultureWave_Form.Forms
             else
             {
                 // Lógica para actualizar usuario existente
-                string resultado = UsersOrm.UpdateUser(currentUserId.Value, nombre, email, password, idRol);
+                string resultado = UsersOrm.UpdateUser(currentUserId.Value, nombre, email, encryptedPassword, idRol);
 
                 MessageBox.Show(resultado, resultado.Contains("Error") ? "Error" : "Éxito",
                                MessageBoxButtons.OK,
