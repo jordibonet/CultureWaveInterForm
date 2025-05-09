@@ -187,6 +187,12 @@
     <Compile Include="Forms\FormSpace.Designer.cs">
       <DependentUpon>FormSpace.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormTicketing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTicketing.Designer.cs">
+      <DependentUpon>FormTicketing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormSpace.resx">
       <DependentUpon>FormSpace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTicketing.resx">
+      <DependentUpon>FormTicketing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormUser.resx">
       <DependentUpon>FormUser.cs</DependentUpon>

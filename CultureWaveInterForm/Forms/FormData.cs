@@ -1,14 +1,10 @@
-﻿using CultureWaveInterForm.Models;
+﻿using CultureWaveInterForm.Forms;
+using CultureWaveInterForm.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.DataFormats;
 
 namespace CultureWave_Form.Forms
 {
@@ -20,14 +16,12 @@ namespace CultureWave_Form.Forms
         public FormSpace formSpace;
         public FormCreateSpace formCreateEditSpace;
         public FormUser formUser;
+        public FormTicketing formTicketing;  // Asegúrate de que esta variable esté definida
         public FormExit formExit;
-
-
 
         private List<Form> allForms = new List<Form>();
         private List<Panel> allPanels = new List<Panel>();
         private user _usuarioAutenticado;
-
 
         public FormData(user usuario)
         {
@@ -40,7 +34,7 @@ namespace CultureWave_Form.Forms
         }
 
         /// <summary>
-        /// Creamos instancias de los formularios dentro de formTypes y lo guardamos en allForms.
+        /// Inicializa los formularios y los guarda en allForms.
         /// </summary>
         private void InitializeForms()
         {
@@ -52,6 +46,7 @@ namespace CultureWave_Form.Forms
                 typeof(FormSpace),
                 typeof(FormCreateSpace),
                 typeof(FormUser),
+                typeof(FormTicketing),  // Asegúrate de que FormTicketing esté en la lista
                 typeof(FormExit)
             };
 
@@ -63,7 +58,7 @@ namespace CultureWave_Form.Forms
         }
 
         /// <summary>
-        /// Agregamos los paneles del diseño a una lista de paneles.
+        /// Inicializa los paneles y los agrega a la lista allPanels.
         /// </summary>
         private void InitializePanels()
         {
@@ -72,24 +67,23 @@ namespace CultureWave_Form.Forms
             allPanels.Add(panelReserve);
             allPanels.Add(panelSpace);
             allPanels.Add(panelUser);
+            allPanels.Add(panelTicketing);  // Asegúrate de que 'panelTicketing' esté en la lista
             allPanels.Add(panelExit);
         }
 
         /// <summary>
-        /// Agregamos el nombre del usuario y su rol para mostrar arriba a la derecha.
+        /// Carga el nombre del usuario y su rol.
         /// </summary>
         private void loadLabelsUser()
         {
-            // Asignar el nombre del usuario
             if (labelUsername != null)
             {
                 labelUsername.Text = _usuarioAutenticado.name ?? "Desconocido";
             }
 
-            // Asignar el nombre del rol según el valor numérico
             if (labelRolUser != null)
             {
-                switch (_usuarioAutenticado.rol) 
+                switch (_usuarioAutenticado.rol)
                 {
                     case 1:
                         labelRolUser.Text = "Superadministrador";
@@ -106,17 +100,16 @@ namespace CultureWave_Form.Forms
         }
 
         /// <summary>
-        /// Deshabilitar acceso a gestión de usuarios a usuarios que no pueden gestionar datos de usuarios.
+        /// Deshabilita el acceso al panel de usuarios.
         /// </summary>
         private void DisableUserAccess()
         {
-            // Deshabilitar el acceso al panel de usuarios
             pictureBoxUser.Enabled = false;
             labelUser.Enabled = false;
         }
 
         /// <summary>
-        /// Recorre todos los paneles de la lista y establece el color de fondo para cada uno de ellos.
+        /// Cambia el color de fondo de todos los paneles.
         /// </summary>
         private void ChangePanelBackgroudColor()
         {
@@ -135,15 +128,12 @@ namespace CultureWave_Form.Forms
                         control.BackColor = Color.FromArgb(255, 248, 241);
                     }
                 }
-
             }
-
         }
 
         /// <summary>
-        /// Cambia de color del fondo de los paneles.
+        /// Resalta el panel de destino.
         /// </summary>
-        /// <param name="panel"></param>
         private void HighlightPanel(Panel panel)
         {
             panel.BackColor = Color.FromArgb(228, 179, 99);
@@ -162,25 +152,13 @@ namespace CultureWave_Form.Forms
         }
 
         /// <summary>
-        /// Metodo para cargar los formularios dentro del panel
+        /// Carga el formulario dentro del panel correspondiente.
         /// </summary>
-        /// <param name="childFormName">Le pasamos el nombre del panel que queremos agregar</param>
-        public void LoadFormIntoPanel(String childFormName)
+        public void LoadFormIntoPanel(string formName)
         {
-            bool foundForm = false;
-            Form childForm = null;
+            Form childForm = allForms.FirstOrDefault(f => f.GetType().Name == formName); // Busca el formulario por su tipo.
 
-            foreach (Form form in allForms)
-            {
-                if (form.Name == childFormName)
-                {
-                    childForm = form;
-                    foundForm = true;
-                }
-
-            }
-
-            if (foundForm)
+            if (childForm != null)
             {
                 panelData.Controls.Clear();
 
@@ -193,150 +171,149 @@ namespace CultureWave_Form.Forms
             }
             else
             {
-                MessageBox.Show("Form not found");
+                MessageBox.Show("Form no encontrado");
             }
         }
 
         /// <summary>
-        /// Cuando se cierre la aplicación que se cierre la APP.
+        /// Cuando se cierra el formulario, cierra la aplicación.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void FormData_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
         /// <summary>
-        /// Abrir el form dentro del panel.
+        /// Abre el formulario y resalta el panel correspondiente.
         /// </summary>
-        /// <param name="formName">Pasamos el nombre del panel que queremos abrir</param>
-        private void OpenPanel(String formName)
+        private void OpenPanel(string formName)
         {
-            LoadFormIntoPanel("Form" + formName);
-            ChangePanelBackgroudColor();
+            LoadFormIntoPanel("Form" + formName); // Carga el formulario
+            ChangePanelBackgroudColor(); // Cambia el color de fondo de los paneles
+
+            // Busca el panel correspondiente y lo resalta
             Panel targetPanel = allPanels.FirstOrDefault(p => p.Name == "panel" + formName);
-            HighlightPanel(targetPanel);
+
+            if (targetPanel != null)
+            {
+                HighlightPanel(targetPanel);
+            }
+            else
+            {
+                MessageBox.Show("Panel no encontrado: " + "panel" + formName);  // Muestra un mensaje si el panel no se encuentra
+            }
         }
 
         /// <summary>
-        /// Si le da click a la imagen de Home abre el panel "Home"
+        /// Si se da click en la imagen de 'Home', abre el panel 'Home'.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void pictureBoxHome_Click(object sender, EventArgs e)
         {
             OpenPanel("Home");
         }
 
         /// <summary>
-        /// Si le da click al label de Home abre el panel "Home"
+        /// Si se da click en el label de 'Home', abre el panel 'Home'.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void labelHome_Click(object sender, EventArgs e)
         {
             OpenPanel("Home");
         }
 
         /// <summary>
-        /// Si le da click a la imagen de Event abre el panel "Event"
+        /// Si se da click en la imagen de 'Event', abre el panel 'Event'.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void pictureBoxEvent_Click(object sender, EventArgs e)
         {
             OpenPanel("Event");
         }
 
         /// <summary>
-        /// Si le da click al label de Eventabre el panel "Event"
+        /// Si se da click en el label de 'Event', abre el panel 'Event'.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void labelEvents_Click(object sender, EventArgs e)
         {
             OpenPanel("Event");
         }
 
         /// <summary>
-        /// Si le da click a la imagen de Reserve abre el panel "Reserve"
+        /// Si se da click en la imagen de 'Reserve', abre el panel 'Reserve'.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void pictureBoxReserve_Click(object sender, EventArgs e)
         {
             OpenPanel("Reserve");
         }
 
         /// <summary>
-        /// Si le da click al label de Reserve abre el panel "Reserve"
+        /// Si se da click en el label de 'Reserve', abre el panel 'Reserve'.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void labelReserve_Click(object sender, EventArgs e)
         {
             OpenPanel("Reserve");
         }
 
         /// <summary>
-        /// Si le da click a la imagen de Space abre el panel "Space"
+        /// Si se da click en la imagen de 'Space', abre el panel 'Space'.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void pictureBoxSpace_Click(object sender, EventArgs e)
         {
             OpenPanel("Space");
         }
 
         /// <summary>
-        /// Si le da click al label de Space abre el panel "Space"
+        /// Si se da click en el label de 'Space', abre el panel 'Space'.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void labelSpace_Click(object sender, EventArgs e)
         {
             OpenPanel("Space");
         }
 
         /// <summary>
-        /// Si le da click a la imagen de User abre el panel "User"
+        /// Si se da click en la imagen de 'User', abre el panel 'User'.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void pictureBoxUser_Click(object sender, EventArgs e)
         {
             OpenPanel("User");
         }
 
         /// <summary>
-        /// Si le da click al label de User abre el panel "User"
+        /// Si se da click en el label de 'User', abre el panel 'User'.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void labelUser_Click(object sender, EventArgs e)
         {
             OpenPanel("User");
         }
 
         /// <summary>
-        /// Si le da click a la imagen de Exit abre el panel "Exit"
+        /// Si se da click en la imagen de 'Exit', abre el panel 'Exit'.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void pictureBoxExit_Click(object sender, EventArgs e)
         {
             OpenPanel("Exit");
         }
 
         /// <summary>
-        /// Si le da click al label de Exit abre el panel "Exit"
+        /// Si se da click en el label de 'Exit', abre el panel 'Exit'.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void labelExit_Click(object sender, EventArgs e)
         {
             OpenPanel("Exit");
+        }
+
+        /// <summary>
+        /// Si se da click en el label de 'Ticket', abre el panel 'Ticket'.
+        /// </summary>
+        private void labelTicket_Click(object sender, EventArgs e)
+        {
+            OpenPanel("Ticketing");
+        }
+
+        /// <summary>
+        /// Si se da click en la imagen de 'Ticket', abre el panel 'Ticket'.
+        /// </summary>
+        private void pictureBoxTicket_Click(object sender, EventArgs e)
+        {
+            OpenPanel("Ticketing");
         }
     }
 }
