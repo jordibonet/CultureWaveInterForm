@@ -12,6 +12,7 @@ namespace CultureWave_Form
         public FormLogin()
         {
             InitializeComponent();
+            roundedTextBoxPassword.PasswordChar = true;
         }
 
         /// <summary>
