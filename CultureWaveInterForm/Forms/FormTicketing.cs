@@ -41,8 +41,21 @@ namespace CultureWaveInterForm.Forms
 
                 // Habilitar la generación automática de columnas
                 dataGridViewTicketing.AutoGenerateColumns = true;
+
+                // Ajustar las columnas al tamaño del contenido de todas las celdas
                 dataGridViewTicketing.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+                // Ajustar los encabezados para que ocupen todo el espacio disponible
+                foreach (DataGridViewColumn column in dataGridViewTicketing.Columns)
+                {
+                    column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;  // Alineación del encabezado
+                    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Asegurarse de que el encabezado se llene
+                    column.DefaultCellStyle.WrapMode = DataGridViewTriState.True;  // Hacer que el texto en las celdas se ajuste
+                }
+
+                // Asegurarse de que las celdas que contienen texto largo se ajusten dentro de su tamaño
+                dataGridViewTicketing.AllowUserToResizeColumns = true;
+                dataGridViewTicketing.AllowUserToResizeRows = true;
 
                 // Si quieres ocultar alguna columna, puedes hacerlo aquí
                 // dataGridViewTicketing.Columns["Status"].Visible = false;
