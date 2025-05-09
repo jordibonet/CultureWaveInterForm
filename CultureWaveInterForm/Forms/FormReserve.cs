@@ -20,15 +20,24 @@ namespace CultureWave_Form.Forms
             this.formData = formData;
         }
 
+        /// <summary>
+        /// Metodo que se ejecuta la primera vez que se ejecuta el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormReserve_Load(object sender, EventArgs e)
         {
             loadUsersComboBox();
 
-            dataGridViewReserves.DataSource = reservesBindingSource;
+            dataGridViewReserves.DataSource = reservesBindingSource; // Agregamos BindingSource a la dataGridView.
+            // Diseño del dataGridView + label del nombre de reservas.
             dataGridViewReserves.Visible = false;
             labelNameReserves.Visible = false;
         }
 
+        /// <summary>
+        /// Que cargue los usuarios normales (que pueden tener eventos) en la comboBox.
+        /// </summary>
         private void loadUsersComboBox()
         {
             List<string> users = UsersReserveOrm.GetUserNamesOrEmailsByRoleId(3);
@@ -39,14 +48,21 @@ namespace CultureWave_Form.Forms
             comboBoxUsers.DataSource = usersBindingSource;
 
             // Configurar qué valor se debe mostrar en el ComboBox
-            comboBoxUsers.DisplayMember = "ToString"; // Cada item es una cadena
+            comboBoxUsers.DisplayMember = "ToString";
 
+            // Sin selección la comboBox
             if (comboBoxUsers.Items.Count > 0)
             {
                 comboBoxUsers.SelectedIndex = -1;
             }
         }
 
+        /// <summary>
+        /// Cuando le de al boton de buscar verificamos que tenga un correo seleccionado, y cargamos
+        /// los datos de ese usuario en el dataGridView para saber sus reservas solo de ese usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonSearch_Click(object sender, EventArgs e)
         {
             dataGridViewReserves.Visible = true;
@@ -104,13 +120,23 @@ namespace CultureWave_Form.Forms
             }
         }
 
-
+        /// <summary>
+        /// Cuando le demos al boton de reservar nos abrira un formulario para hacer una reserva para un usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonReserve_Click(object sender, EventArgs e)
         {
             FormCreateReserve reserve = new FormCreateReserve();
             reserve.Show();
         }
 
+        /// <summary>
+        /// Cuando le de al botón de borrar verifica que tenga seleccionada un usuario del dataGridView
+        /// y si lo tiene mostrara un mensaje de confirmación y se eliminara la reserva de ese usuario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonDeleteReserve_Click(object sender, EventArgs e)
         {
             // Verificar si hay una fila seleccionada
@@ -162,8 +188,5 @@ namespace CultureWave_Form.Forms
                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
-
-
     }
 }

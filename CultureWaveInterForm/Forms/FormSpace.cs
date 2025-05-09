@@ -21,11 +21,19 @@ namespace CultureWave_Form.Forms
             this.formData = formData;
         }
 
+        /// <summary>
+        /// Ejecutara este metodo la primera vez que se ejecute el formulario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormSpace_Load(object sender, EventArgs e)
         {
             loadSpaces();
         }
 
+        /// <summary>
+        /// Carga los datos de los espacios en la dataGridView con los campos que creia "importantes".
+        /// </summary>
         private void loadSpaces()
         {
             try
@@ -56,6 +64,11 @@ namespace CultureWave_Form.Forms
             }
         }
 
+        /// <summary>
+        /// Abrira un formulario para crear un espacio nuevo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonCreate_Click(object sender, EventArgs e)
         {
             FormCreateSpace createSpace = new FormCreateSpace(formData);
@@ -65,6 +78,12 @@ namespace CultureWave_Form.Forms
             }
         }
 
+        /// <summary>
+        /// Verifica que tengas un espacio seleccionado; si no lo tienes te dara un error, pero si lo tienes
+        /// abrira un formulario y le pasará los datos.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void roundedButtonEdit_Click(object sender, EventArgs e)
         {
             if (dataGridViewSpaces.SelectedRows.Count == 0)
