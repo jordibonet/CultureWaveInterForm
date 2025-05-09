@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 using CultureWave_Form.Forms;
 using CultureWaveInterForm.Models;
+using CultureWaveInterForm.Utils;
 
 namespace CultureWave_Form
 {
@@ -16,7 +16,7 @@ namespace CultureWave_Form
         }
 
         /// <summary>
-        /// Cuando le de al botón de LogIn hara las comprobaciones para poder iniciar sesión.
+        /// Cuando le de al botón de LogIn hará las comprobaciones para poder iniciar sesión.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -31,16 +31,20 @@ namespace CultureWave_Form
                 return;
             }
 
-            // Obtener usuarios con rol = 1 o 2
+            // Encriptar la contraseña antes de compararla con la base de datos
+            string encryptedPassword = BCryptClass.EncryptAES(password, "1234567890123456"); // Usamos una clave de 16 caracteres
+
+            // Obtener los usuarios con rol 1 y 2 desde la base de datos
             var usersWithRoles = UsersLogInOrm.GetUsersWithRoles1And2();
 
-            // Buscar el usuario específico
+            // Buscar el usuario que coincida con el email y la contraseña encriptada
             var usuarioAutenticado = usersWithRoles.FirstOrDefault(u =>
                 u.email.Equals(email, StringComparison.OrdinalIgnoreCase) &&
-                u.password == password);
+                u.password == encryptedPassword);  // Comparar con la contraseña encriptada
 
             if (usuarioAutenticado != null)
             {
+                // Si se encuentra el usuario, cargar la siguiente pantalla
                 FormData formData = new FormData(usuarioAutenticado);
                 formData.LoadFormIntoPanel("FormHome");
                 formData.Show();
