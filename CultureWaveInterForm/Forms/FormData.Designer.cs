@@ -43,31 +43,36 @@ namespace CultureWave_Form.Forms
             this.labelUsername = new System.Windows.Forms.Label();
             this.labelRolUser = new System.Windows.Forms.Label();
             this.panelHome = new System.Windows.Forms.Panel();
-            this.pictureBoxHome = new System.Windows.Forms.PictureBox();
             this.panelEvent = new System.Windows.Forms.Panel();
-            this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
             this.panelSpace = new System.Windows.Forms.Panel();
-            this.pictureBoxSpace = new System.Windows.Forms.PictureBox();
             this.panelReserve = new System.Windows.Forms.Panel();
-            this.pictureBoxReserve = new System.Windows.Forms.PictureBox();
             this.panelExit = new System.Windows.Forms.Panel();
-            this.pictureBoxExit = new System.Windows.Forms.PictureBox();
             this.panelUser = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelTicket = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxExit = new System.Windows.Forms.PictureBox();
+            this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
             this.pictureBoxUser = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSpace = new System.Windows.Forms.PictureBox();
+            this.pictureBoxHome = new System.Windows.Forms.PictureBox();
+            this.pictureBoxReserve = new System.Windows.Forms.PictureBox();
             this.pictureBoxBackground = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelHome.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
             this.panelEvent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
             this.panelSpace.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpace)).BeginInit();
             this.panelReserve.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReserve)).BeginInit();
             this.panelExit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
             this.panelUser.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpace)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReserve)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -186,102 +191,94 @@ namespace CultureWave_Form.Forms
             this.panelHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
             this.panelHome.Controls.Add(this.pictureBoxHome);
             this.panelHome.Controls.Add(this.labelHome);
-            this.panelHome.Location = new System.Drawing.Point(1, 114);
+            this.panelHome.Location = new System.Drawing.Point(3, 79);
             this.panelHome.Name = "panelHome";
             this.panelHome.Size = new System.Drawing.Size(220, 80);
             this.panelHome.TabIndex = 13;
-            // 
-            // pictureBoxHome
-            // 
-            this.pictureBoxHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.pictureBoxHome.BackgroundImage = global::CultureWaveInterForm.Properties.Resources.home;
-            this.pictureBoxHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxHome.InitialImage = null;
-            this.pictureBoxHome.Location = new System.Drawing.Point(33, 14);
-            this.pictureBoxHome.Name = "pictureBoxHome";
-            this.pictureBoxHome.Size = new System.Drawing.Size(48, 48);
-            this.pictureBoxHome.TabIndex = 12;
-            this.pictureBoxHome.TabStop = false;
-            this.pictureBoxHome.Click += new System.EventHandler(this.pictureBoxHome_Click);
             // 
             // panelEvent
             // 
             this.panelEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
             this.panelEvent.Controls.Add(this.pictureBoxEvent);
             this.panelEvent.Controls.Add(this.labelEvents);
-            this.panelEvent.Location = new System.Drawing.Point(1, 207);
+            this.panelEvent.Location = new System.Drawing.Point(3, 165);
             this.panelEvent.Name = "panelEvent";
             this.panelEvent.Size = new System.Drawing.Size(220, 80);
             this.panelEvent.TabIndex = 14;
-            // 
-            // pictureBoxEvent
-            // 
-            this.pictureBoxEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.pictureBoxEvent.BackgroundImage = global::CultureWaveInterForm.Properties.Resources.calendar;
-            this.pictureBoxEvent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxEvent.InitialImage = null;
-            this.pictureBoxEvent.Location = new System.Drawing.Point(33, 16);
-            this.pictureBoxEvent.Name = "pictureBoxEvent";
-            this.pictureBoxEvent.Size = new System.Drawing.Size(48, 48);
-            this.pictureBoxEvent.TabIndex = 13;
-            this.pictureBoxEvent.TabStop = false;
-            this.pictureBoxEvent.Click += new System.EventHandler(this.pictureBoxEvent_Click);
             // 
             // panelSpace
             // 
             this.panelSpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
             this.panelSpace.Controls.Add(this.pictureBoxSpace);
             this.panelSpace.Controls.Add(this.labelSpace);
-            this.panelSpace.Location = new System.Drawing.Point(1, 397);
+            this.panelSpace.Location = new System.Drawing.Point(3, 337);
             this.panelSpace.Name = "panelSpace";
             this.panelSpace.Size = new System.Drawing.Size(220, 80);
             this.panelSpace.TabIndex = 16;
-            // 
-            // pictureBoxSpace
-            // 
-            this.pictureBoxSpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.pictureBoxSpace.BackgroundImage = global::CultureWaveInterForm.Properties.Resources.space;
-            this.pictureBoxSpace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxSpace.InitialImage = null;
-            this.pictureBoxSpace.Location = new System.Drawing.Point(33, 17);
-            this.pictureBoxSpace.Name = "pictureBoxSpace";
-            this.pictureBoxSpace.Size = new System.Drawing.Size(48, 48);
-            this.pictureBoxSpace.TabIndex = 15;
-            this.pictureBoxSpace.TabStop = false;
-            this.pictureBoxSpace.Click += new System.EventHandler(this.pictureBoxSpace_Click);
             // 
             // panelReserve
             // 
             this.panelReserve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
             this.panelReserve.Controls.Add(this.pictureBoxReserve);
             this.panelReserve.Controls.Add(this.labelReserve);
-            this.panelReserve.Location = new System.Drawing.Point(1, 300);
+            this.panelReserve.Location = new System.Drawing.Point(3, 251);
             this.panelReserve.Name = "panelReserve";
             this.panelReserve.Size = new System.Drawing.Size(220, 80);
             this.panelReserve.TabIndex = 15;
-            // 
-            // pictureBoxReserve
-            // 
-            this.pictureBoxReserve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.pictureBoxReserve.BackgroundImage = global::CultureWaveInterForm.Properties.Resources.reserved;
-            this.pictureBoxReserve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxReserve.InitialImage = null;
-            this.pictureBoxReserve.Location = new System.Drawing.Point(33, 17);
-            this.pictureBoxReserve.Name = "pictureBoxReserve";
-            this.pictureBoxReserve.Size = new System.Drawing.Size(48, 48);
-            this.pictureBoxReserve.TabIndex = 14;
-            this.pictureBoxReserve.TabStop = false;
-            this.pictureBoxReserve.Click += new System.EventHandler(this.pictureBoxReserve_Click);
             // 
             // panelExit
             // 
             this.panelExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
             this.panelExit.Controls.Add(this.labelExit);
             this.panelExit.Controls.Add(this.pictureBoxExit);
-            this.panelExit.Location = new System.Drawing.Point(3, 587);
+            this.panelExit.Location = new System.Drawing.Point(3, 595);
             this.panelExit.Name = "panelExit";
             this.panelExit.Size = new System.Drawing.Size(220, 80);
             this.panelExit.TabIndex = 18;
+            // 
+            // panelUser
+            // 
+            this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            this.panelUser.Controls.Add(this.pictureBoxUser);
+            this.panelUser.Controls.Add(this.labelUser);
+            this.panelUser.Location = new System.Drawing.Point(3, 423);
+            this.panelUser.Name = "panelUser";
+            this.panelUser.Size = new System.Drawing.Size(220, 80);
+            this.panelUser.TabIndex = 17;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            this.panel1.Controls.Add(this.labelTicket);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Location = new System.Drawing.Point(3, 509);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(220, 80);
+            this.panel1.TabIndex = 19;
+            // 
+            // labelTicket
+            // 
+            this.labelTicket.AutoSize = true;
+            this.labelTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            this.labelTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.labelTicket.Location = new System.Drawing.Point(110, 29);
+            this.labelTicket.Name = "labelTicket";
+            this.labelTicket.Size = new System.Drawing.Size(83, 24);
+            this.labelTicket.TabIndex = 8;
+            this.labelTicket.Text = "Soporte";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            this.pictureBox2.BackgroundImage = global::CultureWaveInterForm.Properties.Resources.soporte;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Image = global::CultureWaveInterForm.Properties.Resources.soporte;
+            this.pictureBox2.InitialImage = null;
+            this.pictureBox2.Location = new System.Drawing.Point(31, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
             // 
             // pictureBoxExit
             // 
@@ -296,15 +293,18 @@ namespace CultureWave_Form.Forms
             this.pictureBoxExit.TabStop = false;
             this.pictureBoxExit.Click += new System.EventHandler(this.pictureBoxExit_Click);
             // 
-            // panelUser
+            // pictureBoxEvent
             // 
-            this.panelUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.panelUser.Controls.Add(this.pictureBoxUser);
-            this.panelUser.Controls.Add(this.labelUser);
-            this.panelUser.Location = new System.Drawing.Point(3, 494);
-            this.panelUser.Name = "panelUser";
-            this.panelUser.Size = new System.Drawing.Size(220, 80);
-            this.panelUser.TabIndex = 17;
+            this.pictureBoxEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            this.pictureBoxEvent.BackgroundImage = global::CultureWaveInterForm.Properties.Resources.calendar;
+            this.pictureBoxEvent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxEvent.InitialImage = null;
+            this.pictureBoxEvent.Location = new System.Drawing.Point(33, 16);
+            this.pictureBoxEvent.Name = "pictureBoxEvent";
+            this.pictureBoxEvent.Size = new System.Drawing.Size(48, 48);
+            this.pictureBoxEvent.TabIndex = 13;
+            this.pictureBoxEvent.TabStop = false;
+            this.pictureBoxEvent.Click += new System.EventHandler(this.pictureBoxEvent_Click);
             // 
             // pictureBoxUser
             // 
@@ -318,6 +318,45 @@ namespace CultureWave_Form.Forms
             this.pictureBoxUser.TabIndex = 14;
             this.pictureBoxUser.TabStop = false;
             this.pictureBoxUser.Click += new System.EventHandler(this.pictureBoxUser_Click);
+            // 
+            // pictureBoxSpace
+            // 
+            this.pictureBoxSpace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            this.pictureBoxSpace.BackgroundImage = global::CultureWaveInterForm.Properties.Resources.space;
+            this.pictureBoxSpace.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxSpace.InitialImage = null;
+            this.pictureBoxSpace.Location = new System.Drawing.Point(33, 17);
+            this.pictureBoxSpace.Name = "pictureBoxSpace";
+            this.pictureBoxSpace.Size = new System.Drawing.Size(48, 48);
+            this.pictureBoxSpace.TabIndex = 15;
+            this.pictureBoxSpace.TabStop = false;
+            this.pictureBoxSpace.Click += new System.EventHandler(this.pictureBoxSpace_Click);
+            // 
+            // pictureBoxHome
+            // 
+            this.pictureBoxHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            this.pictureBoxHome.BackgroundImage = global::CultureWaveInterForm.Properties.Resources.home;
+            this.pictureBoxHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxHome.InitialImage = null;
+            this.pictureBoxHome.Location = new System.Drawing.Point(33, 14);
+            this.pictureBoxHome.Name = "pictureBoxHome";
+            this.pictureBoxHome.Size = new System.Drawing.Size(48, 48);
+            this.pictureBoxHome.TabIndex = 12;
+            this.pictureBoxHome.TabStop = false;
+            this.pictureBoxHome.Click += new System.EventHandler(this.pictureBoxHome_Click);
+            // 
+            // pictureBoxReserve
+            // 
+            this.pictureBoxReserve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            this.pictureBoxReserve.BackgroundImage = global::CultureWaveInterForm.Properties.Resources.reserved;
+            this.pictureBoxReserve.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxReserve.InitialImage = null;
+            this.pictureBoxReserve.Location = new System.Drawing.Point(33, 17);
+            this.pictureBoxReserve.Name = "pictureBoxReserve";
+            this.pictureBoxReserve.Size = new System.Drawing.Size(48, 48);
+            this.pictureBoxReserve.TabIndex = 14;
+            this.pictureBoxReserve.TabStop = false;
+            this.pictureBoxReserve.Click += new System.EventHandler(this.pictureBoxReserve_Click);
             // 
             // pictureBoxBackground
             // 
@@ -344,6 +383,7 @@ namespace CultureWave_Form.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelExit);
             this.Controls.Add(this.panelEvent);
             this.Controls.Add(this.panelUser);
@@ -363,22 +403,25 @@ namespace CultureWave_Form.Forms
             this.Text = "CultureWave";
             this.panelHome.ResumeLayout(false);
             this.panelHome.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
             this.panelEvent.ResumeLayout(false);
             this.panelEvent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
             this.panelSpace.ResumeLayout(false);
             this.panelSpace.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpace)).EndInit();
             this.panelReserve.ResumeLayout(false);
             this.panelReserve.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReserve)).EndInit();
             this.panelExit.ResumeLayout(false);
             this.panelExit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
             this.panelUser.ResumeLayout(false);
             this.panelUser.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxExit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpace)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxReserve)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -421,5 +464,8 @@ namespace CultureWave_Form.Forms
         private Panel panelReserve;
         private Panel panelExit;
         private Panel panelUser;
+        private Panel panel1;
+        private Label labelTicket;
+        private PictureBox pictureBox2;
     }
 }

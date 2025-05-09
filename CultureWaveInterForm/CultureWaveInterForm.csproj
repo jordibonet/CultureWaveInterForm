@@ -334,6 +334,7 @@
     <None Include="Resources\home1.png" />
     <None Include="Resources\LogoCultureWaveBueno.png" />
     <Content Include="Resources\reserved.png" />
+    <None Include="Resources\soporte.png" />
     <Content Include="Resources\space.png" />
     <Content Include="Resources\user.png" />
   </ItemGroup>
