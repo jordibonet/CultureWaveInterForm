@@ -31,6 +31,7 @@ namespace CultureWave_Form.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEvent));
             this.labelNameEvents = new System.Windows.Forms.Label();
             this.labelEventDate = new System.Windows.Forms.Label();
             this.labelDescription = new System.Windows.Forms.Label();
@@ -228,9 +229,9 @@ namespace CultureWave_Form.Forms
             this.roundedRichTextBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.roundedRichTextBoxDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.roundedRichTextBoxDescription.Location = new System.Drawing.Point(67, 216);
-            this.roundedRichTextBoxDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.roundedRichTextBoxDescription.Margin = new System.Windows.Forms.Padding(2);
             this.roundedRichTextBoxDescription.Name = "roundedRichTextBoxDescription";
-            this.roundedRichTextBoxDescription.Padding = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.roundedRichTextBoxDescription.Padding = new System.Windows.Forms.Padding(8);
             this.roundedRichTextBoxDescription.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.roundedRichTextBoxDescription.PlaceholderText = "";
             this.roundedRichTextBoxDescription.Size = new System.Drawing.Size(401, 146);
@@ -257,8 +258,9 @@ namespace CultureWave_Form.Forms
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelEventDate);
             this.Controls.Add(this.labelNameEvents);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormEvent";
-            this.Text = "FormEvent";
+            this.Text = "Evento";
             this.Load += new System.EventHandler(this.FormEvent_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

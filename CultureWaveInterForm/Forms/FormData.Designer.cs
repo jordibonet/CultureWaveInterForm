@@ -31,6 +31,7 @@ namespace CultureWave_Form.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormData));
             this.labelCultureWave = new System.Windows.Forms.Label();
             this.labelHome = new System.Windows.Forms.Label();
             this.labelEvents = new System.Windows.Forms.Label();
@@ -356,9 +357,10 @@ namespace CultureWave_Form.Forms
             this.Controls.Add(this.labelCultureWave);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormData";
+            this.Text = "CultureWave";
             this.panelHome.ResumeLayout(false);
             this.panelHome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();

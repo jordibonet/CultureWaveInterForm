@@ -31,6 +31,7 @@ namespace CultureWave_Form.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateEditUser));
             this.labelUser = new System.Windows.Forms.Label();
             this.labelEmail = new System.Windows.Forms.Label();
             this.labelRol = new System.Windows.Forms.Label();
@@ -208,9 +209,10 @@ namespace CultureWave_Form.Forms
             this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.roundedTextBoxUser);
             this.Controls.Add(this.labelUser);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCreateEditUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormCreateEditUser";
+            this.Text = "Usuario";
             this.ResumeLayout(false);
             this.PerformLayout();
 

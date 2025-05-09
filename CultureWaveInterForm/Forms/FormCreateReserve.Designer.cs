@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateReserve));
             this.labelEvents = new System.Windows.Forms.Label();
             this.labelNameUser = new System.Windows.Forms.Label();
             this.comboBoxUsers = new System.Windows.Forms.ComboBox();
@@ -153,9 +154,10 @@
             this.Controls.Add(this.comboBoxUsers);
             this.Controls.Add(this.labelEvents);
             this.Controls.Add(this.labelNameUser);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCreateReserve";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormCreateReserve";
+            this.Text = "Reserva";
             this.Load += new System.EventHandler(this.FormCreateReserve_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

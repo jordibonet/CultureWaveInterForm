@@ -31,6 +31,7 @@ namespace CultureWave_Form.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCreateSpace));
             this.labelNameSpace = new System.Windows.Forms.Label();
             this.labelCapacity = new System.Windows.Forms.Label();
             this.labelFixedSeats = new System.Windows.Forms.Label();
@@ -249,9 +250,10 @@ namespace CultureWave_Form.Forms
             this.Controls.Add(this.labelCapacity);
             this.Controls.Add(this.roundedTextBoxNameSpace);
             this.Controls.Add(this.labelNameSpace);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCreateSpace";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormCreateEditSpace";
+            this.Text = "Espacio";
             this.groupBoxSeats.ResumeLayout(false);
             this.groupBoxSeats.PerformLayout();
             this.groupBoxAvailable.ResumeLayout(false);
