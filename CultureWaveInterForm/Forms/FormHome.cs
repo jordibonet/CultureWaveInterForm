@@ -1,4 +1,5 @@
 ﻿using CultureWaveInterForm.Models;
+using CultureWaveInterForm.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,7 +31,7 @@ namespace CultureWave_Form.Forms
         private void UpdateLanguage()
         {
             labelActiveEvents.Text = LanguageManager.GetString("labelActiveEvents");
-            labelRecentReservations = LanguageManager.GetString("labelRecentReservations");
+            labelRecentReservations.Text = LanguageManager.GetString("labelRecentReservations");
         }
 
         /// <summary>
