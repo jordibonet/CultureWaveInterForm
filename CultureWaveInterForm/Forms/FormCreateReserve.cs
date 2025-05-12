@@ -1,4 +1,5 @@
 ﻿using CultureWaveInterForm.Models;
+using CultureWaveInterForm.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,17 @@ namespace CultureWaveInterForm.Forms
         public FormCreateReserve()
         {
             InitializeComponent();
+
+            LanguageManager.LoadLanguage += UpdateLanguage;
+            UpdateLanguage();
+        }
+
+        private void UpdateLanguage()
+        {
+            labelNameUser.Text = LanguageManager.GetString("labelNameUser");
+            labelEvents.Text = LanguageManager.GetString("labelEvents");
+            labelSeats.Text = LanguageManager.GetString("labelSeats");
+            roundedButtonReserve.Text = LanguageManager.GetString("roundedButtonReserve");
         }
 
         private void FormCreateReserve_Load(object sender, EventArgs e)

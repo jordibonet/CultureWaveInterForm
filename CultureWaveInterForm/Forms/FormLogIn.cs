@@ -13,6 +13,16 @@ namespace CultureWave_Form
         {
             InitializeComponent();
             roundedTextBoxPassword.PasswordChar = true;
+
+            LanguageManager.LoadLanguage += UpdateLanguage;
+            UpdateLanguage();
+        }
+
+        private void UpdateLanguage()
+        {
+            labelUser.Text = LanguageManager.GetString("labelUser");
+            labelPassword.Text = LanguageManager.GetString("labelPassword");
+            buttonLogIn.Text = LanguageManager.GetString("buttonLogIn");
         }
 
         /// <summary>

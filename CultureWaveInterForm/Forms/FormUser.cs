@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using CultureWave_Form.Utils;
+using CultureWaveInterForm.Utils;
 
 
 namespace CultureWave_Form.Forms
@@ -16,6 +17,19 @@ namespace CultureWave_Form.Forms
         {
             InitializeComponent();
             this.formData = formData;
+
+            LanguageManager.LoadLanguage += UpdateLanguage;
+            UpdateLanguage();
+        }
+
+        private void UpdateLanguage()
+        {
+            roundedButtonSearch.Text = LanguageManager.GetString("roundedButtonSearch");
+            roundedButtonReset.Text = LanguageManager.GetString("roundedButtonReset");
+            roundedButtonEdit.Text = LanguageManager.GetString("roundedButtonEdit");
+            roundedButtonDelete.Text = LanguageManager.GetString("roundedButtonDelete");
+            roundedButtonCreate.Text = LanguageManager.GetString("roundedButtonCreate");
+            labelUsers.Text = LanguageManager.GetString("labelUsers");
         }
 
         /// <summary>

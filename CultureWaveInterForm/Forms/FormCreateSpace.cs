@@ -1,4 +1,5 @@
 ﻿using CultureWaveInterForm.Models;
+using CultureWaveInterForm.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,21 @@ namespace CultureWave_Form.Forms
         {
             InitializeComponent();
             this.formData = formData;
+
+            LanguageManager.LoadLanguage += UpdateLanguage;
+            UpdateLanguage();
+        }
+
+        private void UpdateLanguage()
+        {
+            roundedButtonCreate.Text = LanguageManager.GetString("roundedButtonCreate");
+            labelNameSpace.Text = LanguageManager.GetString("labelNameSpace");
+            labelCapacity.Text = LanguageManager.GetString("labelCapacity");
+            labelFixedSeats.Text = LanguageManager.GetString("labelFixedSeats");
+            roundedRadioButtonYesSeats.Text = LanguageManager.GetString("roundedRadioButtonYesSeats");
+            labelAvailable.Text = LanguageManager.GetString("labelAvailable");
+            roundedRadioButtonYesAvailable.Text = LanguageManager.GetString("roundedRadioButtonYesAvailable");
+
         }
 
         /// <summary>

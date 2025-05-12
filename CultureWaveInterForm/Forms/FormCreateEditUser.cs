@@ -13,6 +13,18 @@ namespace CultureWave_Form.Forms
         {
             InitializeComponent();
             loadRol();
+
+            LanguageManager.LoadLanguage += UpdateLanguage;
+            UpdateLanguage();
+        }
+
+        private void UpdateLanguage()
+        {
+            labelUser.Text = LanguageManager.GetString("labelUser");
+            labelEmail.Text = LanguageManager.GetString("labelEmail");
+            labelPassword.Text = LanguageManager.GetString("labelPassword");
+            roundedButtonAccept.Text = LanguageManager.GetString("roundedButtonAccept");
+            roundedButtonCancel.Text = LanguageManager.GetString("roundedButtonCancel");
         }
 
         /// <summary>

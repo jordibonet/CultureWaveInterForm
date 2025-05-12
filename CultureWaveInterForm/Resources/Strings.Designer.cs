@@ -70,6 +70,15 @@ namespace CultureWaveInterForm.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Salir.
+        /// </summary>
+        internal static string labeExit {
+            get {
+                return ResourceManager.GetString("labeExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Capacidad.
         /// </summary>
         internal static string labelCapacity {
@@ -111,15 +120,6 @@ namespace CultureWaveInterForm.Resources {
         internal static string labelEvents {
             get {
                 return ResourceManager.GetString("labelEvents", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Salir.
-        /// </summary>
-        internal static string labeLExit {
-            get {
-                return ResourceManager.GetString("labeLExit", resourceCulture);
             }
         }
         
@@ -192,6 +192,15 @@ namespace CultureWaveInterForm.Resources {
         internal static string labelSeats {
             get {
                 return ResourceManager.GetString("labelSeats", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Espacios.
+        /// </summary>
+        internal static string labelSpace {
+            get {
+                return ResourceManager.GetString("labelSpace", resourceCulture);
             }
         }
         

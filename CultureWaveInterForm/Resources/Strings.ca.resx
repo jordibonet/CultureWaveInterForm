@@ -162,7 +162,7 @@
   <data name="roundedButtonLogOut" xml:space="preserve">
     <value>Tancar Sesió</value>
   </data>
-  <data name="labeLExit" xml:space="preserve">
+  <data name="labeExit" xml:space="preserve">
     <value>Sortir</value>
   </data>
   <data name="roundedButtonExit" xml:space="preserve">
@@ -221,5 +221,8 @@
   </data>
   <data name="roundedButtonCancel" xml:space="preserve">
     <value>Cancel·lar</value>
+  </data>
+  <data name="labelSpace" xml:space="preserve">
+    <value>Espais</value>
   </data>
 </root>

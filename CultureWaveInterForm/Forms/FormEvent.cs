@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Configuration;
 using CultureWaveInterForm.Models;
+using CultureWaveInterForm.Utils;
 
 namespace CultureWave_Form.Forms
 {
@@ -17,6 +18,20 @@ namespace CultureWave_Form.Forms
         {
             InitializeComponent();
             this.formData = formData;
+
+            LanguageManager.LoadLanguage += UpdateLanguage;
+            UpdateLanguage();
+        }
+
+        private void UpdateLanguage()
+        {
+            roundedButtonCreateEvent.Text = LanguageManager.GetString("roundedButtonCreateEvent");
+            roundedButtonGenerateIA.Text = LanguageManager.GetString("roundedButtonGenerateIA");
+            labelNameEvents.Text = LanguageManager.GetString("labelNameEvents");
+            labelDescription.Text = LanguageManager.GetString("labelDescription");
+            labelEventDate.Text = LanguageManager.GetString("labelEventDate");
+            labelSpaces.Text = LanguageManager.GetString("labelSpaces");
+            labelStatus.Text = LanguageManager.GetString("labelStatus");
         }
 
         /// <summary>

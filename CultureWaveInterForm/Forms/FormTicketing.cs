@@ -1,5 +1,6 @@
 ﻿using CultureWave_Form.Forms;
 using CultureWaveInterForm.Models;
+using CultureWaveInterForm.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,15 @@ namespace CultureWaveInterForm.Forms
             this.formData = formData;
 
             loadTickets();
+
+            LanguageManager.LoadLanguage += UpdateLanguage;
+            UpdateLanguage();
+        }
+
+        private void UpdateLanguage()
+        {
+            roundedButtonCloseTicket.Text = LanguageManager.GetString("roundedButtonCloseTicket");
+            labelTicket.Text = LanguageManager.GetString("labelTicket");
         }
 
         /// <summary>

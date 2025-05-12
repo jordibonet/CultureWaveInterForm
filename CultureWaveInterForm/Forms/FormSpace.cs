@@ -1,4 +1,5 @@
 ﻿using CultureWaveInterForm.Models;
+using CultureWaveInterForm.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,16 @@ namespace CultureWave_Form.Forms
         {
             InitializeComponent();
             this.formData = formData;
+
+            LanguageManager.LoadLanguage += UpdateLanguage;
+            UpdateLanguage();
+        }
+
+        private void UpdateLanguage()
+        {
+            roundedButtonCreate.Text = LanguageManager.GetString("roundedButtonCreate");
+            roundedButtonEdit.Text = LanguageManager.GetString("roundedButtonEdit");
+            labelSpaces.Text = LanguageManager.GetString("labelSpaces");
         }
 
         /// <summary>
