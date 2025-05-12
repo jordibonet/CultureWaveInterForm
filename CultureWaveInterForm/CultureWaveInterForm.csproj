@@ -339,10 +339,13 @@
     <None Include="Resources\space1.png" />
     <None Include="Resources\reserved1.png" />
     <None Include="Resources\calendar1.png" />
+    <None Include="Resources\esp.png" />
+    <None Include="Resources\cat.png" />
     <Content Include="Resources\exit.png" />
     <Content Include="Resources\home.png" />
     <None Include="Resources\home1.png" />
     <None Include="Resources\LogoCultureWaveBueno.png" />
+    <None Include="Resources\ing.png" />
     <Content Include="Resources\reserved.png" />
     <None Include="Resources\soporte.png" />
     <Content Include="Resources\space.png" />
