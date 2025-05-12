@@ -40,7 +40,7 @@ namespace CultureWave_Form.Forms
 
         private void UpdateLanguage()
         {
-            labelHome.Text = LanguageManager.GetString("labelHome");
+      
             labelEvents.Text = LanguageManager.GetString("labelEvents");
             labelReserves.Text = LanguageManager.GetString("labelReserves");
             labelSpace.Text = LanguageManager.GetString("labelSpace");

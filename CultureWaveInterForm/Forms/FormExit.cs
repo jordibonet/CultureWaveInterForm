@@ -27,8 +27,8 @@ namespace CultureWave_Form.Forms
         {
             labeLExit.Text = LanguageManager.GetString("labelExit");
             labelLogOut.Text = LanguageManager.GetString("labelLogOut");
-            roundedButtonExit.Text = LanguageManager.GetString("buttonExit");
-            roundedButtonLogOut.Text = LanguageManager.GetString("buttonLogOut");
+            roundedButtonExit.Text = LanguageManager.GetString("roundedButtonExit");
+            roundedButtonLogOut.Text = LanguageManager.GetString("roundedButtonLogOut");
         }
 
         /// <summary>
