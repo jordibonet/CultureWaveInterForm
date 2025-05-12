@@ -34,7 +34,7 @@ namespace CultureWave_Form.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewSpaces = new System.Windows.Forms.DataGridView();
-            this.labelNameSpaces = new System.Windows.Forms.Label();
+            this.labelSpaces = new System.Windows.Forms.Label();
             this.roundedButtonCreate = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonEdit = new CultureWave_Form.Controls.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSpaces)).BeginInit();
@@ -75,15 +75,15 @@ namespace CultureWave_Form.Forms
             this.dataGridViewSpaces.Size = new System.Drawing.Size(992, 477);
             this.dataGridViewSpaces.TabIndex = 5;
             // 
-            // labelNameSpaces
+            // labelSpaces
             // 
-            this.labelNameSpaces.AutoSize = true;
-            this.labelNameSpaces.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelNameSpaces.Location = new System.Drawing.Point(12, 47);
-            this.labelNameSpaces.Name = "labelNameSpaces";
-            this.labelNameSpaces.Size = new System.Drawing.Size(95, 24);
-            this.labelNameSpaces.TabIndex = 15;
-            this.labelNameSpaces.Text = "Espacios";
+            this.labelSpaces.AutoSize = true;
+            this.labelSpaces.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.labelSpaces.Location = new System.Drawing.Point(12, 47);
+            this.labelSpaces.Name = "labelSpaces";
+            this.labelSpaces.Size = new System.Drawing.Size(95, 24);
+            this.labelSpaces.TabIndex = 15;
+            this.labelSpaces.Text = "Espacios";
             // 
             // roundedButtonCreate
             // 
@@ -123,7 +123,7 @@ namespace CultureWave_Form.Forms
             this.ClientSize = new System.Drawing.Size(1016, 565);
             this.Controls.Add(this.roundedButtonCreate);
             this.Controls.Add(this.roundedButtonEdit);
-            this.Controls.Add(this.labelNameSpaces);
+            this.Controls.Add(this.labelSpaces);
             this.Controls.Add(this.dataGridViewSpaces);
             this.Name = "FormSpace";
             this.Text = "FormSpace";
@@ -137,7 +137,7 @@ namespace CultureWave_Form.Forms
         #endregion
 
         private DataGridView dataGridViewSpaces;
-        private Label labelNameSpaces;
+        private Label labelSpaces;
         private Controls.RoundedButton roundedButtonEdit;
         private Controls.RoundedButton roundedButtonCreate;
     }

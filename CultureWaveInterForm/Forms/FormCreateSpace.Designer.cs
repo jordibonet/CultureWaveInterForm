@@ -53,7 +53,7 @@ namespace CultureWave_Form.Forms
             // 
             this.labelNameSpace.AutoSize = true;
             this.labelNameSpace.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelNameSpace.Location = new System.Drawing.Point(12, 9);
+            this.labelNameSpace.Location = new System.Drawing.Point(12, 13);
             this.labelNameSpace.Name = "labelNameSpace";
             this.labelNameSpace.Size = new System.Drawing.Size(164, 24);
             this.labelNameSpace.TabIndex = 15;
@@ -111,10 +111,10 @@ namespace CultureWave_Form.Forms
             this.roundedRadioButtonYesSeats.Name = "roundedRadioButtonYesSeats";
             this.roundedRadioButtonYesSeats.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.roundedRadioButtonYesSeats.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.roundedRadioButtonYesSeats.Size = new System.Drawing.Size(72, 28);
+            this.roundedRadioButtonYesSeats.Size = new System.Drawing.Size(55, 28);
             this.roundedRadioButtonYesSeats.TabIndex = 20;
             this.roundedRadioButtonYesSeats.TabStop = true;
-            this.roundedRadioButtonYesSeats.Text = "Yes";
+            this.roundedRadioButtonYesSeats.Text = "Si";
             this.roundedRadioButtonYesSeats.UnCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(93)))), ((int)(((byte)(51)))));
             this.roundedRadioButtonYesSeats.UseVisualStyleBackColor = true;
             // 
@@ -174,10 +174,10 @@ namespace CultureWave_Form.Forms
             this.roundedRadioButtonYesAvailable.Name = "roundedRadioButtonYesAvailable";
             this.roundedRadioButtonYesAvailable.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.roundedRadioButtonYesAvailable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.roundedRadioButtonYesAvailable.Size = new System.Drawing.Size(72, 28);
+            this.roundedRadioButtonYesAvailable.Size = new System.Drawing.Size(55, 28);
             this.roundedRadioButtonYesAvailable.TabIndex = 23;
             this.roundedRadioButtonYesAvailable.TabStop = true;
-            this.roundedRadioButtonYesAvailable.Text = "Yes";
+            this.roundedRadioButtonYesAvailable.Text = "Si";
             this.roundedRadioButtonYesAvailable.UnCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(93)))), ((int)(((byte)(51)))));
             this.roundedRadioButtonYesAvailable.UseVisualStyleBackColor = true;
             // 

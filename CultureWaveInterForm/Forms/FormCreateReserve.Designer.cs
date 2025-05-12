@@ -36,7 +36,7 @@
             this.comboBoxRow = new System.Windows.Forms.ComboBox();
             this.labelSeats = new System.Windows.Forms.Label();
             this.comboBoxNumSeat = new System.Windows.Forms.ComboBox();
-            this.roundedButtonCreate = new CultureWave_Form.Controls.RoundedButton();
+            this.roundedButtonReserve = new CultureWave_Form.Controls.RoundedButton();
             this.SuspendLayout();
             // 
             // labelEvents
@@ -126,19 +126,19 @@
             this.comboBoxNumSeat.Size = new System.Drawing.Size(196, 28);
             this.comboBoxNumSeat.TabIndex = 35;
             // 
-            // roundedButtonCreate
+            // roundedButtonReserve
             // 
-            this.roundedButtonCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
-            this.roundedButtonCreate.FlatAppearance.BorderSize = 0;
-            this.roundedButtonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButtonCreate.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonCreate.Location = new System.Drawing.Point(178, 362);
-            this.roundedButtonCreate.Name = "roundedButtonCreate";
-            this.roundedButtonCreate.Size = new System.Drawing.Size(150, 40);
-            this.roundedButtonCreate.TabIndex = 36;
-            this.roundedButtonCreate.Text = "Reservar";
-            this.roundedButtonCreate.UseVisualStyleBackColor = false;
-            this.roundedButtonCreate.Click += new System.EventHandler(this.roundedButtonCreate_Click);
+            this.roundedButtonReserve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
+            this.roundedButtonReserve.FlatAppearance.BorderSize = 0;
+            this.roundedButtonReserve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButtonReserve.ForeColor = System.Drawing.Color.Black;
+            this.roundedButtonReserve.Location = new System.Drawing.Point(178, 362);
+            this.roundedButtonReserve.Name = "roundedButtonReserve";
+            this.roundedButtonReserve.Size = new System.Drawing.Size(150, 40);
+            this.roundedButtonReserve.TabIndex = 36;
+            this.roundedButtonReserve.Text = "Reservar";
+            this.roundedButtonReserve.UseVisualStyleBackColor = false;
+            this.roundedButtonReserve.Click += new System.EventHandler(this.roundedButtonCreate_Click);
             // 
             // FormCreateReserve
             // 
@@ -146,7 +146,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(507, 441);
-            this.Controls.Add(this.roundedButtonCreate);
+            this.Controls.Add(this.roundedButtonReserve);
             this.Controls.Add(this.comboBoxNumSeat);
             this.Controls.Add(this.comboBoxRow);
             this.Controls.Add(this.labelSeats);
@@ -172,6 +172,6 @@
         private System.Windows.Forms.ComboBox comboBoxRow;
         private System.Windows.Forms.Label labelSeats;
         private System.Windows.Forms.ComboBox comboBoxNumSeat;
-        private CultureWave_Form.Controls.RoundedButton roundedButtonCreate;
+        private CultureWave_Form.Controls.RoundedButton roundedButtonReserve;
     }
 }

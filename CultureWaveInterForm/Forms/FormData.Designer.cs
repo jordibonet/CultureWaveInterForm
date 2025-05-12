@@ -35,7 +35,7 @@ namespace CultureWave_Form.Forms
             this.labelCultureWave = new System.Windows.Forms.Label();
             this.labelHome = new System.Windows.Forms.Label();
             this.labelEvents = new System.Windows.Forms.Label();
-            this.labelReserve = new System.Windows.Forms.Label();
+            this.labelReserves = new System.Windows.Forms.Label();
             this.labelSpace = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
             this.labelExit = new System.Windows.Forms.Label();
@@ -111,17 +111,17 @@ namespace CultureWave_Form.Forms
             this.labelEvents.Text = "Eventos";
             this.labelEvents.Click += new System.EventHandler(this.labelEvents_Click);
             // 
-            // labelReserve
+            // labelReserves
             // 
-            this.labelReserve.AutoSize = true;
-            this.labelReserve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
-            this.labelReserve.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelReserve.Location = new System.Drawing.Point(112, 27);
-            this.labelReserve.Name = "labelReserve";
-            this.labelReserve.Size = new System.Drawing.Size(96, 24);
-            this.labelReserve.TabIndex = 5;
-            this.labelReserve.Text = "Reservas";
-            this.labelReserve.Click += new System.EventHandler(this.labelReserve_Click);
+            this.labelReserves.AutoSize = true;
+            this.labelReserves.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
+            this.labelReserves.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.labelReserves.Location = new System.Drawing.Point(112, 27);
+            this.labelReserves.Name = "labelReserves";
+            this.labelReserves.Size = new System.Drawing.Size(96, 24);
+            this.labelReserves.TabIndex = 5;
+            this.labelReserves.Text = "Reservas";
+            this.labelReserves.Click += new System.EventHandler(this.labelReserve_Click);
             // 
             // labelSpace
             // 
@@ -259,7 +259,7 @@ namespace CultureWave_Form.Forms
             // 
             this.panelReserve.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(248)))), ((int)(((byte)(241)))));
             this.panelReserve.Controls.Add(this.pictureBoxReserve);
-            this.panelReserve.Controls.Add(this.labelReserve);
+            this.panelReserve.Controls.Add(this.labelReserves);
             this.panelReserve.Location = new System.Drawing.Point(3, 251);
             this.panelReserve.Name = "panelReserve";
             this.panelReserve.Size = new System.Drawing.Size(220, 80);
@@ -457,7 +457,7 @@ namespace CultureWave_Form.Forms
         private GroupBox groupBox3;
         private GroupBox groupBox4;
         private GroupBox groupBox5;
-        private Label labelReserve;
+        private Label labelReserves;
         private Label labelSpace;
         private Label labelUser;
         private Label labelExit;

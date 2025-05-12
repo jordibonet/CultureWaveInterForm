@@ -32,7 +32,7 @@ namespace CultureWave_Form.Forms
             dataGridViewReserves.DataSource = reservesBindingSource; // Agregamos BindingSource a la dataGridView.
             // Diseño del dataGridView + label del nombre de reservas.
             dataGridViewReserves.Visible = false;
-            labelNameReserves.Visible = false;
+            labelReserves.Visible = false;
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace CultureWave_Form.Forms
         private void roundedButtonSearch_Click(object sender, EventArgs e)
         {
             dataGridViewReserves.Visible = true;
-            labelNameReserves.Visible = true;
+            labelReserves.Visible = true;
 
             // Verificar si hay un usuario seleccionado
             if (comboBoxUsers.SelectedIndex != -1)

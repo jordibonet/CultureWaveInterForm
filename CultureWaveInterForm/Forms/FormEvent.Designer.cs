@@ -40,9 +40,9 @@ namespace CultureWave_Form.Forms
             this.roundedTextBoxEndDate = new CultureWave_Form.Controls.RoundedTextBox();
             this.roundedButtonGenerateIA = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonCreateEvent = new CultureWave_Form.Controls.RoundedButton();
-            this.labelSpaceEvents = new System.Windows.Forms.Label();
+            this.labelSpaces = new System.Windows.Forms.Label();
             this.comboBoxSpaceEvents = new System.Windows.Forms.ComboBox();
-            this.labelStateEvent = new System.Windows.Forms.Label();
+            this.labelStatus = new System.Windows.Forms.Label();
             this.comboBoxStateEvents = new System.Windows.Forms.ComboBox();
             this.roundedRichTextBoxDescription = new CultureWave_Form.Controls.RoundedRichTextBox();
             this.SuspendLayout();
@@ -173,15 +173,15 @@ namespace CultureWave_Form.Forms
             this.roundedButtonCreateEvent.UseVisualStyleBackColor = false;
             this.roundedButtonCreateEvent.Click += new System.EventHandler(this.roundedButtonCreateEvent_Click);
             // 
-            // labelSpaceEvents
+            // labelSpaces
             // 
-            this.labelSpaceEvents.AutoSize = true;
-            this.labelSpaceEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelSpaceEvents.Location = new System.Drawing.Point(552, 248);
-            this.labelSpaceEvents.Name = "labelSpaceEvents";
-            this.labelSpaceEvents.Size = new System.Drawing.Size(95, 24);
-            this.labelSpaceEvents.TabIndex = 36;
-            this.labelSpaceEvents.Text = "Espacios";
+            this.labelSpaces.AutoSize = true;
+            this.labelSpaces.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.labelSpaces.Location = new System.Drawing.Point(552, 248);
+            this.labelSpaces.Name = "labelSpaces";
+            this.labelSpaces.Size = new System.Drawing.Size(95, 24);
+            this.labelSpaces.TabIndex = 36;
+            this.labelSpaces.Text = "Espacios";
             // 
             // comboBoxSpaceEvents
             // 
@@ -195,15 +195,15 @@ namespace CultureWave_Form.Forms
             this.comboBoxSpaceEvents.TabIndex = 37;
             this.comboBoxSpaceEvents.ValueMember = "idSpace";
             // 
-            // labelStateEvent
+            // labelStatus
             // 
-            this.labelStateEvent.AutoSize = true;
-            this.labelStateEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelStateEvent.Location = new System.Drawing.Point(552, 339);
-            this.labelStateEvent.Name = "labelStateEvent";
-            this.labelStateEvent.Size = new System.Drawing.Size(74, 24);
-            this.labelStateEvent.TabIndex = 38;
-            this.labelStateEvent.Text = "Estado";
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.labelStatus.Location = new System.Drawing.Point(552, 339);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(74, 24);
+            this.labelStatus.TabIndex = 38;
+            this.labelStatus.Text = "Estado";
             // 
             // comboBoxStateEvents
             // 
@@ -247,9 +247,9 @@ namespace CultureWave_Form.Forms
             this.ClientSize = new System.Drawing.Size(1016, 565);
             this.Controls.Add(this.roundedRichTextBoxDescription);
             this.Controls.Add(this.comboBoxStateEvents);
-            this.Controls.Add(this.labelStateEvent);
+            this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.comboBoxSpaceEvents);
-            this.Controls.Add(this.labelSpaceEvents);
+            this.Controls.Add(this.labelSpaces);
             this.Controls.Add(this.roundedButtonCreateEvent);
             this.Controls.Add(this.roundedButtonGenerateIA);
             this.Controls.Add(this.roundedTextBoxEndDate);
@@ -280,9 +280,9 @@ namespace CultureWave_Form.Forms
         private Controls.RoundedTextBox roundedTextBox2;
         private Controls.RoundedButton roundedButtonGenerateIA;
         private Controls.RoundedButton roundedButtonCreateEvent;
-        private Label labelSpaceEvents;
+        private Label labelSpaces;
         private ComboBox comboBoxSpaceEvents;
-        private Label labelStateEvent;
+        private Label labelStatus;
         private ComboBox comboBoxStateEvents;
         private Controls.RoundedRichTextBox roundedRichTextBoxDescription;
     }

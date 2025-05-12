@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CultureWaveInterForm.Utils;
 
 namespace CultureWave_Form.Forms
 {
@@ -17,6 +18,17 @@ namespace CultureWave_Form.Forms
         {
             InitializeComponent();
             this.formData = formData;
+
+            LanguageManager.LoadLanguage += UpdateLanguage;
+
+        }
+
+        private void UpdateLanguage()
+        {
+            labeLExit.Text = LanguageManager.GetString("labelExit");
+            labelLogOut.Text = LanguageManager.GetString("labelLogOut");
+            roundedButtonExit.Text = LanguageManager.GetString("buttonExit");
+            roundedButtonLogOut.Text = LanguageManager.GetString("buttonLogOut");
         }
 
         /// <summary>
@@ -39,6 +51,21 @@ namespace CultureWave_Form.Forms
             formData.Hide();
             FormLogin formLogin = new FormLogin();
             formLogin.ShowDialog();
+        }
+
+        private void pictureBoxSpanish_Click(object sender, EventArgs e)
+        {
+            LanguageManager.ChangeLanguage("es");
+        }
+
+        private void pictureBoxCatalan_Click(object sender, EventArgs e)
+        {
+            LanguageManager.ChangeLanguage("ca");
+        }
+
+        private void pictureBoxEnglish_Click(object sender, EventArgs e)
+        {
+            LanguageManager.ChangeLanguage("en");
         }
     }
 }

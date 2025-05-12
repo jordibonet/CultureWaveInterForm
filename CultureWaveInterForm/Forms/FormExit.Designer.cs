@@ -35,12 +35,12 @@ namespace CultureWave_Form.Forms
             this.labelLogOut = new System.Windows.Forms.Label();
             this.roundedButtonExit = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonLogOut = new CultureWave_Form.Controls.RoundedButton();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBoxEnglish = new System.Windows.Forms.PictureBox();
+            this.pictureBoxCatalan = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSpanish = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEnglish)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCatalan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpanish)).BeginInit();
             this.SuspendLayout();
             // 
             // labeLExit
@@ -93,35 +93,38 @@ namespace CultureWave_Form.Forms
             this.roundedButtonLogOut.UseVisualStyleBackColor = false;
             this.roundedButtonLogOut.Click += new System.EventHandler(this.roundedButtonLogOut_Click);
             // 
-            // pictureBox3
+            // pictureBoxEnglish
             // 
-            this.pictureBox3.Image = global::CultureWaveInterForm.Properties.Resources.ing;
-            this.pictureBox3.Location = new System.Drawing.Point(658, 420);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(84, 67);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 41;
-            this.pictureBox3.TabStop = false;
+            this.pictureBoxEnglish.Image = global::CultureWaveInterForm.Properties.Resources.ing;
+            this.pictureBoxEnglish.Location = new System.Drawing.Point(658, 420);
+            this.pictureBoxEnglish.Name = "pictureBoxEnglish";
+            this.pictureBoxEnglish.Size = new System.Drawing.Size(84, 67);
+            this.pictureBoxEnglish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxEnglish.TabIndex = 41;
+            this.pictureBoxEnglish.TabStop = false;
+            this.pictureBoxEnglish.Click += new System.EventHandler(this.pictureBoxEnglish_Click);
             // 
-            // pictureBox2
+            // pictureBoxCatalan
             // 
-            this.pictureBox2.Image = global::CultureWaveInterForm.Properties.Resources.cat;
-            this.pictureBox2.Location = new System.Drawing.Point(495, 420);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(84, 67);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 40;
-            this.pictureBox2.TabStop = false;
+            this.pictureBoxCatalan.Image = global::CultureWaveInterForm.Properties.Resources.cat;
+            this.pictureBoxCatalan.Location = new System.Drawing.Point(495, 420);
+            this.pictureBoxCatalan.Name = "pictureBoxCatalan";
+            this.pictureBoxCatalan.Size = new System.Drawing.Size(84, 67);
+            this.pictureBoxCatalan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxCatalan.TabIndex = 40;
+            this.pictureBoxCatalan.TabStop = false;
+            this.pictureBoxCatalan.Click += new System.EventHandler(this.pictureBoxCatalan_Click);
             // 
-            // pictureBox1
+            // pictureBoxSpanish
             // 
-            this.pictureBox1.Image = global::CultureWaveInterForm.Properties.Resources.esp;
-            this.pictureBox1.Location = new System.Drawing.Point(323, 420);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(84, 67);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 39;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxSpanish.Image = global::CultureWaveInterForm.Properties.Resources.esp;
+            this.pictureBoxSpanish.Location = new System.Drawing.Point(323, 420);
+            this.pictureBoxSpanish.Name = "pictureBoxSpanish";
+            this.pictureBoxSpanish.Size = new System.Drawing.Size(84, 67);
+            this.pictureBoxSpanish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSpanish.TabIndex = 39;
+            this.pictureBoxSpanish.TabStop = false;
+            this.pictureBoxSpanish.Click += new System.EventHandler(this.pictureBoxSpanish_Click);
             // 
             // FormExit
             // 
@@ -129,18 +132,18 @@ namespace CultureWave_Form.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1016, 565);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxEnglish);
+            this.Controls.Add(this.pictureBoxCatalan);
+            this.Controls.Add(this.pictureBoxSpanish);
             this.Controls.Add(this.roundedButtonLogOut);
             this.Controls.Add(this.roundedButtonExit);
             this.Controls.Add(this.labeLExit);
             this.Controls.Add(this.labelLogOut);
             this.Name = "FormExit";
             this.Text = "FormExit";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEnglish)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCatalan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpanish)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,8 +154,8 @@ namespace CultureWave_Form.Forms
         private Label labelLogOut;
         private Controls.RoundedButton roundedButtonExit;
         private Controls.RoundedButton roundedButtonLogOut;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
+        private PictureBox pictureBoxSpanish;
+        private PictureBox pictureBoxCatalan;
+        private PictureBox pictureBoxEnglish;
     }
 }

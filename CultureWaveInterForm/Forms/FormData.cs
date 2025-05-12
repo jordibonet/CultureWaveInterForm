@@ -1,8 +1,10 @@
 ﻿using CultureWaveInterForm.Forms;
 using CultureWaveInterForm.Models;
+using CultureWaveInterForm.Utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -31,6 +33,20 @@ namespace CultureWave_Form.Forms
             InitializePanels();
             _usuarioAutenticado = usuario;
             loadLabelsUser();
+
+            LanguageManager.LoadLanguage += UpdateLanguage;
+            UpdateLanguage();
+        }
+
+        private void UpdateLanguage()
+        {
+            labelHome.Text = LanguageManager.GetString("labelHome");
+            labelEvents.Text = LanguageManager.GetString("labelEvents");
+            labelReserves.Text = LanguageManager.GetString("labelReserves");
+            labelSpace.Text = LanguageManager.GetString("labelSpace");
+            labelUser.Text = LanguageManager.GetString("labelUser");
+            labelTicket.Text = LanguageManager.GetString("labelTicket");
+            labelExit.Text = LanguageManager.GetString("labelExit");
         }
 
         /// <summary>

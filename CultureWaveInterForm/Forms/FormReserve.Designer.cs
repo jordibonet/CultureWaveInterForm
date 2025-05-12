@@ -33,7 +33,7 @@ namespace CultureWave_Form.Forms
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.labelNameReserves = new System.Windows.Forms.Label();
+            this.labelReserves = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
             this.dataGridViewReserves = new System.Windows.Forms.DataGridView();
             this.comboBoxUsers = new System.Windows.Forms.ComboBox();
@@ -43,15 +43,15 @@ namespace CultureWave_Form.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReserves)).BeginInit();
             this.SuspendLayout();
             // 
-            // labelNameReserves
+            // labelReserves
             // 
-            this.labelNameReserves.AutoSize = true;
-            this.labelNameReserves.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelNameReserves.Location = new System.Drawing.Point(12, 126);
-            this.labelNameReserves.Name = "labelNameReserves";
-            this.labelNameReserves.Size = new System.Drawing.Size(96, 24);
-            this.labelNameReserves.TabIndex = 16;
-            this.labelNameReserves.Text = "Reservas";
+            this.labelReserves.AutoSize = true;
+            this.labelReserves.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.labelReserves.Location = new System.Drawing.Point(12, 126);
+            this.labelReserves.Name = "labelReserves";
+            this.labelReserves.Size = new System.Drawing.Size(96, 24);
+            this.labelReserves.TabIndex = 16;
+            this.labelReserves.Text = "Reservas";
             // 
             // labelUser
             // 
@@ -165,7 +165,7 @@ namespace CultureWave_Form.Forms
             this.Controls.Add(this.roundedButtonReserve);
             this.Controls.Add(this.dataGridViewReserves);
             this.Controls.Add(this.labelUser);
-            this.Controls.Add(this.labelNameReserves);
+            this.Controls.Add(this.labelReserves);
             this.Name = "FormReserve";
             this.Text = "FormReserve";
             this.Load += new System.EventHandler(this.FormReserve_Load);
@@ -177,7 +177,7 @@ namespace CultureWave_Form.Forms
 
         #endregion
 
-        private Label labelNameReserves;
+        private Label labelReserves;
         private Label labelUser;
         private DataGridView dataGridViewReserves;
         private Controls.RoundedButton roundedButtonReserve;

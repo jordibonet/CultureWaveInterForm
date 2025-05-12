@@ -86,6 +86,7 @@
             this.roundedButtonCloseTicket.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
             this.roundedButtonCloseTicket.FlatAppearance.BorderSize = 0;
             this.roundedButtonCloseTicket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButtonCloseTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.roundedButtonCloseTicket.ForeColor = System.Drawing.Color.Black;
             this.roundedButtonCloseTicket.Location = new System.Drawing.Point(848, 12);
             this.roundedButtonCloseTicket.Name = "roundedButtonCloseTicket";

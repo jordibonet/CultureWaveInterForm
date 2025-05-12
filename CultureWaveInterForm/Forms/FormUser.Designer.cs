@@ -34,12 +34,12 @@ namespace CultureWave_Form.Forms
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
-            this.labelNameUsers = new System.Windows.Forms.Label();
+            this.labelUsers = new System.Windows.Forms.Label();
             this.roundedButtonDelete = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonCreate = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonEdit = new CultureWave_Form.Controls.RoundedButton();
             this.roundedTextBoxEmail = new CultureWave_Form.Controls.RoundedTextBox();
-            this.roundedButtonBuscar = new CultureWave_Form.Controls.RoundedButton();
+            this.roundedButtonSearch = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonReset = new CultureWave_Form.Controls.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.SuspendLayout();
@@ -83,15 +83,15 @@ namespace CultureWave_Form.Forms
             this.dataGridViewUsers.Size = new System.Drawing.Size(992, 454);
             this.dataGridViewUsers.TabIndex = 5;
             // 
-            // labelNameUsers
+            // labelUsers
             // 
-            this.labelNameUsers.AutoSize = true;
-            this.labelNameUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labelNameUsers.Location = new System.Drawing.Point(12, 66);
-            this.labelNameUsers.Name = "labelNameUsers";
-            this.labelNameUsers.Size = new System.Drawing.Size(91, 24);
-            this.labelNameUsers.TabIndex = 26;
-            this.labelNameUsers.Text = "Usuarios";
+            this.labelUsers.AutoSize = true;
+            this.labelUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.labelUsers.Location = new System.Drawing.Point(12, 66);
+            this.labelUsers.Name = "labelUsers";
+            this.labelUsers.Size = new System.Drawing.Size(91, 24);
+            this.labelUsers.TabIndex = 26;
+            this.labelUsers.Text = "Usuarios";
             // 
             // roundedButtonDelete
             // 
@@ -158,20 +158,20 @@ namespace CultureWave_Form.Forms
             this.roundedTextBoxEmail.Texts = "";
             this.roundedTextBoxEmail.UnderlinedStyle = false;
             // 
-            // roundedButtonBuscar
+            // roundedButtonSearch
             // 
-            this.roundedButtonBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
-            this.roundedButtonBuscar.FlatAppearance.BorderSize = 0;
-            this.roundedButtonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButtonBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.roundedButtonBuscar.ForeColor = System.Drawing.Color.Black;
-            this.roundedButtonBuscar.Location = new System.Drawing.Point(314, 12);
-            this.roundedButtonBuscar.Name = "roundedButtonBuscar";
-            this.roundedButtonBuscar.Size = new System.Drawing.Size(126, 60);
-            this.roundedButtonBuscar.TabIndex = 47;
-            this.roundedButtonBuscar.Text = "Buscar";
-            this.roundedButtonBuscar.UseVisualStyleBackColor = false;
-            this.roundedButtonBuscar.Click += new System.EventHandler(this.roundedButtonBuscar_Click);
+            this.roundedButtonSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(179)))), ((int)(((byte)(99)))));
+            this.roundedButtonSearch.FlatAppearance.BorderSize = 0;
+            this.roundedButtonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButtonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.roundedButtonSearch.ForeColor = System.Drawing.Color.Black;
+            this.roundedButtonSearch.Location = new System.Drawing.Point(314, 12);
+            this.roundedButtonSearch.Name = "roundedButtonSearch";
+            this.roundedButtonSearch.Size = new System.Drawing.Size(126, 60);
+            this.roundedButtonSearch.TabIndex = 47;
+            this.roundedButtonSearch.Text = "Buscar";
+            this.roundedButtonSearch.UseVisualStyleBackColor = false;
+            this.roundedButtonSearch.Click += new System.EventHandler(this.roundedButtonBuscar_Click);
             // 
             // roundedButtonReset
             // 
@@ -195,13 +195,13 @@ namespace CultureWave_Form.Forms
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1016, 565);
             this.Controls.Add(this.roundedButtonReset);
-            this.Controls.Add(this.roundedButtonBuscar);
+            this.Controls.Add(this.roundedButtonSearch);
             this.Controls.Add(this.roundedTextBoxEmail);
             this.Controls.Add(this.roundedButtonDelete);
             this.Controls.Add(this.roundedButtonCreate);
             this.Controls.Add(this.roundedButtonEdit);
             this.Controls.Add(this.dataGridViewUsers);
-            this.Controls.Add(this.labelNameUsers);
+            this.Controls.Add(this.labelUsers);
             this.Name = "FormUser";
             this.Text = "FormUser";
             this.Load += new System.EventHandler(this.FormUser_Load);
@@ -213,12 +213,12 @@ namespace CultureWave_Form.Forms
 
         #endregion
         private DataGridView dataGridViewUsers;
-        private Label labelNameUsers;
+        private Label labelUsers;
         private Controls.RoundedButton roundedButtonDelete;
         private Controls.RoundedButton roundedButtonCreate;
         private Controls.RoundedButton roundedButtonEdit;
         private Controls.RoundedTextBox roundedTextBoxEmail;
-        private Controls.RoundedButton roundedButtonBuscar;
+        private Controls.RoundedButton roundedButtonSearch;
         private Controls.RoundedButton roundedButtonReset;
     }
 }
