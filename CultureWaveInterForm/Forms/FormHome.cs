@@ -22,6 +22,15 @@ namespace CultureWave_Form.Forms
         {
             InitializeComponent();
             this.formData = formData;
+
+            LanguageManager.LoadLanguage += UpdateLanguage;
+            UpdateLanguage();
+        }
+
+        private void UpdateLanguage()
+        {
+            labelActiveEvents.Text = LanguageManager.GetString("labelActiveEvents");
+            labelRecentReservations = LanguageManager.GetString("labelRecentReservations");
         }
 
         /// <summary>

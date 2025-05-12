@@ -31,7 +31,7 @@ namespace CultureWave_Form.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.labeLExit = new System.Windows.Forms.Label();
+            this.labelExit = new System.Windows.Forms.Label();
             this.labelLogOut = new System.Windows.Forms.Label();
             this.roundedButtonExit = new CultureWave_Form.Controls.RoundedButton();
             this.roundedButtonLogOut = new CultureWave_Form.Controls.RoundedButton();
@@ -43,15 +43,15 @@ namespace CultureWave_Form.Forms
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpanish)).BeginInit();
             this.SuspendLayout();
             // 
-            // labeLExit
+            // labelExit
             // 
-            this.labeLExit.AutoSize = true;
-            this.labeLExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
-            this.labeLExit.Location = new System.Drawing.Point(478, 245);
-            this.labeLExit.Name = "labeLExit";
-            this.labeLExit.Size = new System.Drawing.Size(51, 24);
-            this.labeLExit.TabIndex = 36;
-            this.labeLExit.Text = "Salir";
+            this.labelExit.AutoSize = true;
+            this.labelExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.labelExit.Location = new System.Drawing.Point(478, 245);
+            this.labelExit.Name = "labelExit";
+            this.labelExit.Size = new System.Drawing.Size(51, 24);
+            this.labelExit.TabIndex = 36;
+            this.labelExit.Text = "Salir";
             // 
             // labelLogOut
             // 
@@ -137,7 +137,7 @@ namespace CultureWave_Form.Forms
             this.Controls.Add(this.pictureBoxSpanish);
             this.Controls.Add(this.roundedButtonLogOut);
             this.Controls.Add(this.roundedButtonExit);
-            this.Controls.Add(this.labeLExit);
+            this.Controls.Add(this.labelExit);
             this.Controls.Add(this.labelLogOut);
             this.Name = "FormExit";
             this.Text = "FormExit";
@@ -150,7 +150,7 @@ namespace CultureWave_Form.Forms
         }
 
         #endregion
-        private Label labeLExit;
+        private Label labelExit;
         private Label labelLogOut;
         private Controls.RoundedButton roundedButtonExit;
         private Controls.RoundedButton roundedButtonLogOut;

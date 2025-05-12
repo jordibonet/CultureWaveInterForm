@@ -25,7 +25,7 @@ namespace CultureWave_Form.Forms
 
         private void UpdateLanguage()
         {
-            labeLExit.Text = LanguageManager.GetString("labelExit");
+            labelExit.Text = LanguageManager.GetString("labelExit");
             labelLogOut.Text = LanguageManager.GetString("labelLogOut");
             roundedButtonExit.Text = LanguageManager.GetString("roundedButtonExit");
             roundedButtonLogOut.Text = LanguageManager.GetString("roundedButtonLogOut");

@@ -70,11 +70,20 @@ namespace CultureWaveInterForm.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Salir.
+        ///   Busca una cadena traducida similar a EVENTOS PROGRAMADOS.
         /// </summary>
-        internal static string labeExit {
+        internal static string labelActiveEvents {
             get {
-                return ResourceManager.GetString("labeExit", resourceCulture);
+                return ResourceManager.GetString("labelActiveEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Disponible.
+        /// </summary>
+        internal static string labelAvailable {
+            get {
+                return ResourceManager.GetString("labelAvailable", resourceCulture);
             }
         }
         
@@ -120,6 +129,15 @@ namespace CultureWaveInterForm.Resources {
         internal static string labelEvents {
             get {
                 return ResourceManager.GetString("labelEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Salir.
+        /// </summary>
+        internal static string labelExit {
+            get {
+                return ResourceManager.GetString("labelExit", resourceCulture);
             }
         }
         
@@ -174,6 +192,15 @@ namespace CultureWaveInterForm.Resources {
         internal static string labelPassword {
             get {
                 return ResourceManager.GetString("labelPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a RESERVAS.
+        /// </summary>
+        internal static string labelRecentReservations {
+            get {
+                return ResourceManager.GetString("labelRecentReservations", resourceCulture);
             }
         }
         
@@ -300,6 +327,15 @@ namespace CultureWaveInterForm.Resources {
         internal static string roundedButtonDelete {
             get {
                 return ResourceManager.GetString("roundedButtonDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Eliminar Reserva.
+        /// </summary>
+        internal static string roundedButtonDeleteReserve {
+            get {
+                return ResourceManager.GetString("roundedButtonDeleteReserve", resourceCulture);
             }
         }
         
