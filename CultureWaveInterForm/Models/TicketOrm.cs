@@ -18,7 +18,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var context = new cultureWaveEntities1())
+                using (var context = new cultureWaveEntities2())
                 {
                     // SOLUCIÓN CORREGIDA - Relación muchos a muchos
                     var activeTickets = (from t in context.ticket
@@ -63,7 +63,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var context = new cultureWaveEntities1())
+                using (var context = new cultureWaveEntities2())
                 {
                     var ticket = context.ticket.Find(ticketId);
 

@@ -64,7 +64,7 @@ namespace CultureWave_Form.Forms
                 dataGridViewSpaces.Columns["idSpace"].HeaderText = "ID Espacio";
                 dataGridViewSpaces.Columns["name"].HeaderText = "Nombre";
                 dataGridViewSpaces.Columns["capacity"].HeaderText = "Capacidad";
-                dataGridViewSpaces.Columns["fixedSeats"].HeaderText = "Sillas fijas";
+                dataGridViewSpaces.Columns["fixeSeats"].HeaderText = "Sillas fijas";
                 dataGridViewSpaces.Columns["available"].HeaderText = "Disponible";
 
                 dataGridViewSpaces.ClearSelection();
@@ -110,7 +110,7 @@ namespace CultureWave_Form.Forms
                 idSpace = Convert.ToInt32(selectedRow.Cells["idSpace"].Value),
                 name = selectedRow.Cells["name"].Value.ToString(),
                 capacity = Convert.ToInt32(selectedRow.Cells["capacity"].Value),
-                fixedSeats = Convert.ToBoolean(selectedRow.Cells["fixedSeats"].Value),
+                fixeSeats = Convert.ToBoolean(selectedRow.Cells["fixedSeats"].Value),
                 available = Convert.ToBoolean(selectedRow.Cells["available"].Value)
             };
 
@@ -119,6 +119,18 @@ namespace CultureWave_Form.Forms
             if (editForm.ShowDialog() == DialogResult.OK)
             {
                 loadSpaces(); // Refrescar después de editar
+            }
+        }
+
+        private void dataGridViewSpaces_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridViewSpaces.Columns[e.ColumnIndex].Name == "fixedSeats")
+            {
+                if (e.Value == null || Convert.ToInt32(e.Value) == 0)
+                {
+                    e.Value = "Sin sillas";
+                    e.FormattingApplied = true;
+                }
             }
         }
     }

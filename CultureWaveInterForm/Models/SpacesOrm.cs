@@ -18,7 +18,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     return db.space
                         .Where(s => s.available == true)  // Filtra solo espacios disponibles
@@ -27,7 +27,7 @@ namespace CultureWaveInterForm.Models
                             s.idSpace,
                             s.name,
                             s.capacity,
-                            s.fixedSeats,
+                            s.fixeSeats,
                             s.available
                         })
                         .ToList<dynamic>();
@@ -48,7 +48,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     return db.space
                         .Select(s => new // Esta parte es correcta
@@ -56,7 +56,7 @@ namespace CultureWaveInterForm.Models
                             s.idSpace,
                             s.name,
                             s.capacity,
-                            s.fixedSeats,
+                            s.fixeSeats,
                             s.available
                         })
                         .ToList<dynamic>(); // Convertir a dynamic al final
@@ -83,14 +83,14 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     // Crear nuevo objeto space
                     var nuevoEspacio = new space
                     {
                         name = name,
                         capacity = capacity,
-                        fixedSeats = fixedSeats,
+                        fixeSeats = fixedSeats,
                         available = available
                     };
 
@@ -124,7 +124,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     // Buscar el espacio existente
                     var espacio = db.space.Find(idSpace);
@@ -138,7 +138,7 @@ namespace CultureWaveInterForm.Models
                     // Actualizar propiedades
                     espacio.name = name;
                     espacio.capacity = capacity;
-                    espacio.fixedSeats = fixedSeats;
+                    espacio.fixeSeats = fixedSeats;
                     espacio.available = available;
 
                     db.SaveChanges();

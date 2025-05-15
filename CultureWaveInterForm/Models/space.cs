@@ -24,7 +24,7 @@ namespace CultureWaveInterForm.Models
         public int idSpace { get; set; }
         public string name { get; set; }
         public int capacity { get; set; }
-        public Nullable<bool> fixedSeats { get; set; }
+        public Nullable<bool> fixeSeats { get; set; }
         public Nullable<bool> available { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

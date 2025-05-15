@@ -200,49 +200,49 @@
       <DependentUpon>FormUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BookingOrm.cs" />
-    <Compile Include="Models\CultureWave.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CultureWave.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CultureWave.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CultureWave.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CultureWave.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CultureWave.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventsOrm.cs" />
     <Compile Include="Models\eventTable.cs">
-      <DependentUpon>CultureWave.tt</DependentUpon>
+      <DependentUpon>ModelCW.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\message.cs">
-      <DependentUpon>CultureWave.tt</DependentUpon>
+      <DependentUpon>ModelCW.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelCW.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCW.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelCW.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCW.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelCW.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCW.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\reserve.cs">
-      <DependentUpon>CultureWave.tt</DependentUpon>
+      <DependentUpon>ModelCW.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ReserveOrm.cs" />
     <Compile Include="Models\rol.cs">
-      <DependentUpon>CultureWave.tt</DependentUpon>
+      <DependentUpon>ModelCW.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\seat.cs">
-      <DependentUpon>CultureWave.tt</DependentUpon>
+      <DependentUpon>ModelCW.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\space.cs">
-      <DependentUpon>CultureWave.tt</DependentUpon>
+      <DependentUpon>ModelCW.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SpacesOrm.cs" />
     <Compile Include="Models\ticket.cs">
-      <DependentUpon>CultureWave.tt</DependentUpon>
+      <DependentUpon>ModelCW.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TicketOrm.cs" />
     <Compile Include="Models\user.cs">
-      <DependentUpon>CultureWave.tt</DependentUpon>
+      <DependentUpon>ModelCW.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UsersLogInOrm.cs" />
     <Compile Include="Models\UsersOrm.cs" />
@@ -312,12 +312,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\CultureWave.edmx">
+    <EntityDeploy Include="Models\ModelCW.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CultureWave.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelCW.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\CultureWave.edmx.diagram">
-      <DependentUpon>CultureWave.edmx</DependentUpon>
+    <None Include="Models\ModelCW.edmx.diagram">
+      <DependentUpon>ModelCW.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\CultureWaveInterForm.Models.space.datasource" />
@@ -335,15 +335,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\CultureWave.Context.tt">
+    <Content Include="Models\ModelCW.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CultureWave.edmx</DependentUpon>
-      <LastGenOutput>CultureWave.Context.cs</LastGenOutput>
+      <DependentUpon>ModelCW.edmx</DependentUpon>
+      <LastGenOutput>ModelCW.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\CultureWave.tt">
+    <Content Include="Models\ModelCW.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CultureWave.edmx</DependentUpon>
-      <LastGenOutput>CultureWave.cs</LastGenOutput>
+      <DependentUpon>ModelCW.edmx</DependentUpon>
+      <LastGenOutput>ModelCW.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\calendar.png" />
     <None Include="Resources\exit1.png" />

@@ -18,7 +18,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     return db.user
                         .Select(u => new
@@ -49,7 +49,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     return db.rol
                         .OrderBy(r => r.name)
@@ -72,7 +72,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     return db.user
                              .Select(u => u.email)
@@ -97,7 +97,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     return db.user
                         .Where(u => u.email == email)
@@ -135,7 +135,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     // Validar que el rol exista
                     var rolExistente = db.rol.Any(r => r.idRol == idRol);
@@ -188,7 +188,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     // Buscar el usuario existente
                     var usuario = db.user.Find(userId);
@@ -237,7 +237,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     // Buscar el usuario a eliminar
                     var usuario = db.user.Find(userId);

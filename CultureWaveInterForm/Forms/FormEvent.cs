@@ -7,6 +7,8 @@ using System.Globalization;
 using System.Configuration;
 using CultureWaveInterForm.Models;
 using CultureWaveInterForm.Utils;
+using System.Diagnostics;
+using System.Linq;
 
 namespace CultureWave_Form.Forms
 {
@@ -34,20 +36,11 @@ namespace CultureWave_Form.Forms
             labelStatus.Text = LanguageManager.GetString("labelStatus");
         }
 
-        /// <summary>
-        /// Ejecuta esto la primera vez que se ejecuta este form.
-        /// Ejecutara el metodo que se esta llamando.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void FormEvent_Load(object sender, EventArgs e)
         {
             loadSpacesComboBox();
         }
 
-        /// <summary>
-        /// Carga los espacios en la comboBox mediante DataSource y enseña su nombre.
-        /// </summary>
         private void loadSpacesComboBox()
         {
             try
@@ -67,12 +60,6 @@ namespace CultureWave_Form.Forms
             }
         }
 
-        /// <summary>
-        /// Cuando el de el usuario a este boton enviara un mensaje a una IA para que 
-        /// rellene los campos dichos con la información pedida y la enviara en formato JSON.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private async void roundedButtonGenerateIA_Click(object sender, EventArgs e)
         {
             string prompt = $@"Genera un JSON con los campos 'titulo', 'descripcion', 'fecha_inicio' y 'fecha_fin' para un evento cultural. 
@@ -84,11 +71,9 @@ namespace CultureWave_Form.Forms
             Devuelve únicamente el JSON, sin explicaciones ni texto adicional.
             Semilla creativa: {Guid.NewGuid()}";
 
-
             var client = new RestClient("https://api.groq.com/openai/v1/chat/completions");
             var request = new RestRequest("", Method.Post);
 
-            // Obtener la clave desde App.config
             string apiKey = ConfigurationManager.AppSettings["GroqApiKey"];
             if (string.IsNullOrWhiteSpace(apiKey))
             {
@@ -102,10 +87,7 @@ namespace CultureWave_Form.Forms
             request.AddJsonBody(new
             {
                 model = "llama3-8b-8192",
-                messages = new[]
-                {
-                    new { role = "user", content = prompt }
-                },
+                messages = new[] { new { role = "user", content = prompt } },
                 temperature = 0.9
             });
 
@@ -168,11 +150,6 @@ namespace CultureWave_Form.Forms
             }
         }
 
-        /// <summary>
-        /// Metodo para verificar que la fecha es valida
-        /// </summary>
-        /// <param name="fecha"></param>
-        /// <returns>Devuelve la fecha sin error</returns>
         private bool FechaEsValida(string fecha)
         {
             var formato = "yyyy-MM-dd HH:mm";
@@ -181,18 +158,23 @@ namespace CultureWave_Form.Forms
             return DateTime.TryParseExact(fecha, formato, cultura, DateTimeStyles.None, out _);
         }
 
-        /// <summary>
-        /// Este metodo enviara el insert al Models para hacer el insert comprobando que los campos no esten vacios.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void roundedButtonCreateEvent_Click(object sender, EventArgs e)
         {
+            // Limpiar y normalizar los textos
+            string eventName = roundedTextBoxNameEvent.Texts?.Trim() ?? "";
+            string description = roundedRichTextBoxDescription.Texts?.Trim() ?? "";
+            string startDateText = roundedTextBoxEvenDateStart.Texts?.Trim() ?? "";
+            string endDateText = roundedTextBoxEndDate.Texts?.Trim() ?? "";
+
+            // Depuración avanzada
+            Debug.WriteLine($"Depuración - Fecha Inicio (cruda): '{startDateText}'");
+            Debug.WriteLine($"Depuración - Fecha Fin (cruda): '{endDateText}'");
+
             // Validar campos obligatorios
-            if (string.IsNullOrWhiteSpace(roundedTextBoxNameEvent.Texts) ||
-                string.IsNullOrWhiteSpace(roundedRichTextBoxDescription.Texts) ||
-                string.IsNullOrWhiteSpace(roundedTextBoxEvenDateStart.Texts) ||
-                string.IsNullOrWhiteSpace(roundedTextBoxEndDate.Texts) ||
+            if (string.IsNullOrWhiteSpace(eventName) ||
+                string.IsNullOrWhiteSpace(description) ||
+                string.IsNullOrWhiteSpace(startDateText) ||
+                string.IsNullOrWhiteSpace(endDateText) ||
                 comboBoxSpaceEvents.SelectedIndex == -1 ||
                 comboBoxStateEvents.SelectedIndex == -1)
             {
@@ -203,19 +185,23 @@ namespace CultureWave_Form.Forms
                 return;
             }
 
-            var formato = "yyyy-MM-dd HH:mm";
-            var cultura = CultureInfo.InvariantCulture;
+            // Solo se permite el formato "yyyy-MM-dd HH:mm"
+            var formatoAceptado = "yyyy-MM-dd HH:mm";
+            DateTime startDate, endDate;
 
-            if (!DateTime.TryParseExact(roundedTextBoxEvenDateStart.Texts, formato, cultura, DateTimeStyles.None, out DateTime startDate) ||
-                !DateTime.TryParseExact(roundedTextBoxEndDate.Texts, formato, cultura, DateTimeStyles.None, out DateTime endDate))
+            if (!FechaValidaFormatoExacto(startDateText, formatoAceptado, out startDate))
             {
-                MessageBox.Show("Formato de fecha inválido. Use el formato: yyyy-MM-dd HH:mm",
-                              "Error de formato",
-                              MessageBoxButtons.OK,
-                              MessageBoxIcon.Error);
+                ShowDateError("inicio", startDateText);
                 return;
             }
 
+            if (!FechaValidaFormatoExacto(endDateText, formatoAceptado, out endDate))
+            {
+                ShowDateError("fin", endDateText);
+                return;
+            }
+
+            // Validación lógica de fechas
             if (startDate >= endDate)
             {
                 MessageBox.Show("La fecha de inicio debe ser anterior a la fecha de fin.",
@@ -225,12 +211,12 @@ namespace CultureWave_Form.Forms
                 return;
             }
 
-            // Crear objeto eventTable
+            // Crear y guardar el evento
             var newEvent = new eventTable
             {
                 idSpace = (int)comboBoxSpaceEvents.SelectedValue,
-                name = roundedTextBoxNameEvent.Texts,
-                description = roundedRichTextBoxDescription.Texts,
+                name = eventName,
+                description = description,
                 startDate = startDate,
                 endDate = endDate,
                 status = comboBoxStateEvents.SelectedItem.ToString()
@@ -238,19 +224,38 @@ namespace CultureWave_Form.Forms
 
             if (EventsOrm.Insert(newEvent))
             {
-                MessageBox.Show("Evento creado exitosamente!",
-                              "Éxito",
-                              MessageBoxButtons.OK,
-                              MessageBoxIcon.Information);
-
-                // Limpiar campos
-                roundedTextBoxNameEvent.Texts = "";
-                roundedRichTextBoxDescription.Texts = "";
-                roundedTextBoxEvenDateStart.Texts = "";
-                roundedTextBoxEndDate.Texts = "";
-                comboBoxSpaceEvents.SelectedIndex = -1;
-                comboBoxStateEvents.SelectedIndex = -1;
+                MessageBox.Show("Evento creado exitosamente!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ResetForm();
             }
+            else
+            {
+                MessageBox.Show("Error al crear el evento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool FechaValidaFormatoExacto(string fechaText, string formato, out DateTime result)
+        {
+            return DateTime.TryParseExact(fechaText, formato, CultureInfo.InvariantCulture, DateTimeStyles.None, out result);
+        }
+
+        private void ShowDateError(string fieldName, string invalidValue)
+        {
+            MessageBox.Show($"Formato de fecha de {fieldName} inválido: '{invalidValue}'\n\n" +
+                           "Formato aceptado:\n" +
+                           "- yyyy-MM-dd HH:mm (ej: 2025-05-10 14:30)",
+                           "Error de formato",
+                           MessageBoxButtons.OK,
+                           MessageBoxIcon.Error);
+        }
+
+        private void ResetForm()
+        {
+            roundedTextBoxNameEvent.Texts = "";
+            roundedRichTextBoxDescription.Texts = "";
+            roundedTextBoxEvenDateStart.Texts = "";
+            roundedTextBoxEndDate.Texts = "";
+            comboBoxSpaceEvents.SelectedIndex = -1;
+            comboBoxStateEvents.SelectedIndex = -1;
         }
     }
 }

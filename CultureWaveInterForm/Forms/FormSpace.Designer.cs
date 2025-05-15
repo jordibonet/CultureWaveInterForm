@@ -74,6 +74,7 @@ namespace CultureWave_Form.Forms
             this.dataGridViewSpaces.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewSpaces.Size = new System.Drawing.Size(992, 477);
             this.dataGridViewSpaces.TabIndex = 5;
+            this.dataGridViewSpaces.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewSpaces_CellFormatting);
             // 
             // labelSpaces
             // 

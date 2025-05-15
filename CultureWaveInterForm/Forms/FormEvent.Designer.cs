@@ -93,7 +93,7 @@ namespace CultureWave_Form.Forms
             this.roundedTextBoxEvenDateStart.Padding = new System.Windows.Forms.Padding(8, 10, 8, 10);
             this.roundedTextBoxEvenDateStart.PasswordChar = false;
             this.roundedTextBoxEvenDateStart.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.roundedTextBoxEvenDateStart.PlaceholderText = "YYYY/MM/DD hh:mm";
+            this.roundedTextBoxEvenDateStart.PlaceholderText = "yyyy-mm-dd hh:mm";
             this.roundedTextBoxEvenDateStart.Size = new System.Drawing.Size(258, 41);
             this.roundedTextBoxEvenDateStart.TabIndex = 13;
             this.roundedTextBoxEvenDateStart.Texts = "";
@@ -137,7 +137,7 @@ namespace CultureWave_Form.Forms
             this.roundedTextBoxEndDate.Padding = new System.Windows.Forms.Padding(8, 10, 8, 10);
             this.roundedTextBoxEndDate.PasswordChar = false;
             this.roundedTextBoxEndDate.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.roundedTextBoxEndDate.PlaceholderText = "YYYY/MM/DD hh:mm";
+            this.roundedTextBoxEndDate.PlaceholderText = "yyyy-mm-dd hh:mm";
             this.roundedTextBoxEndDate.Size = new System.Drawing.Size(258, 41);
             this.roundedTextBoxEndDate.TabIndex = 16;
             this.roundedTextBoxEndDate.Texts = "";
@@ -211,9 +211,9 @@ namespace CultureWave_Form.Forms
             this.comboBoxStateEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBoxStateEvents.FormattingEnabled = true;
             this.comboBoxStateEvents.Items.AddRange(new object[] {
-            "Programat",
-            "Actiu",
-            "Finalitzat"});
+            "Programado",
+            "Activo",
+            "Finalizado"});
             this.comboBoxStateEvents.Location = new System.Drawing.Point(556, 379);
             this.comboBoxStateEvents.Name = "comboBoxStateEvents";
             this.comboBoxStateEvents.Size = new System.Drawing.Size(254, 28);

@@ -93,11 +93,20 @@ namespace CultureWave_Form.Forms
 
                 if (userId != 0)
                 {
-                    // Obtener las reservas del usuario utilizando el método GetUserReservesWithDetails
+                    // Obtener las reservas del usuario
                     var reservas = ReserveOrm.GetUserReservesWithDetails(userId);
+
+                    if (reservas == null || reservas.Count == 0)
+                    {
+                        MessageBox.Show("Este usuario no dispone de reservas.", "Sin reservas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        reservesBindingSource.DataSource = null;
+                        dataGridViewReserves.DataSource = null;
+                        return;
+                    }
 
                     // Asignar los datos al BindingSource
                     reservesBindingSource.DataSource = reservas;
+                    dataGridViewReserves.DataSource = reservesBindingSource;
 
                     // Configuración del DataGridView
                     dataGridViewReserves.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -116,7 +125,7 @@ namespace CultureWave_Form.Forms
                     // Llenar la columna del ID de reserva
                     foreach (DataGridViewRow row in dataGridViewReserves.Rows)
                     {
-                        row.Cells["ReservationId"].Value = row.Cells["ReservationId"].Value; // Asegúrate de que la celda esté bien vinculada
+                        row.Cells["ReservationId"].Value = row.Cells["ReservationId"].Value;
                     }
 
                     // Refrescar los bindings
@@ -132,6 +141,7 @@ namespace CultureWave_Form.Forms
                 MessageBox.Show("Por favor, selecciona un usuario.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
         /// <summary>
         /// Cuando le demos al boton de reservar nos abrira un formulario para hacer una reserva para un usuario.

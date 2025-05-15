@@ -13,10 +13,10 @@ namespace CultureWaveInterForm.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class cultureWaveEntities1 : DbContext
+    public partial class cultureWaveEntities2 : DbContext
     {
-        public cultureWaveEntities1()
-            : base("name=cultureWaveEntities1")
+        public cultureWaveEntities2()
+            : base("name=cultureWaveEntities2")
         {
         }
     

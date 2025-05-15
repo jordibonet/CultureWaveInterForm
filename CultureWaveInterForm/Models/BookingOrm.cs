@@ -18,7 +18,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     // Obtener reservas con relaciones necesarias
                     var reserves = db.reserve

@@ -19,7 +19,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     // Consulta para obtener nombres y correos de usuarios con rolId = 3
                     var users = db.user
@@ -46,7 +46,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     var user = db.user.FirstOrDefault(u => u.email == email); // Buscar por correo electrónico
                     return user?.idUser ?? 0; // Si lo encuentra, retorna el ID, si no, 0
@@ -68,7 +68,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     // Consulta para obtener Id, Nombre y Email
                     var users = db.user

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b21c1689374442809567dda25456503d" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="cultureWaveModel.eventTable" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="cultureWaveModel.message" Width="1.5" PointX="9.75" PointY="7.75" />
+        <EntityTypeShape EntityType="cultureWaveModel.reserve" Width="1.5" PointX="5.25" PointY="4.625" />
+        <EntityTypeShape EntityType="cultureWaveModel.rol" Width="1.5" PointX="5.25" PointY="2" />
+        <EntityTypeShape EntityType="cultureWaveModel.seat" Width="1.5" PointX="10.5" PointY="4.625" />
+        <EntityTypeShape EntityType="cultureWaveModel.space" Width="1.5" PointX="0.75" PointY="4.625" />
+        <EntityTypeShape EntityType="cultureWaveModel.ticket" Width="1.5" PointX="7.5" PointY="11.25" />
+        <EntityTypeShape EntityType="cultureWaveModel.user" Width="1.5" PointX="7.5" PointY="4.375" />
+        <AssociationConnector Association="cultureWaveModel.FK__eventTabl__idSpa__7B5B524B" />
+        <AssociationConnector Association="cultureWaveModel.FK__reserve__idEvent__7E37BEF6" />
+        <AssociationConnector Association="cultureWaveModel.FK__message__idUser__74AE54BC" />
+        <AssociationConnector Association="cultureWaveModel.FK__seat__idReserve__02084FDA" />
+        <AssociationConnector Association="cultureWaveModel.FK__ticket__idReserv__04E4BC85" />
+        <AssociationConnector Association="cultureWaveModel.FK__user__rol__71D1E811" />
+        <AssociationConnector Association="cultureWaveModel.FK__seat__idSpace__01142BA1" />
+        <AssociationConnector Association="cultureWaveModel.reserve_user" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

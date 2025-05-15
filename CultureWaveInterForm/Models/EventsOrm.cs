@@ -18,10 +18,10 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     return db.eventTable
-                        .Where(e => e.status == "Programat") // Filtra por estado
+                        .Where(e => e.status == "Programado") // Filtra por estado
                         .Select(e => new
                         {
                             e.idEvent,
@@ -52,7 +52,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     db.eventTable.Add(newEvent);
                     db.SaveChanges();

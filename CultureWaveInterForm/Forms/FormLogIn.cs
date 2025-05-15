@@ -41,8 +41,8 @@ namespace CultureWave_Form
                 return;
             }
 
-            // Encriptar la contraseña antes de compararla con la base de datos
-            string encryptedPassword = BCryptClass.EncryptAES(password, "1234567890123456"); // Usamos una clave de 16 caracteres
+            // Encriptamos la contraseña con la clase de BCryptClass
+            string encryptedPassword = BCryptClass.EncryptSHA256(password);
 
             // Obtener los usuarios con rol 1 y 2 desde la base de datos
             var usersWithRoles = UsersLogInOrm.GetUsersWithRoles1And2();

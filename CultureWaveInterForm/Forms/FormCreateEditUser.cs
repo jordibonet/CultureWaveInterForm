@@ -86,7 +86,7 @@ namespace CultureWave_Form.Forms
             }
 
             // Encriptar la contraseña antes de insertarla o actualizarla
-            string encryptedPassword = BCryptClass.EncryptAES(password, "1234567890123456"); // Usa la clave AES
+            string encryptedPassword = BCryptClass.EncryptSHA256(password);
 
             // Determinar si es creación o actualización
             if (currentUserId == null)

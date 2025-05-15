@@ -21,7 +21,7 @@ namespace CultureWaveInterForm.Models
         {
             try
             {
-                using (var db = new cultureWaveEntities1())
+                using (var db = new cultureWaveEntities2())
                 {
                     // Obtener reservas del usuario con relaciones necesarias
                     var reserves = db.reserve
@@ -71,7 +71,7 @@ namespace CultureWaveInterForm.Models
         /// <returns>Devuelve una lista de los eventos</returns>
         public static List<Event> GetEventsForComboBox()
         {
-            using (var db = new cultureWaveEntities1())
+            using (var db = new cultureWaveEntities2())
             {
                 // Obtener todos los eventos
                 return db.eventTable
@@ -89,7 +89,7 @@ namespace CultureWaveInterForm.Models
         /// <returns>Devuelve un booleano para saber si ha salido correctamente</returns>
         public static bool IsSeatAvailable(int eventId, char row, int numSeat)
         {
-            using (var db = new cultureWaveEntities1())
+            using (var db = new cultureWaveEntities2())
             {
                 var evento = db.eventTable
                     .Include(e => e.space)
@@ -114,10 +114,10 @@ namespace CultureWaveInterForm.Models
         /// <returns>Devuelve un false si no tiene sillas, true si tiene</returns>
         public static bool EventHasFixedSeats(int eventId)
         {
-            using (var db = new cultureWaveEntities1())
+            using (var db = new cultureWaveEntities2())
             {
                 var evento = db.eventTable.Include(e => e.space).FirstOrDefault(e => e.idEvent == eventId);
-                return evento != null && evento.space.fixedSeats == true;
+                return evento != null && evento.space.fixeSeats == true;
             }
         }
 
@@ -133,7 +133,7 @@ namespace CultureWaveInterForm.Models
         /// <returns>Devuelve el ID de la reserva creada</returns>
         public static int CreateReservationWithSeat(int userId, int eventId, char row, int numSeat)
         {
-            using (var db = new cultureWaveEntities1())
+            using (var db = new cultureWaveEntities2())
             {
                 using (var transaction = db.Database.BeginTransaction())
                 {
@@ -152,7 +152,7 @@ namespace CultureWaveInterForm.Models
                         if (evento == null)
                             throw new Exception("Evento no encontrado");
 
-                        if (evento.space == null || evento.space.fixedSeats == false)
+                        if (evento.space == null || evento.space.fixeSeats == false)
                             throw new Exception("Este evento no tiene asientos fijos");
 
                         // 3. Verificar asiento disponible
@@ -201,7 +201,7 @@ namespace CultureWaveInterForm.Models
         /// <returns></returns>
         public static int CreateReservationWithoutSeat(int userId, int eventId)
         {
-            using (var db = new cultureWaveEntities1())
+            using (var db = new cultureWaveEntities2())
             {
                 using (var transaction = db.Database.BeginTransaction())
                 {
@@ -221,7 +221,7 @@ namespace CultureWaveInterForm.Models
                             throw new Exception("Evento no encontrado");
 
                         // Validar que el espacio NO tenga asientos fijos
-                        if (evento.space.fixedSeats == true)
+                        if (evento.space.fixeSeats == true)
                             throw new Exception("Este evento requiere selección de asiento");
 
                         // Crear la reserva sin asiento
@@ -259,7 +259,7 @@ namespace CultureWaveInterForm.Models
         /// <returns>Devuelve un booleano, true si ha salido todo bien y false si algo ha fallado</returns>
         public static bool DeleteReservation(int reservationId)
         {
-            using (var db = new cultureWaveEntities1())
+            using (var db = new cultureWaveEntities2())
             {
                 using (var transaction = db.Database.BeginTransaction())
                 {

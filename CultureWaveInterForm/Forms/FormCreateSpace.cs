@@ -47,8 +47,8 @@ namespace CultureWave_Form.Forms
             currentSpaceId = espacio.idSpace;
             roundedTextBoxNameSpace.Texts = espacio.name;
             roundedTextBoxCapacity.Texts = espacio.capacity.ToString();
-            roundedRadioButtonYesSeats.Checked = espacio.fixedSeats.Value;
-            roundedRadioButtonNoSeats.Checked = !espacio.fixedSeats.Value;
+            roundedRadioButtonYesSeats.Checked = espacio.fixeSeats.Value;
+            roundedRadioButtonNoSeats.Checked = !espacio.fixeSeats.Value;
             roundedRadioButtonYesAvailable.Checked = espacio.available.Value;
             roundedRadioButtonNoAvailable.Checked = !espacio.available.Value;
 
