@@ -116,12 +116,18 @@ namespace CultureWave_Form.Forms
         }
 
         /// <summary>
-        /// Deshabilita el acceso al panel de usuarios.
+        /// Deshabilita el acceso al panel de usuarios/reservas y ticketing.
         /// </summary>
         private void DisableUserAccess()
         {
             pictureBoxUser.Enabled = false;
             labelUser.Enabled = false;
+
+            pictureBoxReserve.Enabled = false;
+            labelReserves.Enabled = false;
+
+            pictureBoxTicket.Enabled = false;
+            labelTicket.Enabled = false;
         }
 
         /// <summary>
