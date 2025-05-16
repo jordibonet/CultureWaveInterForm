@@ -92,30 +92,37 @@ namespace CultureWaveInterForm.Forms
 
                 if (hasFixedSeats)
                 {
-                    if (comboBoxRow.SelectedIndex == -1 || comboBoxNumSeat.SelectedIndex == -1)
+                    if (comboBoxRow.SelectedItem == null || comboBoxNumSeat.SelectedItem == null)
                     {
                         MessageBox.Show("Seleccione fila y número de asiento.", "Asiento requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
-                    // row como char
-                    string rowString = comboBoxRow.SelectedItem.ToString();
-                    if (string.IsNullOrEmpty(rowString) || rowString.Length != 1)
+                    string rowString = comboBoxRow.SelectedItem.ToString().Trim();
+
+                    // Validar que la fila sea un solo carácter alfabético (A-Z)
+                    if (rowString.Length != 1 || !char.IsLetter(rowString[0]))
                     {
-                        MessageBox.Show("La fila debe ser un solo carácter (ej. A, B, C).", "Fila inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("La fila debe ser una letra válida (ej. A, B, C).", "Fila inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
+
                     char row = rowString[0];
 
-                    // numSeat como int
-                    int numSeat = Convert.ToInt32(comboBoxNumSeat.SelectedItem);
+                    // Validar que el asiento sea un número válido
+                    if (!int.TryParse(comboBoxNumSeat.SelectedItem.ToString(), out int numSeat))
+                    {
+                        MessageBox.Show("Número de asiento inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
 
+                    // Verificar disponibilidad del asiento
                     if (!ReserveOrm.IsSeatAvailable(eventId, row, numSeat))
                     {
-                        MessageBox.Show("El asiento seleccionado no está disponible",
-                                      "Asiento ocupado",
-                                      MessageBoxButtons.OK,
-                                      MessageBoxIcon.Warning);
+                        MessageBox.Show("El asiento seleccionado no está disponible.",
+                                        "Asiento ocupado",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
                         return;
                     }
 
