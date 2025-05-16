@@ -69,7 +69,7 @@ namespace CultureWaveInterForm.Models
 
                     if (ticket != null)
                     {
-                        ticket.status = "Tancat";
+                        ticket.status = "Cerrado";
                         context.SaveChanges();
                         return true;
                     }
